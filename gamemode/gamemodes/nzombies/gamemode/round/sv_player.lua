@@ -59,6 +59,7 @@ function plyMeta:DropIn()
 		self:SetPlaying( true )
 		self:SetTeam( TEAM_PLAYERS )
 		self:RevivePlayer()
+		self:SetPerkLimit(GetConVar("nz_difficulty_perks_max"):GetInt())
 		hook.Call( "OnPlayerDropIn", nzRound, self )
 		if nzRound:GetNumber() == 1 and nzRound:InState(ROUND_PREP) then
 			PrintMessage( HUD_PRINTTALK, self:Nick() .. " is dropping in!" )
