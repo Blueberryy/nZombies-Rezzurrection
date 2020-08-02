@@ -75,6 +75,9 @@ local traceents = {
 				-- Its on
 				text = "Press E to buy " .. perkData.name .. " for " .. ent:GetPrice() .. " points."
 				-- Check if they already own it
+				if #LocalPlayer():GetPerks() >= LocalPlayer():GetPerkLimit() then
+					text = "You may only have "..LocalPlayer():GetPerkLimit().." perks"
+				end
 				if LocalPlayer():HasPerk(ent:GetPerkID()) then
 					text = "You already own this perk."
 				end
@@ -108,10 +111,10 @@ local traceents = {
 				text = "Currently in use."
 			end
 		else
-			if #LocalPlayer():GetPerks() >= GetConVar("nz_difficulty_perks_max"):GetInt() then
-				text = "You cannot have more perks."
+			if #LocalPlayer():GetPerks() >= LocalPlayer():GetPerkLimit() then
+				text = "You may only have "..LocalPlayer():GetPerkLimit().." perks"
 			else
-				text = "Press E to buy Der Wunderfizz for " .. ent:GetPrice() .. " points."
+				text = "Press E for a random Perk (Cost: " .. ent:GetPrice() .. ")"
 			end
 		end
 
