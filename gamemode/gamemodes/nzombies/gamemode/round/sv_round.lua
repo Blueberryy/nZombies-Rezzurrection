@@ -15,7 +15,7 @@ function nzRound:Init()
 	timer.Simple( 5, function() self:SetupGame() self:Prepare() end )
 	self:SetState( ROUND_INIT )
 	self:SetEndTime( CurTime() + 5 )
-	PrintMessage( HUD_PRINTTALK, "5 seconds till start time." )
+	PrintTranslatedMessage( HUD_PRINTTALK, "five_seconds_till_start_time" )
 	hook.Call( "OnRoundInit", nzRound )
 
 end
@@ -409,7 +409,7 @@ function nzRound:ResetGame()
 	nzDoors:LockAllDoors()
 	self:Waiting()
 	--Notify
-	PrintMessage( HUD_PRINTTALK, "GAME READY!" )
+	PrintTranslatedMessage( HUD_PRINTTALK, "game_ready" )
 	--Reset variables
 	self:SetNumber( 0 )
 
@@ -478,8 +478,8 @@ function nzRound:End()
 	--Main Behaviour
 	self:SetState( ROUND_GO )
 	--Notify
-	PrintMessage( HUD_PRINTTALK, "GAME OVER!" )
-	PrintMessage( HUD_PRINTTALK, "Restarting in 10 seconds!" )
+	PrintTranslatedMessage( HUD_PRINTTALK, "game_over" )
+	PrintTranslatedMessage( HUD_PRINTTALK, "restarting_in_ten_seconds" )
 	if self:GetNumber() == -1 then
 		if self.InfinityStart then
 			local time = string.FormattedTime(CurTime() - self.InfinityStart)
@@ -487,7 +487,7 @@ function nzRound:End()
 			net.Start("nzMajorEEEndScreen")
 				net.WriteBool(false)
 				net.WriteBool(false)
-				net.WriteString("You survived for "..timestr.." in Round Infinity")
+				net.WriteString(translate.Format("you_survived_for_x_infinity", timestr))
 				net.WriteFloat(10)
 				net.WriteBool(false)
 			net.Broadcast()
@@ -508,7 +508,7 @@ function nzRound:End()
 end
 
 function nzRound:Win(message, keepplaying, time, noautocam, camstart, camend)
-	if !message then message = "You survived after " .. self:GetNumber() .. " rounds!" end
+	if !message then message = translate.Format("you_survived_after_x_rounds", self:GetNumber()) end
 	local time = time or 10
 	
 	if not noautocam then
@@ -531,8 +531,8 @@ function nzRound:Win(message, keepplaying, time, noautocam, camstart, camend)
 	if !keepplaying then
 		nzRound:SetState( ROUND_GO )
 		--Notify with chat message
-		PrintMessage( HUD_PRINTTALK, "GAME OVER!" )
-		PrintMessage( HUD_PRINTTALK, "Restarting in 10 seconds!" )
+		PrintTranslatedMessage( HUD_PRINTTALK, "game_over" )
+		PrintTranslatedMessage( HUD_PRINTTALK, "restarting_in_ten_seconds" )
 		
 		if self.OverrideEndSlomo then
 			game.SetTimeScale(0.25)
@@ -563,7 +563,7 @@ function nzRound:Win(message, keepplaying, time, noautocam, camstart, camend)
 end
 
 function nzRound:Lose(message, time, noautocam, camstart, camend)
-	if !message then message = "You got overwhelmed after " .. self:GetNumber() .. " rounds!" end
+	if !message then message = translate.Format("you_got_overwhelmed_after_x_rounds", self:GetNumber()) end
 	local time = time or 10
 	
 	if not noautocam then
@@ -585,8 +585,8 @@ function nzRound:Lose(message, time, noautocam, camstart, camend)
 	-- Set round state to Game Over
 	nzRound:SetState( ROUND_GO )
 	--Notify with chat message
-	PrintMessage( HUD_PRINTTALK, "GAME OVER!" )
-	PrintMessage( HUD_PRINTTALK, "Restarting in 10 seconds!" )
+	PrintTranslatedMessage( HUD_PRINTTALK, "game_over" )
+	PrintTranslatedMessage( HUD_PRINTTALK, "restarting_in_ten_seconds" )
 	
 	if self.OverrideEndSlomo then
 		game.SetTimeScale(0.25)
@@ -603,7 +603,7 @@ end
 function nzRound:Create(on)
 	if on then
 		if self:InState( ROUND_WAITING ) then
-			PrintMessage( HUD_PRINTTALK, "The mode has been set to creative mode!" )
+			PrintTranslatedMessage( HUD_PRINTTALK, "the_mode_has_been_set_to_creative" )
 			self:SetState( ROUND_CREATE )
 			hook.Call("OnRoundCreative", nzRound)
 			--We are in create
@@ -627,10 +627,10 @@ function nzRound:Create(on)
 			
 			self:SetZombieHealth(100)
 		else
-			PrintMessage( HUD_PRINTTALK, "Can only go in Creative Mode from Waiting state." )
+			PrintTranslatedMessage( HUD_PRINTTALK, "can_only_go_in_creative" )
 		end
 	elseif self:InState( ROUND_CREATE ) then
-		PrintMessage( HUD_PRINTTALK, "The mode has been set to play mode!" )
+		PrintTranslatedMessage( HUD_PRINTTALK, "the_mode_has_been_set_to_play" )
 		self:SetState( ROUND_WAITING )
 		--We are in play mode
 		for k,v in pairs(player.GetAll()) do
@@ -643,7 +643,7 @@ function nzRound:Create(on)
 			end
 		end
 	else
-		PrintMessage( HUD_PRINTTALK, "Not in Creative Mode." )
+		PrintTranslatedMessage( HUD_PRINTTALK, "not_in_creative_mode" )
 	end
 end
 

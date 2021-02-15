@@ -30,43 +30,43 @@ local traceents = {
 		end
 		
 		if !LocalPlayer():HasWeapon( wepclass ) and !pap then
-			text = "Press E to buy " .. name .." for " .. price .. " points."
+			text = translate.Format("nzr_press_e_to_buy_weapon_for_price_points", name, price)
 		elseif string.lower(wep.Primary.Ammo) != "none" then
 			if pap then
 			if  LocalPlayer():HasWeapon( upgrade ) then
 			if LocalPlayer():GetWeapon( upgrade ):HasNZModifier("pap") then
-			text = "Press E to buy " .. wep.Primary.Ammo .."  Ammo refill for " .. 4500 .. " points."
+			text = translate.Format("nzr_press_e_to_buy_ammotype_ammo_for_price_points", wep.Primary.Ammo)
 			pap = false
 			end
 			
 			elseif LocalPlayer():HasWeapon( upgrade2 ) then
 			if LocalPlayer():GetWeapon( upgrade2 ):HasNZModifier("pap") then
-			text = "Press E to buy " .. wep.Primary.Ammo .."  Ammo refill for " .. 4500 .. " points."
+			text = translate.Format("nzr_press_e_to_buy_ammotype_ammo_for_price_points", wep.Primary.Ammo)
 			pap = false
 			end
 			end
 			else
 			if LocalPlayer():GetWeapon( wepclass ):HasNZModifier("pap") then
-				text = "Press E to buy " .. wep.Primary.Ammo .."  Ammo refill for " .. 4500 .. " points."
+				text = translate.Format("nzr_press_e_to_buy_ammotype_ammo_for_price_points", wep.Primary.Ammo)
 			else
-				text = "Press E to buy " .. wep.Primary.Ammo .."  Ammo refill for " .. ammo_price .. " points."
+				text = translate.Format("nzr_press_e_to_buy_ammotype_ammo_for_price_points2", wep.Primary.Ammo, ammo_price)
 			end
 			end
 		else
-			text = "You already have this weapon."
+			text = translate.Get("nzr_you_already_have_this_weapon")
 		end
 
 		return text
 	end,
 	["breakable_entry"] = function(ent)
 		if ent:GetHasPlanks() and ent:GetNumPlanks() < GetConVar("nz_difficulty_barricade_planks_max"):GetInt() then
-			local text = "Hold E to rebuild the barricade."
+			local text = translate.Get("nzr_hold_e_to_rebuild_the_barricade")
 			return text
 		end
 	end,
 	["random_box"] = function(ent)
 		if !ent:GetOpen() then
-			local text = nzPowerUps:IsPowerupActive("firesale") and "Press E to buy a random weapon for 10 points." or "Press E to buy a random weapon for 950 points."
+			local text = nzPowerUps:IsPowerupActive("firesale") and translate.Get("nzr_press_e_to_buy_a_random_weapon_for_10_points") or translate.Get("nzr_press_e_to_buy_a_random_weapon_for_950_points")
 			return text
 		end
 	end,
@@ -74,12 +74,12 @@ local traceents = {
 		if !ent:GetWinding() and ent:GetWepClass() != "nz_box_teddy" then
 			local wepclass = ent:GetWepClass()
 			local wep = weapons.Get(wepclass)
-			local name = "UNKNOWN"
+			local name = translate.Get("unknown")
 			if wep != nil then
 				name = wep.PrintName
 			end
 			if name == nil then name = wepclass end
-			name = "Press E to take " .. name .. " from the box."
+			name = translate.Format("press_e_to_take_weapon_from_the_box", name)
 
 			return name
 		end
@@ -87,34 +87,34 @@ local traceents = {
 	["perk_machine"] = function(ent)
 		local text = ""
 		if !ent:IsOn() then
-			text = "No Power."
+			text = translate.Get("no_power")
 		elseif ent:GetBeingUsed() then
-			text = "Currently in use."
+			text = translate.Get("currently_in_use")
 		else
 			if ent:GetPerkID() == "pap" then
 				local wep = LocalPlayer():GetActiveWeapon()
 				if wep:HasNZModifier("pap") then
 					if wep.NZRePaPText then
-						text = "Press E to "..wep.NZRePaPText.." for 2000 points."
+						text = translate.Format("press_e_to_pap_for_2000_points", wep.NZRePaPText)
 					elseif wep:CanRerollPaP() then
-						text = "Press E to reroll attachments for 2000 points."
+						text = translate.Get("press_e_to_reroll_attachments")
 					else
-						text = "This weapon is already upgraded."
+						text = translate.Get("this_weapon_is_already_upgraded")
 					end
 				else
-					text = "Press E to buy Pack-a-Punch for 5000 points."
+					text = translate.Get("press_e_to_buy_packapunch_for_5000_points")
 				end
 			else
 				local perkData = nzPerks:Get(ent:GetPerkID())
 				-- Its on
 				if nzPerks:GetMachineType(nzMapping.Settings.perkmachinetype) == "IW" then
-						text = "Press E to buy " .. perkData.name_skin .. " for " .. ent:GetPrice() .. " points."
+						text = translate.Format("press_e_to_buy_perknameskin_for_x_points", translate.Get(perkData.name_skin), ent:GetPrice())
 						else
-						text = "Press E to buy " .. perkData.name .. " for " .. ent:GetPrice() .. " points."
+						text = translate.Format("press_e_to_buy_perkname_for_x_points", translate.Get(perkData.name), ent:GetPrice())
 						end
 				-- Check if they already own it
 				if LocalPlayer():HasPerk(ent:GetPerkID()) then
-					text = "You already own this perk."
+					text = translate.Get("you_already_own_this_perk")
 				end
 			end
 		end
@@ -128,34 +128,34 @@ local traceents = {
 	["pap_weapon_trigger"] = function(ent)
 		local wepclass = ent:GetWepClass()
 		local wep = weapons.Get(wepclass)
-		local name = "UNKNOWN"
+		local name = translate.Get("unknown")
 		if wep != nil then
 			name = nz.Display_PaPNames[wepclass] or nz.Display_PaPNames[wep.PrintName] or "Upgraded "..wep.PrintName
 		end
-		name = "Press E to take " .. name .. " from the machine."
+		name = translate.Format("press_e_to_take_perk_from_the_machine", name)
 
 		return name
 	end,
 	["wunderfizz_machine"] = function(ent)
 		local text = ""
 		if !ent:IsOn() then
-			text = "The Wunderfizz Orb is currently at another location."
+			text = translate.Get("the_wunderfizz_is_currently_at_another_location")
 		elseif ent:GetBeingUsed() then
 			if ent:GetUser() == LocalPlayer() and ent:GetPerkID() != "" and !ent:GetIsTeddy() then
 				
 				if nzPerks:GetMachineType(nzMapping.Settings.perkmachinetype) == "IW" then
-						text = "Press E to take "..nzPerks:Get(ent:GetPerkID()).name_skin.." from Der Wunderfizz."
+						text = translate.Format("press_e_to_take_perkskin_der", nzPerks:Get(ent:GetPerkID()).name_skin)
 						else
-						text = "Press E to take "..nzPerks:Get(ent:GetPerkID()).name.." from Der Wunderfizz."
+						text = translate.Format("press_e_to_take_perk_der", nzPerks:Get(ent:GetPerkID()).name)
 						end
 			else
-				text = "Currently in use."
+				text = translate.Get("currently_in_use")
 			end
 		else
 			if #LocalPlayer():GetPerks() >= GetConVar("nz_difficulty_perks_max"):GetInt() then
-				text = "You cannot have more perks."
+				text = translate.Get("you_cannot_have_more_perks")
 			else
-				text = "Press E to buy Der Wunderfizz for " .. ent:GetPrice() .. " points."
+				text = translate.Format("press_e_to_buy_der_wunderfizz", ent:GetPrice())
 			end
 		end
 
@@ -183,9 +183,9 @@ local function GetDoorText( ent )
 
 	if door_data and tonumber(door_data.price) == 0 and nzRound:InState(ROUND_CREATE) then
 		if tobool(door_data.elec) then
-			text = "This door will open when electricity is turned on."
+			text = translate.Get("this_door_will_open_when_electricity")
 		else
-			text = "This door will open on game start."
+			text = translate.Get("this_door_will_open_on_game_start")
 		end
 	elseif door_data and tonumber(door_data.buyable) == 1 then
 		local price = tonumber(door_data.price)
@@ -194,16 +194,16 @@ local function GetDoorText( ent )
 
 		if ent:IsLocked() then
 			if req_elec and !IsElec() then
-				text = "You must turn on the electricity first!"
+				text = translate.Get("nzr_you_must_turn_on_the_electricity_first")
 			elseif door_data.text then
 				text = door_data.text
 			elseif price != 0 then
 				--print("Still here", nz.nzDoors.Data.OpenedLinks[tonumber(link)])
-				text = "Press E to open for " .. price .. " points."
+				text = translate.Format("nzr_press_e_to_open_for_price_points", price)
 			end
 		end
 		elseif door_data and tonumber(door_data.buyable) != 1 and nzRound:InState( ROUND_CREATE ) then
-		text = "This door is locked and cannot be bought in-game."
+		text = translate.Get("this_door_is_locked_and_cannot_be_bought")
 		--PrintTable(door_data)
 	end
 
@@ -231,15 +231,15 @@ local function GetText( ent )
 		local item = nzItemCarry.Items[itemcategory]
 		local hasitem = LocalPlayer():HasCarryItem(itemcategory)
 		if hasitem then
-			text = item and item.hastext or "You already have this."
+			text = item and item.hastext or translate.Get("you_already_have_this")
 		else
-			text = item and item.text or "Press E to pick up."
+			text = item and item.text or translate.Get("press_e_to_pick_up")
 		end
 	elseif ent:IsPlayer() then
 		if ent:GetNotDowned() then
-			text = ent:Nick() .. " - " .. ent:Health() .. " HP"
+			text = translate.Format("player_hp", ent:Nick(), ent:Health())
 		else
-			text = "Hold E to revive "..ent:Nick()
+			text = translate.Format("hold_e_to_revive_x", ent:Nick())
 		end
 	elseif ent:IsDoor() or ent:IsButton() or ent:GetClass() == "class C_BaseEntity" or ent:IsBuyableProp() then
 		text = GetDoorText(ent)

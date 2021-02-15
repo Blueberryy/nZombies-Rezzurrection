@@ -11,5 +11,8 @@ end
 include( "shared.lua" )
 AddCSLuaFile( "shared.lua" )
 
+include( "sh_translate.lua" )
+AddCSLuaFile( "sh_translate.lua" )
+
 include( "loader.lua" )
 AddCSLuaFile( "loader.lua" )

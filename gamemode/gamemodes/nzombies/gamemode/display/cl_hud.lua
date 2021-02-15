@@ -24,12 +24,12 @@ local function StatesHud()
 		local font = "nz.display.hud.main"
 		local w = ScrW() / 2
 		if nzRound:InState( ROUND_WAITING ) then
-			text = "Waiting for players. Type /ready to ready up."
+			text = translate.Get("nzr_state_play")
 			font = "nz.display.hud.small"
 		elseif nzRound:InState( ROUND_CREATE ) then
-			text = "Creative Mode"
+			text = translate.Get("nzr_state_creative_mode")
 		elseif nzRound:InState( ROUND_GO ) then
-			text = "Game Over"
+			text = translate.Get("nzr_state_game_over")
 		end
 		draw.SimpleText(text, font, w, ScrH() * 0.85, Color(200, 0, 0,255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
 	end

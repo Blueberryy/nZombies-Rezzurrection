@@ -3,35 +3,35 @@ local plyMeta = FindMetaTable( "Player" )
 function plyMeta:ReadyUp()
 
 	if !navmesh.IsLoaded() then
-		PrintMessage( HUD_PRINTTALK, "Can't ready you up, because the map has not Navmesh loaded. Use the settings menu to generate a rough Navmesh or use tools in sandbox to make a proper one.")
+		PrintTranslatedMessage( HUD_PRINTTALK, "error_ready_no_navmesh")
 		return false
 	end
 
 	if nzMapping:CheckSpawns() == false then
-		PrintMessage( HUD_PRINTTALK, "Can't ready you up, because no Zombie/Player spawns have been set.")
+		PrintTranslatedMessage( HUD_PRINTTALK, "error_ready_no_spawns")
 		return false
 	end
 
 	--Check if we have enough player spawns
 	if nzMapping:CheckEnoughPlayerSpawns() == false then
-		PrintMessage( HUD_PRINTTALK, "Can't ready you up, because not enough player spawns have been set. We need " .. #player.GetAll() .. " but only have " .. #ents.FindByClass("player_spawns") .. "." )
+		PrintTranslatedMessage( HUD_PRINTTALK, "error_ready_not_enough_spawns", #player.GetAll(), #ents.FindByClass("player_spawns") )
 		return false
 	end
 
 	if nzRound:InState( ROUND_WAITING ) or nzRound:InState( ROUND_INIT ) then
 		if !self:IsReady() then
-			PrintMessage( HUD_PRINTTALK, self:Nick() .. " is ready!" )
+			PrintTranslatedMessage( HUD_PRINTTALK, "x_is_ready", self:Nick() )
 			self:SetReady( true )
 			self:SetTeam(TEAM_PLAYERS)
 			hook.Call( "OnPlayerReady", nzRound, self )
 		else
-			self:PrintMessage( HUD_PRINTTALK, "You are already ready!" )
+			self:PrintTranslatedMessage( HUD_PRINTTALK, "you_are_already_ready" )
 		end
 	elseif nzRound:InProgress() then
 		if self:IsPlaying() then
-			self:PrintMessage( HUD_PRINTTALK, "You are already playing!" )
+			self:PrintTranslatedMessage( HUD_PRINTTALK, "you_are_already_playing" )
 		else
-			self:PrintMessage( HUD_PRINTTALK, "Round in progress you will be dropped into next round if possible." )
+			self:PrintTranslatedMessage( HUD_PRINTTALK, "you_will_be_dropin_next_round" )
 			self:DropIn()
 		end
 	end
@@ -43,7 +43,7 @@ end
 function plyMeta:UnReady()
 	if nzRound:InState( ROUND_WAITING ) then
 		if self:IsReady() then
-			PrintMessage( HUD_PRINTTALK, self:Nick() .. " is no longer ready!" )
+			PrintTranslatedMessage( HUD_PRINTTALK, "x_no_longer_ready", self:Nick() )
 			self:SetReady( false )
 			hook.Call( "OnPlayerUnReady", nzRound, self )
 		end
@@ -61,19 +61,19 @@ function plyMeta:DropIn()
 		self:RevivePlayer()
 		hook.Call( "OnPlayerDropIn", nzRound, self )
 		if nzRound:GetNumber() == 1 and nzRound:InState(ROUND_PREP) then
-			PrintMessage( HUD_PRINTTALK, self:Nick() .. " is dropping in!" )
+			PrintTranslatedMessage( HUD_PRINTTALK, "x_is_dropping_in", self:Nick() )
 			self:ReSpawn()
 		else
-			PrintMessage( HUD_PRINTTALK, self:Nick() .. " will be dropping in next round!" )
+			PrintTranslatedMessage( HUD_PRINTTALK, "x_will_be_dropping_in_next_round", self:Nick() )
 		end
 	else
-		self:PrintMessage( HUD_PRINTTALK, "You are already in queue or dropins are not allowed on this Server." )
+		self:PrintTranslatedMessage( HUD_PRINTTALK, "you_are_already_in_queue_or_server_block" )
 	end
 end
 
 function plyMeta:DropOut()
 	if self:IsPlaying() then
-		PrintMessage( HUD_PRINTTALK, self:Nick().." has dropped out of the game!" )
+		PrintTranslatedMessage( HUD_PRINTTALK, "x_has_dropped_out_of_the_game", self:Nick() )
 		self:SetReady( false )
 		self:SetPlaying( false )
 		self:RevivePlayer()
@@ -135,7 +135,7 @@ function plyMeta:ToggleCreativeMode()
 		if nzRound:InState(ROUND_CREATE) then -- Only if we already are or we successfully switched to it
 			self:GiveCreativeMode()
 		else
-			self:ChatPrint("Can't go in Creative right now.")
+			self:ChatPrintTranslated("cant_go_in_creative_right_now")
 		end
 	end
 end

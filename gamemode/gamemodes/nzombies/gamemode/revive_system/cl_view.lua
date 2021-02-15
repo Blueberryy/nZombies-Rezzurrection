@@ -140,7 +140,7 @@ end
 local function DrawDownedNotify()
 
 	if !LocalPlayer():GetNotDowned() then
-		local text = "YOU NEED HELP!"
+		local text = translate.Get("you_need_help")
 		local font = "nz.display.hud.main"
 		local rply = nzRevive.Players[LocalPlayer():EntIndex()].RevivePlayer
 		
@@ -178,7 +178,7 @@ local function DrawDownedHeadsUp()
 	for k,v in pairs(nzRevive.Notify) do
 		if type(k) == "Player" and IsValid(k) then
 			local fade = math.Clamp(CurTime() - v.time - 5, 0, 1)
-			local status = v.text or "needs to be revived!"
+			local status = v.text or translate.Get("player_needs_to_be_revived")
 			draw.SimpleText(k:Nick().." "..status, font, ScrW()/2, ScrH() - h - offset * c, Color(255, 255, 255,255-(255*fade)), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
 			if fade >= 1 then nzRevive.Notify[k] = nil end
 			c = c + 1

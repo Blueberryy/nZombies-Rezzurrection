@@ -12,7 +12,7 @@ function nzPlayers:PlayerModelEditor()
 		local window = vgui.Create("DFrame")
 		window:SetWidth(960)
 		window:SetHeight(700)
-		window:SetTitle("Player Model")
+		window:SetTitle("#smwidget.playermodel")
 
 		local mdl = window:Add( "DModelPanel" )
 		mdl:Dock( FILL )
@@ -43,7 +43,7 @@ function nzPlayers:PlayerModelEditor()
 
 		end
 
-		sheet:AddSheet( "Model", PanelSelect, "icon16/user.png" )
+		sheet:AddSheet( "#smwidget.model", PanelSelect, "icon16/user.png" )
 
 		local controls = window:Add( "DPanel" )
 		controls:DockPadding( 8, 8, 8, 8 )

@@ -172,7 +172,7 @@ function CheatInputPerk:Init()
 	self:SetWide(128)
 	self:SetTall(24)
 	for id, perk in pairs(nzPerks.Data) do
-		self:AddChoice(perk.name, id)
+		self:AddChoice(translate.Get(perk.name), id)
 	end
 end
 

@@ -65,8 +65,8 @@ function nzPerks:GetMachineType(id)
 end
 
 nzPerks:NewPerk("jugg", {
-	name = "Juggernog",
-	name_skin = "Tuff 'Nuff",
+	name = "perk_jugg",
+	name_skin = "perk_jugg2",
 	model = "models/yolojoenshit/bo3perks/juggernog/mc_mtl_p7_zm_vending_jugg.mdl",
 	skin = "models/IWperks/tuff/mc_mtl_p7_zm_vending_jugg.mdl",
 	off_skin = 1,
@@ -88,8 +88,8 @@ nzPerks:NewPerk("jugg", {
 })
 
 nzPerks:NewPerk("dtap", {
-	name = "Double Tap",
-	name_skin = "Bang Bangs",
+	name = "perk_double_tap",
+	name_skin = "perk_double_tap2",
 	model = "models/alig96/perks/doubletap/doubletap_on.mdl",
 	model_off = "models/alig96/perks/doubletap/doubletap_off.mdl",
 	skin = "models/IWperks/bang/mc_mtl_p7_zm_vending_doubletap2.mdl",
@@ -130,8 +130,8 @@ nzPerks:NewPerk("dtap", {
 })
 
 nzPerks:NewPerk("revive", {
-	name = "Quick Revive",
-	name_skin = "Up N' Atoms",
+	name = "perk_revive",
+	name_skin = "perk_revive2",
 	model = "models/yolojoenshit/bo3perks/revivesoda/mc_mtl_p7_zm_vending_revive.mdl",
 	skin = "models/IWperks/atoms/mc_mtl_p7_zm_vending_revive.mdl",
 	off_skin = 1,
@@ -145,9 +145,9 @@ nzPerks:NewPerk("revive", {
 	func = function(self, ply, machine)
 			if #player.GetAllPlaying() <= 1 then
 				if !ply.SoloRevive or ply.SoloRevive < 3 or !IsValid(machine) then
-					ply:ChatPrint("You got Quick Revive (Solo)!")
+					ply:ChatPrint(translate.Get("perk_revive_solo"))
 				else
-					ply:ChatPrint("You can only get Quick Revive Solo 3 times.")
+					ply:ChatPrint(translate.Get("perk_revive_solo2"))
 					return false
 				end
 			end
@@ -158,8 +158,8 @@ nzPerks:NewPerk("revive", {
 })
 
 nzPerks:NewPerk("speed", {
-	name = "Speed Cola",
-	name_skin = "Quickies",
+	name = "perk_speed_cola",
+	name_skin = "perk_speed_cola2",
 	model = "models/yolojoenshit/bo3perks/speedcola/mc_mtl_p7_zm_vending_speedcola.mdl",
 	skin = "models/IWperks/quickies/mc_mtl_p7_zm_vending_speedcola.mdl",
 	off_skin = 1,
@@ -201,8 +201,8 @@ nzPerks:NewPerk("speed", {
 })
 
 nzPerks:NewPerk("pap", {
-	name = "Pack-a-Punch",
-	name_skin = "Pack-a-Punch",
+	name = "perk_packapunch",
+	name_skin = "perk_packapunch2",
 	model = "models/yolojoenshit/extras/packapunch/mc_mtl_p7_packapunch.mdl",
 	off_skin = 1,
 	on_skin = 0,
@@ -351,8 +351,8 @@ nzPerks:NewPerk("pap", {
 })
 
 nzPerks:NewPerk("dtap2", {
-	name = "Vigor Rush",
-	name_skin = "Bang Bangs (Triple Damage)",
+	name = "perk_vigor_rush",
+	name_skin = "perk_vigor_rush2",
 	model = "models/nzr/vigor.mdl",
 	skin = "models/IWperks/bang/mc_mtl_p7_zm_vending_doubletap2.mdl",
 	off_skin = 1,
@@ -370,8 +370,8 @@ nzPerks:NewPerk("dtap2", {
 })
 
 nzPerks:NewPerk("fire", {
-	name = "Napalm Nectar",
-	name_skin = "Firestarter Fizzy",
+	name = "perk_napalm_nectar",
+	name_skin = "perk_napalm_nectar2",
 	model = "models/nzr/firestarter/firestarter.mdl",
 	model_off = "models/nzr/firestarter/firestarter_off.mdl",
 	price = 2000,
@@ -387,8 +387,8 @@ nzPerks:NewPerk("fire", {
 })
 
 nzPerks:NewPerk("staminup", {
-	name = "Stamin-Up",
-	name_skin = "Racin' Stripes",
+	name = "perk_staminup",
+	name_skin = "perk_staminup2",
 	model = "models/yolojoenshit/bo3perks/staminup/mc_mtl_p7_zm_vending_marathon.mdl",
 	skin = "models/IWperks/stripes/mc_mtl_p7_zm_vending_marathon.mdl",
 	off_skin = 1,
@@ -414,8 +414,8 @@ nzPerks:NewPerk("staminup", {
 })
 
 nzPerks:NewPerk("politan", {
-	name = "Random-o-Politan",
-	name_skin = "Random-o-Politan",
+	name = "perk_politian",
+	name_skin = "perk_politian2",
 	model = "models/alig96/perks/random/random_on.mdl",
 	model_off = "models/alig96/perks/random/random_off.mdl",
 	price = 5000,
@@ -447,8 +447,8 @@ nzPerks:NewPerk("politan", {
 })
 
 nzPerks:NewPerk("sake", {
-	name = "Slasher's Sake",
-	name_skin = "Slappy Taffy",
+	name = "perk_slake",
+	name_skin = "perk_slake2",
 	skin = "models/IWperks/taffy/sake.mdl",
 	model = "models/alig96/perks/sake/sake.mdl",
 	off_skin = 1,
@@ -470,8 +470,8 @@ nzPerks:NewPerk("sake", {
 
 
 nzPerks:NewPerk("wall", {
-	name = "Wall Power Whiskey Sour",
-	name_skin = "Wall Power Whiskey Sour",
+	name = "perk_wall",
+	name_skin = "perk_wall2",
 	model_off = "models/alig96/perks/wall/wall_off.mdl",
 	model = "models/alig96/perks/wall/wall.mdl",
 	price = 8000,
@@ -487,8 +487,8 @@ nzPerks:NewPerk("wall", {
 })
 
 nzPerks:NewPerk("danger", {
-	name = "Danger Costa-Rican",
-	name_skin = "Danger Costa-Rican",
+	name = "perk_danger",
+	name_skin = "perk_danger2",
 	model_off = "models/alig96/perks/danger/danger_off.mdl",
 	model = "models/alig96/perks/danger/danger_on.mdl",
 	price = 2000,
@@ -504,8 +504,8 @@ nzPerks:NewPerk("danger", {
 })
 
 nzPerks:NewPerk("everclear", {
-	name = "Explosive Everclear",
-	name_skin = "Trail Blazers",
+	name = "perk_everclear",
+	name_skin = "perk_everclear2",
 	skin = "models/IWperks/trailblazer/everclear.mdl",
 	off_skin = 1,
 	on_skin = 0,
@@ -524,8 +524,8 @@ nzPerks:NewPerk("everclear", {
 })
 
 nzPerks:NewPerk("gin", {
-	name = "Juicer's Gin",
-	name_skin = "Juicer's Gin",
+	name = "perk_gin",
+	name_skin = "perk_gin2",
 	model_off = "models/alig96/perks/gin/gin.mdl",
 	model = "models/alig96/perks/gin/gin.mdl",
 	price = 2000,
@@ -555,8 +555,8 @@ nzPerks:NewPerk("gin", {
 })
 
 nzPerks:NewPerk("phd", {
-	name = "PhD Flopper",
-	name_skin = "Bombstoppers",
+	name = "perk_phd",
+	name_skin = "perk_phd2",
 	skin = "models/IWperks/bomb/phdflopper.mdl", 
 	off_skin = 1,
 	on_skin = 0,
@@ -575,8 +575,8 @@ nzPerks:NewPerk("phd", {
 })
 
 nzPerks:NewPerk("deadshot", {
-	name = "Deadshot Daiquiri",
-	name_skin = "Deadeye Dewdrops",
+	name = "perk_deadshot",
+	name_skin = "perk_deadshot2",
 	model = "models/yolojoenshit/bo3perks/deadshot/mc_mtl_p7_zm_vending_deadshot.mdl",
 	skin = "models/IWperks/deadeye/mc_mtl_p7_zm_vending_deadshot.mdl",
 	off_skin = 1,
@@ -594,8 +594,8 @@ nzPerks:NewPerk("deadshot", {
 })
 
 nzPerks:NewPerk("mulekick", {
-	name = "Mule Kick",
-	name_skin = "Mule Munchies",
+	name = "perk_mulekick",
+	name_skin = "perk_mulekick2",
 	model = "models/yolojoenshit/bo3perks/mulekick/mc_mtl_p7_zm_vending_mulekick.mdl",
 	skin = "models/IWperks/munchies/mc_mtl_p7_zm_vending_mulekick.mdl",
 	off_skin = 1,
@@ -618,8 +618,8 @@ nzPerks:NewPerk("mulekick", {
 })
 
 nzPerks:NewPerk("tombstone", {
-	name = "Tombstone Soda",
-	name_skin = "Tombstone Soda",
+	name = "perk_tombstone",
+	name_skin = "perk_tombstone2",
 	model_off = "models/alig96/perks/tombstone/tombstone_off.mdl",
 	model = "models/alig96/perks/tombstone/tombstone.mdl",
 	price = 2000,
@@ -635,8 +635,8 @@ nzPerks:NewPerk("tombstone", {
 })
 
 nzPerks:NewPerk("whoswho", {
-	name = "Who's Who",
-	name_skin = "Who's Who",
+	name = "perk_whoswho",
+	name_skin = "perk_whoswho2",
 	model_off = "models/alig96/perks/whoswho/whoswho_off.mdl",
 	model = "models/alig96/perks/whoswho/whoswho.mdl",
 	price = 2000,
@@ -652,8 +652,8 @@ nzPerks:NewPerk("whoswho", {
 })
 
 nzPerks:NewPerk("cherry", {
-	name = "Electric Cherry",
-	name_skin = "Blue Bolts",
+	name = "perk_cherry",
+	name_skin = "perk_cherry2",
 	skin = "models/IWperks/bolts/cherry.mdl",
 	off_skin = 1,
 	on_skin = 0,
@@ -672,8 +672,8 @@ nzPerks:NewPerk("cherry", {
 })
 
 nzPerks:NewPerk("vulture", {
-	name = "Vulture Aid Elixir",
-	name_skin = "Vulture Aid Elixir",
+	name = "perk_vulture",
+	name_skin = "perk_vulture2",
 	model_off = "models/alig96/perks/vulture/vultureaid_off.mdl",
 	model = "models/alig96/perks/vulture/vultureaid.mdl",
 	price = 3000,
@@ -689,13 +689,13 @@ nzPerks:NewPerk("vulture", {
 })
 
 nzPerks:NewPerk("wunderfizz", {
-	name = "Der Wunderfizz", -- Nothing more is needed, it is specially handled
+	name = "perk_wunderfizz", -- Nothing more is needed, it is specially handled
 	specialmachine = true,
 })
 
 nzPerks:NewPerk("widowswine", {
-	name = "Widow's Wine",
-	name_skin = "Widow's Wine",
+	name = "perk_widowswine",
+	name_skin = "perk_widowswine2",
 	model = "models/yolojoenshit/bo3perks/widows_wine/mc_mtl_p7_zm_vending_widows_wine.mdl",
 	skin = "models/yolojoenshit/bo3perks/widows_wine/mc_mtl_p7_zm_vending_widows_wine.mdl",
 	off_skin = 1,

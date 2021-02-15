@@ -79,21 +79,21 @@ function MenuToolBar:Init()
 
 	self.Entries = {}
 
-	local ready = self:AddEntry( "READY", "large", "nz_chatcommand", "/ready" )
+	local ready = self:AddEntry( translate.Get("nzr_button_ready"), "large", "nz_chatcommand", "/ready" )
 	function ready:Think()
 		if nzRound:InProgress() then
 			if LocalPlayer():Alive()  then
-				self:SetText( "DROPOUT" )
+				self:SetText( translate.Get("nzr_button_dropout") )
 				self:SetConsoleCommand( "nz_chatcommand", "/dropout" )
 			else
-				self:SetText( "DROPIN" )
+				self:SetText( translate.Get("nzr_button_dropin") )
 				self:SetConsoleCommand( "nz_chatcommand", "/dropin" )
 			end
 		else
 			if LocalPlayer():IsReady() then
-				self:SetText( "UNREADY" )
+				self:SetText( translate.Get("nzr_button_unready") )
 			else
-				self:SetText( "READY" )
+				self:SetText( translate.Get("nzr_button_ready") )
 			end
 			self.DoClick = function()
 				if LocalPlayer():IsReady() then
@@ -106,20 +106,20 @@ function MenuToolBar:Init()
 		end
 	end
 
-	local spectate = self:AddEntry( "SPECTATE", "medium", "nz_chatcommand", "/spectate" )
+	local spectate = self:AddEntry( translate.Get("nzr_button_spectate"), "medium", "nz_chatcommand", "/spectate" )
 	
-	local creative = self:AddEntry( "CREATIVE MODE", "medium", "nz_chatcommand", "/create" )
+	local creative = self:AddEntry( translate.Get("nzr_button_creative_mode"), "medium", "nz_chatcommand", "/create" )
 	function creative:Think()
 		if LocalPlayer():IsInCreative() then
-			self:SetText("SURVIVAL MODE")
+			self:SetText(translate.Get("nzr_button_survival_mode"))
 		else
-			self:SetText("CREATIVE MODE")
+			self:SetText(translate.Get("nzr_button_creative_mode"))
 		end
 	end
 
-	self:AddEntry( "WORKSHOP PAGE", "medium", function() gui.OpenURL( "http://steamcommunity.com/sharedfiles/filedetails/?id=675138912" ) end )
+	self:AddEntry( translate.Get("nzr_button_workshop_page"), "medium", function() gui.OpenURL( "http://steamcommunity.com/sharedfiles/filedetails/?id=675138912" ) end )
 	
-	self:AddEntry( "Press F1 to toggle this menu", "small", function() RunConsoleCommand("nz_settings") end )
+	self:AddEntry( translate.Get("nzr_lobby_tip"), "small", function() RunConsoleCommand("nz_settings") end )
 	
 	--Settings Button / Close button
 	if LocalPlayer():IsSuperAdmin() then
@@ -236,7 +236,7 @@ local green = Color(230,255,230,255)
 
 local function MenuSettingsListInit(self)
 	self:SetWide( 256 )
-	local btnMode = self:AddButton( "< Toggle Creative Mode ...", "nz_chatcommand", "/create" )
+	local btnMode = self:AddButton( translate.Get("nzr_button_toggle_creativemode"), "nz_chatcommand", "/create" )
 	function btnMode:Think()
 		if self:IsHovered() or IsValid(self.ExtendedList) and (self.ExtendedList:IsHovered() or self.ExtendedList:IsChildHovered()) then
 			if !IsValid(self.ExtendedList) then
@@ -264,11 +264,11 @@ local function MenuSettingsListInit(self)
 		end
 	end
 	
-	self:AddButton( "Load Map config", "nz_chatcommand", "/load" )
-	self:AddButton( "Save Map config", "nz_chatcommand", "/save" )
-	self:AddButton( "Player Model Editor", function() nzPlayers:PlayerModelEditor() end)
-	self:AddButton( "Generate Navmesh", "nz_chatcommand", "/generate" )
-	self:AddButton( "Cheats (Beta)", "nz_chatcommand", "/cheats" )
+	self:AddButton( translate.Get("nzr_button_load_map_config"), "nz_chatcommand", "/load" )
+	self:AddButton( translate.Get("nzr_button_save_map_config"), "nz_chatcommand", "/save" )
+	self:AddButton( translate.Get("nzr_button_player_model_editor"), function() nzPlayers:PlayerModelEditor() end)
+	self:AddButton( translate.Get("nzr_button_generate_navmesh"), "nz_chatcommand", "/generate" )
+	self:AddButton( translate.Get("nzr_button_cheats"), "nz_chatcommand", "/cheats" )
 end
 
 function MenuSettingsPanel:Init()
@@ -406,14 +406,14 @@ function PlayerList:Paint(w, h)
 			surface.SetMaterial(bloodline_points)
 			surface.SetDrawColor(200,0,0)
 			surface.DrawTexturedRect(0, h / 2 - n * 17.5 + 35 * c, 300, 40)
-			if ply:IsReady() then text = "Ready" else
+			if ply:IsReady() then text = translate.Get("nzr_lobby_status_ready") else
 				if nzRound:InState(ROUND_CREATE) and ply:Alive() then
-					text = "In Creative"
+					text = translate.Get("nzr_lobby_status_in_creative")
 				else
-					text = "Not ready"
+					text = translate.Get("nzr_lobby_status_not_ready")
 				end
 			end
-			draw.SimpleText(ply:Nick() .. " - " .. text, "nz.display.hud.small", 25, h / 2 - n * 17.5 + 35 * c + 15, Color(255,255,255,255), TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
+			draw.SimpleText(translate.Format("nzr_lobby_status_format", ply:Nick(), text), "nz.display.hud.small", 25, h / 2 - n * 17.5 + 35 * c + 15, Color(255,255,255,255), TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
 			c = c + 1
 		end
 	end

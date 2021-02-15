@@ -78,7 +78,7 @@ if CLIENT then
 		local ply = Entity(id)
 		if IsValid(ply) and ply:IsPlayer() then
 			--ply:AnimRestartGesture(GESTURE_SLOT_CUSTOM, ACT_HL2MP_SWIM_PISTOL)
-			nzRevive:DownedHeadsUp(ply, "needs to be revived!")
+			nzRevive:DownedHeadsUp(ply, translate.ClientGet(self, "player_needs_to_be_revived"))
 		end
 	end
 
@@ -89,7 +89,7 @@ if CLIENT then
 		if IsValid(ply) and ply:IsPlayer() then
 			--ply:AnimResetGestureSlot(GESTURE_SLOT_CUSTOM)
 			if ply == LocalPlayer() then nzRevive:ResetColorFade() end
-			nzRevive:DownedHeadsUp(ply, "has been revived!")
+			nzRevive:DownedHeadsUp(ply, translate.ClientGet(self, "player_has_been_revived"))
 		end
 	end
 
