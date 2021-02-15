@@ -23,8 +23,8 @@ if SERVER then
 end
 
 nzTools:CreateTool("inviswall", {
-	displayname = "Invisible Wall Creator",
-	desc = "LMB: Set Corners, RMB: Remove Invisible Wall at spot, R: Reset corners",
+	displayname = translate.Get("invisible_wall_creator_tool"),
+	desc = translate.Get("invisible_wall_creator_tool_tip"),
 	condition = function(wep, ply)
 		return true
 	end,
@@ -47,8 +47,8 @@ nzTools:CreateTool("inviswall", {
 
 	end
 }, {
-	displayname = "Invisible Wall Creator",
-	desc = "LMB: Set Corners, RMB: Remove Invisible Wall at spot, R: Reset corners",
+	displayname = translate.Get("invisible_wall_creator_tool"),
+	desc = translate.Get("invisible_wall_creator_tool_tip"),
 	icon = "icon16/shape_handles.png",
 	weight = 16,
 	condition = function(wep, ply)
@@ -87,21 +87,21 @@ nzTools:CreateTool("inviswall", {
 		
 		local chk = vgui.Create("DCheckBoxLabel", pnl)
 		chk:SetPos( 100, 50 )
-		chk:SetText( "Preview Config" )
+		chk:SetText( translate.Get("anticheat_exclude_previev_config") )
 		chk:SetTextColor( Color(50,50,50) )
 		chk:SetConVar( "nz_creative_preview" )
 		chk:SetValue( GetConVar("nz_creative_preview"):GetBool() )
 		chk:SizeToContents()
 		
 		local textw = vgui.Create("DLabel", pnl)
-		textw:SetText("Warning: Rotating Invis Walls does not work")
+		textw:SetText(translate.Get("anticheat_exclude_previev_config_help"))
 		textw:SetFont("Trebuchet18")
 		textw:SetTextColor( Color(150, 50, 50) )
 		textw:SizeToContents()
 		textw:SetPos(30, 70)
 
 		local textw2 = vgui.Create("DLabel", pnl)
-		textw2:SetText("correctly at the moment and will not save!")
+		textw2:SetText(translate.Get("anticheat_exclude_previev_config_help2"))
 		textw2:SetFont("Trebuchet18")
 		textw2:SetTextColor( Color(150, 50, 50) )
 		textw2:SizeToContents()

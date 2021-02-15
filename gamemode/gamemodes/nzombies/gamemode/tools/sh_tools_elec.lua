@@ -1,6 +1,6 @@
 nzTools:CreateTool("elec", {
-	displayname = "Electricity Switch Placer",
-	desc = "LMB: Place Electricity Switch, RMB: Remove Switch",
+	displayname = translate.Get("electricity_switch_placer_tool"),
+	desc = translate.Get("electricity_switch_placer_tool_tip"),
 	condition = function(wep, ply)
 		return true
 	end,
@@ -24,8 +24,8 @@ nzTools:CreateTool("elec", {
 
 	end
 }, {
-	displayname = "Electricity Switch Placer",
-	desc = "LMB: Place Electricity Switch, RMB: Remove Switch",
+	displayname = translate.Get("electricity_switch_placer_tool"),
+	desc = translate.Get("electricity_switch_placer_tool_tip"),
 	icon = "icon16/lightning.png",
 	weight = 8,
 	condition = function(wep, ply)

@@ -5,8 +5,8 @@ local point1, point2, height
 -- Networking is in the invis wall tool, the bool makes it a normal invis wall
 
 nzTools:CreateTool("damagewall", {
-	displayname = "Damage Wall Creator",
-	desc = "LMB: Set Corners, RMB: Remove Damage Wall at spot, R: Reset corners",
+	displayname = translate.Get("damage_wall_creator_tool"),
+	desc = translate.Get("damage_wall_creator_tool_tip"),
 	condition = function(wep, ply)
 		return true
 	end,
@@ -29,8 +29,8 @@ nzTools:CreateTool("damagewall", {
 
 	end
 }, {
-	displayname = "Damage Wall Creator",
-	desc = "LMB: Set Corners, RMB: Remove Damage Wall at spot, R: Reset corners",
+	displayname = translate.Get("damage_wall_creator_tool"),
+	desc = translate.Get("damage_wall_creator_tool_tip"),
 	icon = "icon16/shape_square_error.png",
 	weight = 17,
 	condition = function(wep, ply)
@@ -92,7 +92,7 @@ nzTools:CreateTool("damagewall", {
 		
 		local chk = vgui.Create("DCheckBoxLabel", pnl)
 		chk:SetPos( 100, 20 )
-		chk:SetText( "Preview Config" )
+		chk:SetText( translate.Get("anticheat_exclude_previev_config") )
 		chk:SetTextColor( Color(50,50,50) )
 		chk:SetConVar( "nz_creative_preview" )
 		chk:SetValue( GetConVar("nz_creative_preview"):GetBool() )
@@ -102,21 +102,21 @@ nzTools:CreateTool("damagewall", {
 		properties:SetPos(5, 50)
 		properties:SetSize(480, 450)
 		
-		local dmg = properties:CreateRow( "Damage Properties", "Damage" )
+		local dmg = properties:CreateRow( translate.Get("tool_damage_properties"), translate.Get("tool_damage") )
 		dmg:Setup( "Int", {min = 1, max = 250} )
 		dmg:SetValue( data.dmg )
 		dmg.DataChanged = function( _, val ) valz["Dmg"] = val pnl.UpdateData(pnl.CompileData()) end
 		
-		local delay = properties:CreateRow( "Damage Properties", "Delay" )
+		local delay = properties:CreateRow( translate.Get("tool_damage_properties"), translate.Get("tool_delay") )
 		delay:Setup( "Float", {min = 0, max = 10} )
 		delay:SetValue( data.delay )
 		delay.DataChanged = function( _, val ) valz["Delay"] = val pnl.UpdateData(pnl.CompileData()) end
 		
-		local dmgtype = properties:CreateRow( "Damage Properties", "Type" )
-		dmgtype:Setup( "Combo", {text = "Select type ..."} )
-		dmgtype:AddChoice( "Radiation", 1 )
-		dmgtype:AddChoice( "Poison", 2 )
-		dmgtype:AddChoice( "Tesla", 3 )
+		local dmgtype = properties:CreateRow( translate.Get("tool_damage_properties"), translate.Get("tool_type") )
+		dmgtype:Setup( "Combo", {text = translate.Get("tool_select_type")} )
+		dmgtype:AddChoice( translate.Get("tool_type_radiation"), 1 )
+		dmgtype:AddChoice( translate.Get("tool_type_poison"), 2 )
+		dmgtype:AddChoice( translate.Get("tool_type_tesla"), 3 )
 		dmgtype.DataChanged = function( _, val ) valz["DmgType"] = val pnl.UpdateData(pnl.CompileData()) end
 		
 		return pnl

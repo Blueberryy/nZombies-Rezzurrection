@@ -1,6 +1,6 @@
 nzTools:CreateTool("pspawn", {
-	displayname = "Player Spawn Creator",
-	desc = "LMB: Place Spawnpoint, RMB: Remove Spawnpoint",
+	displayname = translate.Get("player_spawn_creator_tool"),
+	desc = translate.Get("player_spawn_creator_tool_tip"),
 	condition = function(wep, ply)
 		return true
 	end,
@@ -22,8 +22,8 @@ nzTools:CreateTool("pspawn", {
 
 	end
 }, {
-	displayname = "Player Spawn Creator",
-	desc = "LMB: Place Spawnpoint, RMB: Remove Spawnpoint",
+	displayname = translate.Get("player_spawn_creator_tool"),
+	desc = translate.Get("player_spawn_creator_tool_tip"),
 	icon = "icon16/user.png",
 	weight = 2,
 	condition = function(wep, ply)

@@ -91,8 +91,8 @@ local models = {
 }
 
 nzTools:CreateTool("block", {
-	displayname = "Invisible Block Spawner",
-	desc = "LMB: Create Invisible Block, RMB: Remove Invisible Block, R: Change Model",
+	displayname = translate.Get("invisible_block_spawner_tool"),
+	desc = translate.Get("invisible_block_spawner_tool_tip"),
 	condition = function(wep, ply)
 		return true
 	end,
@@ -122,8 +122,8 @@ nzTools:CreateTool("block", {
 
 	end
 }, {
-	displayname = "Invisible Block Spawner",
-	desc = "LMB: Create Invisible Block, RMB: Remove Invisible Block, R: Change Model",
+	displayname = translate.Get("invisible_block_spawner_tool"),
+	desc = translate.Get("invisible_block_spawner_tool_tip"),
 	icon = "icon16/shading.png",
 	weight = 15,
 	condition = function(wep, ply)
@@ -174,7 +174,7 @@ nzTools:CreateTool("block", {
 	},
 })
 
-nzTools:EnableProperties("block", "Edit Model...", "icon16/brick_edit.png", 9009, true, function( self, ent, ply )
+nzTools:EnableProperties("block", translate.Get("creative_context_edit_model"), "icon16/brick_edit.png", 9009, true, function( self, ent, ply )
 	if ( !IsValid( ent ) or !IsValid(ply) ) then return false end
 	if ( ent:GetClass() != "wall_block" ) then return false end
 	if !nzRound:InState( ROUND_CREATE ) then return false end

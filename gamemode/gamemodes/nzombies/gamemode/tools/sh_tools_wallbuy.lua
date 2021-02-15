@@ -1,6 +1,6 @@
 nzTools:CreateTool("wallbuy", {
-	displayname = "Weapon Buy Placer",
-	desc = "LMB: Place Weapon Buy, RMB: Remove Weapon Buy, R: Rotate, C: Change Properties",
+	displayname = translate.Get("weapon_buy_placer_tool"),
+	desc = translate.Get("weapon_buy_placer_tool_tip"),
 	condition = function(wep, ply)
 		return true
 	end,
@@ -34,8 +34,8 @@ nzTools:CreateTool("wallbuy", {
 
 	end
 }, {
-	displayname = "Weapon Buy Placer",
-	desc = "LMB: Place Weapon Buy, RMB: Remove Weapon Buy, R: Rotate, C: Change Properties",
+	displayname = translate.Get("weapon_buy_placer_tool"),
+	desc = translate.Get("weapon_buy_placer_tool_tip"),
 	icon = "icon16/cart.png",
 	weight = 5,
 	condition = function(wep, ply)
@@ -64,7 +64,7 @@ nzTools:CreateTool("wallbuy", {
 			nzTools:SendData(data, "wallbuy")
 		end
 
-		local Row1 = DProperties:CreateRow( "Weapon Settings", "Weapon Class" )
+		local Row1 = DProperties:CreateRow( translate.Get("tool_weapon_settings"), translate.Get("tool_weapon_class") )
 		Row1:Setup( "Combo" )
 		for k,v in pairs(weapons.GetList()) do
 			if !v.NZTotalBlacklist then
@@ -77,7 +77,7 @@ nzTools:CreateTool("wallbuy", {
 		end
 		Row1.DataChanged = function( _, val ) valz["Row1"] = val DProperties.UpdateData(DProperties.CompileData()) end
 
-		local Row2 = DProperties:CreateRow( "Weapon Settings", "Price" )
+		local Row2 = DProperties:CreateRow( translate.Get("tool_weapon_settings"), translate.Get("tool_price") )
 		Row2:Setup( "Integer" )
 		Row2:SetValue( valz["Row2"] )
 		Row2.DataChanged = function( _, val ) valz["Row2"] = val DProperties.UpdateData(DProperties.CompileData()) end
@@ -90,7 +90,7 @@ nzTools:CreateTool("wallbuy", {
 	}
 })
 
-nzTools:EnableProperties("wallbuy", "Edit Wallbuy...", "icon16/cart_edit.png", 9004, true, function( self, ent, ply )
+nzTools:EnableProperties("wallbuy", translate.Get("creative_context_edit_wallbuy"), "icon16/cart_edit.png", 9004, true, function( self, ent, ply )
 	if ( !IsValid( ent ) or !IsValid(ply) ) then return false end
 	if ( ent:GetClass() != "wall_buys" ) then return false end
 	if !nzRound:InState( ROUND_CREATE ) then return false end

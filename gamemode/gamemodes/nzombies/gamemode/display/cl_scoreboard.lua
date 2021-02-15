@@ -270,7 +270,7 @@ local SCORE_BOARD = {
 		self.Ping:SetFont( "ScoreboardDefault" )
 		self.Ping:SetTextColor( Color( 255, 255, 255 ) )
 		self.Ping:SetContentAlignment( 5 )
-		self.Ping:SetText("Ping")
+		self.Ping:SetText(translate.Get("scoreboard_ping"))
 
 		self.Revives = self.Key:Add( "DLabel" )
 		self.Revives:Dock( RIGHT )
@@ -278,7 +278,7 @@ local SCORE_BOARD = {
 		self.Revives:SetFont( "ScoreboardDefault" )
 		self.Revives:SetTextColor( Color(255, 255, 255)  )
 		self.Revives:SetContentAlignment( 5 )
-		self.Revives:SetText("Revives")
+		self.Revives:SetText(translate.Get("scoreboard_revives"))
 
 		self.Downs = self.Key:Add( "DLabel" )
 		self.Downs:Dock( RIGHT )
@@ -286,7 +286,7 @@ local SCORE_BOARD = {
 		self.Downs:SetFont( "ScoreboardDefault" )
 		self.Downs:SetTextColor( Color(255, 255, 255)  )
 		self.Downs:SetContentAlignment( 5 )
-		self.Downs:SetText("Downs")
+		self.Downs:SetText(translate.Get("scoreboard_downs"))
 
 		self.Kills = self.Key:Add( "DLabel" )
 		self.Kills:Dock( RIGHT )
@@ -294,7 +294,7 @@ local SCORE_BOARD = {
 		self.Kills:SetFont( "ScoreboardDefault" )
 		self.Kills:SetTextColor( Color( 255, 255, 255, 255 ) )
 		self.Kills:SetContentAlignment( 5 )
-		self.Kills:SetText("Kills")
+		self.Kills:SetText(translate.Get("scoreboard_kills"))
 
 		self.Points = self.Key:Add( "DLabel" )
 		self.Points:Dock( RIGHT )
@@ -302,7 +302,7 @@ local SCORE_BOARD = {
 		self.Points:SetFont( "ScoreboardDefault" )
 		self.Points:SetTextColor( Color( 255, 255, 255, 255 ) )
 		self.Points:SetContentAlignment( 5 )
-		self.Points:SetText("Points")
+		self.Points:SetText(translate.Get("scoreboard_pts"))
 
 
 

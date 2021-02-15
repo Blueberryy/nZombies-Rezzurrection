@@ -1,6 +1,6 @@
 nzTools:CreateTool("perk", {
-	displayname = "Perk Machine Placer",
-	desc = "LMB: Place Perk Machine, RMB: Remove Perk Machine, C: Change Perk",
+	displayname = translate.Get("perk_machine_placer_tool"),
+	desc = translate.Get("perk_machine_placer_tool_tip"),
 	condition = function(wep, ply)
 		return true
 	end,
@@ -31,8 +31,8 @@ nzTools:CreateTool("perk", {
 
 	end
 }, {
-	displayname = "Perk Machine Placer",
-	desc = "LMB: Place Perk Machine, RMB: Remove Perk Machine, C: Change Perk",
+	displayname = translate.Get("perk_machine_placer_tool"),
+	desc = translate.Get("perk_machine_placer_tool_tip"),
 	icon = "icon16/drink.png",
 	weight = 6,
 	condition = function(wep, ply)
@@ -43,7 +43,7 @@ nzTools:CreateTool("perk", {
 		local choices = vgui.Create( "DComboBox", frame )
 		choices:SetPos( 10, 10 )
 		choices:SetSize( 450, 30 )
-		choices:SetValue( nzPerks:Get(data.perk).name )
+		choices:SetValue( translate.Get(nzPerks:Get(data.perk).name) )
 		for k,v in pairs(nzPerks:GetList()) do
 			choices:AddChoice( v, k )
 		end
@@ -66,7 +66,7 @@ nzTools:CreateTool("perk", {
 	defaultdata = {perk = "jugg"},
 })
 
-nzTools:EnableProperties("perk", "Edit Perk...", "icon16/tag_blue_edit.png", 9005, true, function( self, ent, ply )
+nzTools:EnableProperties("perk", translate.Get("creative_context_edit_perk"), "icon16/tag_blue_edit.png", 9005, true, function( self, ent, ply )
 	if ( !IsValid( ent ) or !IsValid(ply) ) then return false end
 	if ( ent:GetClass() != "perk_machine" ) then return false end
 	if !nzRound:InState( ROUND_CREATE ) then return false end

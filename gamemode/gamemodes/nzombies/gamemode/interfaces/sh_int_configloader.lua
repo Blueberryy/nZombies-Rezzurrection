@@ -70,7 +70,7 @@ if SERVER then
 					voting = false
 					--PrintMessage(HUD_PRINTTALK, "[nZ] The winner is "..winner)
 					if nzRound:InProgress() then
-						PrintMessage(HUD_PRINTTALK, "[nZ] The config will be loaded after the current game.")
+						PrintTranslatedMessage(HUD_PRINTTALK, "config_will_be_loaded_after_game")
 						nzMapping:QueueConfig( winner, caller ) -- Caller of the vote is responsible for mismatch if done via nz_rtv command
 					else
 						nzMapping:LoadConfig( winner, caller )
@@ -163,13 +163,13 @@ if SERVER then
 					rtvs[ply] = true
 					
 					local req = math.ceil(#player.GetAll()/2)
-					PrintMessage(HUD_PRINTTALK, ply:Nick().." has voted to change map. "..rtvcount.."/"..req.." votes.")
+					PrintTranslatedMessage(HUD_PRINTTALK, "x_has_voted_change_map_x_votes", ply:Nick(), rtvcount, req)
 					if rtvcount >= req then
 						if nzRound:InState( ROUND_WAITING ) or nzRound:InState( ROUND_CREATE ) then
-							PrintMessage(HUD_PRINTTALK, "Vote succeeded!")
+							PrintTranslatedMessage(HUD_PRINTTALK, "vote_succeeded")
 							nzInterfaces.StartVote(30)
 						else
-							PrintMessage(HUD_PRINTTALK, "Vote succeeded! Vote will take place at the end of the current game.")
+							PrintTranslatedMessage(HUD_PRINTTALK, "vote_succeeded_you_will_take_place_at_the_end")
 							nextvote = CurTime()
 						end
 					end
@@ -246,7 +246,7 @@ if CLIENT then
 		local DermaPanel = vgui.Create( "DFrame" )
 		DermaPanel:SetPos( 100, 100 )
 		DermaPanel:SetSize( 400, 500 )
-		DermaPanel:SetTitle( vote and "Vote on a config (Press F1 to reopen)" or "Load a config" )
+		DermaPanel:SetTitle( vote and translate.Get("vote_on_config_client") or translate.Get("load_a_config_server") )
 		DermaPanel:SetVisible( true )
 		DermaPanel:SetDraggable( true )
 		DermaPanel:ShowCloseButton( true )
@@ -259,7 +259,7 @@ if CLIENT then
 		end
 		
 		local SubmitButton = vgui.Create( "DButton", DermaPanel )
-		SubmitButton:SetText( vote and "Click a config to vote" or "Click a config to load" )
+		SubmitButton:SetText( vote and translate.Get("click_a_config_client") or translate.Get("click_a_config_server") )
 		SubmitButton:SetPos( 10, 460 )
 		SubmitButton:SetSize( 380, 30 )
 		SubmitButton.DoClick = function(self)
@@ -271,8 +271,8 @@ if CLIENT then
 				end
 			else
 				if selectedconfig != nil and selectedconfig != "" then
-					if string.find(self:GetText(), "This map is not installed") then
-						chat.AddText("This map cannot be loaded as it is not installed")
+					if string.find(self:GetText(), translate.Get("map_is_not_installed")) then
+						chat.AddText(translate.Get("this_map_cannot_be_loaded_not_installed"))
 					elseif selectedconfig and selectedconfig != "" then
 						nzInterfaces.SendRequests( "ConfigLoader", {config = selectedconfig} )
 						DermaPanel:Close()
@@ -295,14 +295,14 @@ if CLIENT then
 		local ConfigsScroll = vgui.Create("DScrollPanel", sheet)
 		ConfigsScroll:SetPos(5, 5)
 		ConfigsScroll:SetSize(380, 420)
-		sheet:AddSheet("Configs", ConfigsScroll, "icon16/brick.png")
+		sheet:AddSheet(translate.Get("cfgload_configs"), ConfigsScroll, "icon16/brick.png")
 		
 		if !vote then
 			local OldConfigs = vgui.Create("DListView", sheet)
 			OldConfigs:SetPos(175, 350)
 			OldConfigs:SetSize(250, 100)
 			OldConfigs:SetMultiSelect(false)
-			OldConfigs:AddColumn("Name")
+			OldConfigs:AddColumn(translate.Get("all_files_name"))
 			if data.configs then
 				for k,v in pairs(data.configs) do
 					OldConfigs:AddLine(v)
@@ -320,9 +320,9 @@ if CLIENT then
 			end
 			OldConfigs.OnRowSelected = function(self, index, row)
 				selectedconfig = row:GetValue(1)
-				SubmitButton:SetText( "                                Load config\nWarning: May not work properly without changing map" )
+				SubmitButton:SetText( translate.Get("loadconfig_warning") )
 			end
-			sheet:AddSheet("All config files", OldConfigs, "icon16/database_table.png")
+			sheet:AddSheet(translate.Get("cfg_load_all_files"), OldConfigs, "icon16/database_table.png")
 		end
 		
 		local ConfigList = vgui.Create("DListLayout", ConfigsScroll)
@@ -390,7 +390,7 @@ if CLIENT then
 			
 			if vote then
 				local votecount = vgui.Create("DLabel", config)
-				votecount:SetText("Votes: 0")
+				votecount:SetText(translate.Get("zero_votes"))
 				votecount:SetTextColor(Color(200, 20, 20))
 				votecount:SizeToContents()
 				votecount:SetPos(190, 25)
@@ -402,7 +402,7 @@ if CLIENT then
 			
 			local mapstatus = vgui.Create("DLabel", config)
 			local status = file.Find("maps/"..v.map..".bsp", "GAME")[1] and true or false
-			mapstatus:SetText(status and "Map installed" or "Map not installed" )
+			mapstatus:SetText(status and translate.Get("status_map_installed") or translate.Get("status_map_not_installed") )
 			mapstatus:SetTextColor(status and Color(20, 200, 20) or Color(200, 20, 20))
 			mapstatus:SizeToContents()
 			mapstatus:SetPos(360 - mapstatus:GetWide(), 12)
@@ -417,9 +417,9 @@ if CLIENT then
 			click.DoClick = function(self)
 				selectedconfig = v.config
 				if game.GetMap() != v.map and !vote then
-					SubmitButton:SetText(status and "Change map to "..v.map.." and load" or "This map is not installed")
+					SubmitButton:SetText(status and translate.Format("change_map_to_x", v.map) or translate.Get("map_is_not_installed"))
 				else
-					SubmitButton:SetText( vote and "Cast vote" or "Load config" )
+					SubmitButton:SetText( vote and translate.Get("cast_vote") or translate.Get("load_cfg") )
 				end
 				-- Doesn't work? :/
 				--OldConfigs:SelectItem(nil)
@@ -430,7 +430,7 @@ if CLIENT then
 				configlocation:SetURL("http://steamcommunity.com/sharedfiles/filedetails/?id="..v.workshopid)
 				-- It isn't underlined? :(
 			end
-			configlocation:SetText(v.workshop and "Workshop" or v.official and "Official" or "Local")
+			configlocation:SetText(v.workshop and translate.Get("config_cat_workshop") or v.official and translate.Get("config_cat_official") or translate.Get("config_cat_local"))
 			configlocation:SetTextColor(v.workshop and Color(150, 20, 100) or v.official and Color(255,0,0) or Color(20, 20, 200))
 			configlocation:SizeToContents()
 			configlocation:SetPos(360 - configlocation:GetWide(), 26)
@@ -480,20 +480,20 @@ if CLIENT then
 								self2.Msg:SetTextColor(Color(100,100,100))
 							end
 							if !GetConVar("nz_configloader_fetchworkshop"):GetBool() then
-								self2.Msg:SetText("Set 'nz_configloader_fetchworkshop' to 1 to be able to load metadata from the config's workshop page.")
+								self2.Msg:SetText(translate.Get("set_fetchworkshop_to_load_metadata"))
 								self2.NoLoad = true
 							elseif !v.workshop and !v.official then
 								if IsLocalCopy(v.name) then
-									self2.Msg:SetText("Local copy of "..v.name..".")
+									self2.Msg:SetText(translate.Format("local_copy_of_x", v.name))
 								else
-									self2.Msg:SetText("Local config.")
+									self2.Msg:SetText(translate.Get("local_config"))
 								end
 								self2.NoLoad = true
 							elseif !v.workshopid then
-								self2.Msg:SetText("This config does not have any set Workshop ID to get data from.")
+								self2.Msg:SetText(translate.Get("config_dont_have_metadata_set_for_workshop"))
 								self2.NoLoad = true
 							else
-								self2.Msg:SetText("Loading ...")
+								self2.Msg:SetText(translate.Get("loading_config_data"))
 							end
 						end
 						
@@ -506,7 +506,7 @@ if CLIENT then
 									self2.Msg:SetWrap(true)
 									self2.Msg:SetTextColor(Color(100,100,100))
 								end
-								self2.Msg:SetText("Failed loading information!")
+								self2.Msg:SetText(translate.Get("loading_config_data_failed"))
 							return end
 							
 							if IsValid(self2.Msg) then
@@ -520,7 +520,7 @@ if CLIENT then
 								self2.Desc:SetWrap(true)
 								self2.Desc:SetTextColor(Color(100,100,100))
 							end
-							self2.Desc:SetText(self2.DataTable.Description or "No Description found.")
+							self2.Desc:SetText(self2.DataTable.Description or translate.Get("no_description_found_config"))
 							
 							if !IsValid(self2.MidLine) then
 								self2.MidLine = vgui.Create("DPanel", self2)
@@ -542,8 +542,8 @@ if CLIENT then
 								self2.Creator:SetSize(140, 10)
 								self2.Creator:SetTextColor(Color(100,100,100))
 							end
-							self2.Creator:SetText(self2.DataTable.Creator and "Creator: "..self2.DataTable.Creator or "Creator: N/A")
-							self2.Creator:SetTooltip(self2.DataTable.Creator or "N/A")
+							self2.Creator:SetText(self2.DataTable.Creator and translate.Format("config_creator_x", self2.DataTable.Creator) or translate.Get("config_creator_na"))
+							self2.Creator:SetTooltip(self2.DataTable.Creator or translate.Get("config_creator_naa"))
 							
 							if !IsValid(self2.Map) then
 								self2.Map = vgui.Create("DLabel", self2)
@@ -568,7 +568,7 @@ if CLIENT then
 								self2.ConfigPack:SetPos(155, 104)
 								self2.ConfigPack:SetSize(30, 15)
 								self2.ConfigPack:SetTextColor(Color(100,100,100))
-								self2.ConfigPack:SetText("Pack:")
+								self2.ConfigPack:SetText(translate.Get("config_pack"))
 							end
 							
 							if !IsValid(self2.ConfigLink) then
@@ -576,8 +576,8 @@ if CLIENT then
 								self2.ConfigLink:SetPos(185, 104)
 								self2.ConfigLink:SetSize(110, 15)
 								self2.ConfigLink:SetTextColor(self2.DataTable["Pack Name"] and Color(50,50,200) or Color(100,100,100))
-								self2.ConfigLink:SetText(self2.DataTable["Pack Name"] or "N/A")
-								self2.ConfigLink:SetTooltip(self2.DataTable["Pack Name"] or "N/A")
+								self2.ConfigLink:SetText(self2.DataTable["Pack Name"] or translate.Get("config_creator_naa"))
+								self2.ConfigLink:SetTooltip(self2.DataTable["Pack Name"] or translate.Get("config_creator_naa"))
 								if self2.DataTable["Pack Name"] then self2.ConfigLink:SetURL("http://steamcommunity.com/sharedfiles/filedetails/?id="..v.workshopid) end
 							end
 							
@@ -596,7 +596,7 @@ if CLIENT then
 								self2.Packs:SetPos(320, 80)
 								self2.Packs:SetSize(60, 15)
 								self2.Packs:SetTextColor(Color(50,50,50))
-								self2.Packs:SetText("Used Packs")
+								self2.Packs:SetText(translate.Get("config_used_packs"))
 							end
 							
 							if !IsValid(self2.PackScroll) then
@@ -697,7 +697,7 @@ if CLIENT then
 			txtpnl:SetSize(380,50)
 			
 			local txt = vgui.Create("DLabel", txtpnl)
-			txt:SetText("No configs found for the current map.")
+			txt:SetText(translate.Get("no_configs_for_current_map"))
 			txt:SizeToContents()
 			txt:Center()
 			txt:SetTextColor(Color(0,0,0))
@@ -715,8 +715,8 @@ if CLIENT then
 			
 			if IsValid(nzInterfaces.ConfigVoter) then nzInterfaces.ConfigVoter:Remove() end
 			nzInterfaces.ConfigVotes = nil
-			config = config and string.Explode(";", string.StripExtension(config))[2] or config or "[INVALID]"
-			chat.AddText("[nZ] Vote finished! The winning map is ", Color(255,150,150), config..".")
+			config = config and string.Explode(";", string.StripExtension(config))[2] or config or translate.Get("config_invalid")
+			chat.AddText(translate.Get("vote_finished_winning_map_is"), Color(255,150,150), config..".")
 		end
 		
 		if net.ReadBool() then -- Vote added. This will never be true if the above is true

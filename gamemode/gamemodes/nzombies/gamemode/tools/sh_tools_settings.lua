@@ -26,7 +26,7 @@ nzTools:CreateTool("settings", {
 	interface = function(frame, data)
 		local data = table.Copy(nzMapping.Settings)
 		local valz = {}
-		valz["Row1"] = data.startwep or "Select ..."
+		valz["Row1"] = data.startwep or translate.Get("tools_select")
 		valz["Row2"] = data.startpoints or 500
 		valz["Row3"] = data.eeurl or ""
 		valz["Row4"] = data.script or false
@@ -1267,7 +1267,7 @@ nzTools:CreateTool("settings", {
 			--end
 		else
 			local text = vgui.Create("DLabel", DProperties)
-			text:SetText("Enable Advanced Mode for more options.")
+			text:SetText(translate.Get("tools_advanced_mode_for_more_options"))
 			text:SetFont("Trebuchet18")
 			text:SetTextColor( Color(50, 50, 50) )
 			text:SizeToContents()

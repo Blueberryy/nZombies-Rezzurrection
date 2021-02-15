@@ -66,7 +66,7 @@ end
 
 nzPerks:NewPerk("jugg", {
 	name = "perk_jugg",
-	name_skin = "perk_jugg2",
+	name_skin = "perk_tuff_nuff",
 	model = "models/yolojoenshit/bo3perks/juggernog/mc_mtl_p7_zm_vending_jugg.mdl",
 	skin = "models/IWperks/tuff/mc_mtl_p7_zm_vending_jugg.mdl",
 	off_skin = 1,
@@ -89,7 +89,7 @@ nzPerks:NewPerk("jugg", {
 
 nzPerks:NewPerk("dtap", {
 	name = "perk_double_tap",
-	name_skin = "perk_double_tap2",
+	name_skin = "perk_bang_bangs",
 	model = "models/alig96/perks/doubletap/doubletap_on.mdl",
 	model_off = "models/alig96/perks/doubletap/doubletap_off.mdl",
 	skin = "models/IWperks/bang/mc_mtl_p7_zm_vending_doubletap2.mdl",
@@ -130,8 +130,8 @@ nzPerks:NewPerk("dtap", {
 })
 
 nzPerks:NewPerk("revive", {
-	name = "perk_revive",
-	name_skin = "perk_revive2",
+	name = "perk_quick_revive",
+	name_skin = "perk_up_n_atoms",
 	model = "models/yolojoenshit/bo3perks/revivesoda/mc_mtl_p7_zm_vending_revive.mdl",
 	skin = "models/IWperks/atoms/mc_mtl_p7_zm_vending_revive.mdl",
 	off_skin = 1,
@@ -159,7 +159,7 @@ nzPerks:NewPerk("revive", {
 
 nzPerks:NewPerk("speed", {
 	name = "perk_speed_cola",
-	name_skin = "perk_speed_cola2",
+	name_skin = "perk_quickies",
 	model = "models/yolojoenshit/bo3perks/speedcola/mc_mtl_p7_zm_vending_speedcola.mdl",
 	skin = "models/IWperks/quickies/mc_mtl_p7_zm_vending_speedcola.mdl",
 	off_skin = 1,
@@ -352,7 +352,7 @@ nzPerks:NewPerk("pap", {
 
 nzPerks:NewPerk("dtap2", {
 	name = "perk_vigor_rush",
-	name_skin = "perk_vigor_rush2",
+	name_skin = "perk_bang_bangs_triple_damage",
 	model = "models/nzr/vigor.mdl",
 	skin = "models/IWperks/bang/mc_mtl_p7_zm_vending_doubletap2.mdl",
 	off_skin = 1,
@@ -371,7 +371,7 @@ nzPerks:NewPerk("dtap2", {
 
 nzPerks:NewPerk("fire", {
 	name = "perk_napalm_nectar",
-	name_skin = "perk_napalm_nectar2",
+	name_skin = "perk_firestarter_fizzy",
 	model = "models/nzr/firestarter/firestarter.mdl",
 	model_off = "models/nzr/firestarter/firestarter_off.mdl",
 	price = 2000,
@@ -388,7 +388,7 @@ nzPerks:NewPerk("fire", {
 
 nzPerks:NewPerk("staminup", {
 	name = "perk_staminup",
-	name_skin = "perk_staminup2",
+	name_skin = "perk_racin_stripes",
 	model = "models/yolojoenshit/bo3perks/staminup/mc_mtl_p7_zm_vending_marathon.mdl",
 	skin = "models/IWperks/stripes/mc_mtl_p7_zm_vending_marathon.mdl",
 	off_skin = 1,
@@ -414,8 +414,8 @@ nzPerks:NewPerk("staminup", {
 })
 
 nzPerks:NewPerk("politan", {
-	name = "perk_politian",
-	name_skin = "perk_politian2",
+	name = "perk_randomopolitian",
+	name_skin = "perk_randomopolitian2",
 	model = "models/alig96/perks/random/random_on.mdl",
 	model_off = "models/alig96/perks/random/random_off.mdl",
 	price = 5000,
@@ -447,8 +447,8 @@ nzPerks:NewPerk("politan", {
 })
 
 nzPerks:NewPerk("sake", {
-	name = "perk_slake",
-	name_skin = "perk_slake2",
+	name = "perk_slashers_sake",
+	name_skin = "perk_slappy_taffy",
 	skin = "models/IWperks/taffy/sake.mdl",
 	model = "models/alig96/perks/sake/sake.mdl",
 	off_skin = 1,
@@ -470,8 +470,8 @@ nzPerks:NewPerk("sake", {
 
 
 nzPerks:NewPerk("wall", {
-	name = "perk_wall",
-	name_skin = "perk_wall2",
+	name = "perk_wall_power_whiskey_sour",
+	name_skin = "perk_wall_power_whiskey_sour2",
 	model_off = "models/alig96/perks/wall/wall_off.mdl",
 	model = "models/alig96/perks/wall/wall.mdl",
 	price = 8000,
@@ -487,8 +487,8 @@ nzPerks:NewPerk("wall", {
 })
 
 nzPerks:NewPerk("danger", {
-	name = "perk_danger",
-	name_skin = "perk_danger2",
+	name = "perk_danger_costarican",
+	name_skin = "perk_danger_costarican2",
 	model_off = "models/alig96/perks/danger/danger_off.mdl",
 	model = "models/alig96/perks/danger/danger_on.mdl",
 	price = 2000,
@@ -504,8 +504,8 @@ nzPerks:NewPerk("danger", {
 })
 
 nzPerks:NewPerk("everclear", {
-	name = "perk_everclear",
-	name_skin = "perk_everclear2",
+	name = "perk_explosive_everclear",
+	name_skin = "perk_trail_blazers",
 	skin = "models/IWperks/trailblazer/everclear.mdl",
 	off_skin = 1,
 	on_skin = 0,
@@ -524,8 +524,8 @@ nzPerks:NewPerk("everclear", {
 })
 
 nzPerks:NewPerk("gin", {
-	name = "perk_gin",
-	name_skin = "perk_gin2",
+	name = "perk_juicers_gin",
+	name_skin = "perk_juicers_gin2",
 	model_off = "models/alig96/perks/gin/gin.mdl",
 	model = "models/alig96/perks/gin/gin.mdl",
 	price = 2000,
@@ -555,8 +555,8 @@ nzPerks:NewPerk("gin", {
 })
 
 nzPerks:NewPerk("phd", {
-	name = "perk_phd",
-	name_skin = "perk_phd2",
+	name = "perk_phd_flopper",
+	name_skin = "perk_bombstoppers",
 	skin = "models/IWperks/bomb/phdflopper.mdl", 
 	off_skin = 1,
 	on_skin = 0,
@@ -575,8 +575,8 @@ nzPerks:NewPerk("phd", {
 })
 
 nzPerks:NewPerk("deadshot", {
-	name = "perk_deadshot",
-	name_skin = "perk_deadshot2",
+	name = "perk_deadshot_daiquiri",
+	name_skin = "perk_deadshot_dewdrops",
 	model = "models/yolojoenshit/bo3perks/deadshot/mc_mtl_p7_zm_vending_deadshot.mdl",
 	skin = "models/IWperks/deadeye/mc_mtl_p7_zm_vending_deadshot.mdl",
 	off_skin = 1,
@@ -594,8 +594,8 @@ nzPerks:NewPerk("deadshot", {
 })
 
 nzPerks:NewPerk("mulekick", {
-	name = "perk_mulekick",
-	name_skin = "perk_mulekick2",
+	name = "perk_mule_kick",
+	name_skin = "perk_mule_munchies",
 	model = "models/yolojoenshit/bo3perks/mulekick/mc_mtl_p7_zm_vending_mulekick.mdl",
 	skin = "models/IWperks/munchies/mc_mtl_p7_zm_vending_mulekick.mdl",
 	off_skin = 1,
@@ -618,8 +618,8 @@ nzPerks:NewPerk("mulekick", {
 })
 
 nzPerks:NewPerk("tombstone", {
-	name = "perk_tombstone",
-	name_skin = "perk_tombstone2",
+	name = "perk_tombstone_soda",
+	name_skin = "perk_tombstone_soda2",
 	model_off = "models/alig96/perks/tombstone/tombstone_off.mdl",
 	model = "models/alig96/perks/tombstone/tombstone.mdl",
 	price = 2000,
@@ -652,8 +652,8 @@ nzPerks:NewPerk("whoswho", {
 })
 
 nzPerks:NewPerk("cherry", {
-	name = "perk_cherry",
-	name_skin = "perk_cherry2",
+	name = "perk_electric_cherry",
+	name_skin = "perk_blue_bolts",
 	skin = "models/IWperks/bolts/cherry.mdl",
 	off_skin = 1,
 	on_skin = 0,
@@ -689,7 +689,7 @@ nzPerks:NewPerk("vulture", {
 })
 
 nzPerks:NewPerk("wunderfizz", {
-	name = "perk_wunderfizz", -- Nothing more is needed, it is specially handled
+	name = "perk_der_wunderfizz", -- Nothing more is needed, it is specially handled
 	specialmachine = true,
 })
 

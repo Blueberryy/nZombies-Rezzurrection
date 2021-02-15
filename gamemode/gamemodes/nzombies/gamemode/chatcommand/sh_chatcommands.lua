@@ -27,23 +27,23 @@ nzChatCommand.Add("/help", SERVER, function(ply, text)
 	end
 	ply:PrintMessage( HUD_PRINTTALK, "-----" )
 	ply:PrintMessage( HUD_PRINTTALK, "" )
-end, true, translate.Get("text_help_command"))
+end, true, "   Print this list.")
 
 nzChatCommand.Add("/ready", SERVER, function(ply, text)
 	ply:ReadyUp()
-end, true, translate.Get("text_ready_command"))
+end, true, "   Mark yourself as ready.")
 
 nzChatCommand.Add("/unready", SERVER, function(ply, text)
 	ply:UnReady()
-end, true, translate.Get("text_unready_command"))
+end, true, "   Mark yourself as unready.")
 
 nzChatCommand.Add("/dropin", SERVER, function(ply, text)
 	ply:DropIn()
-end, true, translate.Get("text_dropin_command"))
+end, true, "   Drop into the next round.")
 
 nzChatCommand.Add("/dropout", SERVER, function(ply, text)
 	ply:DropOut()
-end, true, translate.Get("text_dropout_command"))
+end, true, "   Drop out of the current round.")
 
 nzChatCommand.Add("/create", SERVER, function(ply, text)
 	local plyToCreate
@@ -54,7 +54,7 @@ nzChatCommand.Add("/create", SERVER, function(ply, text)
 	else
 		ply:PrintTranslatedMessage("text_create_command_x", text[1])
 	end
-end, false, translate.Get("text_create_command"))
+end, false, "   Respawn in creative mode.")
 
 nzChatCommand.Add("/generate", SERVER, function(ply, text)
 	if navmesh.IsLoaded() then
@@ -83,7 +83,7 @@ nzChatCommand.Add("/generate", SERVER, function(ply, text)
 			ply:PrintTranslatedMessage( HUD_PRINTTALK, "text_generate_command5" )
 		end
 	end
-end, false, translate.Get("text_generate_command"))
+end, false, "   Generate a new naviagtion mesh.")
 
 nzChatCommand.Add("/save", SERVER, function(ply, text)
 	if nzRound:InState( ROUND_CREATE ) then
@@ -93,7 +93,7 @@ nzChatCommand.Add("/save", SERVER, function(ply, text)
 	else
 		ply:PrintTranslatedMessage( HUD_PRINTTALK, "text_save_command2" )
 	end
-end, false, translate.Get("text_save_command"))
+end, false, "   Save your changes to a config.")
 
 nzChatCommand.Add("/load", SERVER, function(ply, text)
 	if nzRound:InState( ROUND_CREATE) or nzRound:InState( ROUND_WAITING ) then
@@ -101,7 +101,7 @@ nzChatCommand.Add("/load", SERVER, function(ply, text)
 	else
 		ply:PrintTranslatedMessage( HUD_PRINTTALK, "text_load_command2" )
 	end
-end, false, translate.Get("text_load_command"))
+end, false, "   Open the map config load dialog.")
 
 nzChatCommand.Add("/clean", SERVER, function(ply, text)
 	if nzRound:InState( ROUND_CREATE) or nzRound:InState( ROUND_WAITING ) then
@@ -143,9 +143,9 @@ nzChatCommand.Add("/revive", SERVER, function(ply, text)
 	if IsValid(plyToRev) and !plyToRev:GetNotDowned() then
 		plyToRev:RevivePlayer()
 	else
-		ply:ChatPrint(translate.Get("text_revive_command2"))
+		ply:ChatPrint("[nZ] Player could not have been revived, are you sure he is downed?")
 	end
-end, false, translate.Get("text_revive_command"))
+end, false, "[playerName]   Revive yourself or another player.")
 
 nzChatCommand.Add("/givepoints", SERVER, function(ply, text)
 	local plyToGiv = player.GetByName(text[1])
@@ -162,12 +162,12 @@ nzChatCommand.Add("/givepoints", SERVER, function(ply, text)
 		if points then
 			plyToGiv:GivePoints(points)
 		else
-			ply:ChatPrint(translate.Get("text_givepoints_command3"))
+			ply:ChatPrint("[nZ] No valid number provided.")
 		end
 	else
-		ply:ChatPrint(translate.Get("text_givepoints_command2"))
+		ply:ChatPrint("[nZ] The player you have selected is either not valid or not alive.")
 	end
-end, false, translate.Get("text_givepoints_command"))
+end, false, "[playerName] pointAmount   Give points to yourself or another player.")
 
 nzChatCommand.Add("/giveweapon", SERVER, function(ply, text)
 	local plyToGiv = player.GetByName(text[1])
@@ -184,12 +184,12 @@ nzChatCommand.Add("/giveweapon", SERVER, function(ply, text)
 		if wep then
 			plyToGiv:Give(wep.ClassName)
 		else
-			ply:ChatPrint(translate.Get("text_giveweapon_command3"))
+			ply:ChatPrint("[nZ] No valid weapon provided.")
 		end
 	else
-		ply:ChatPrint(translate.Get("text_giveweapon_command2"))
+		ply:ChatPrint("[nZ] The player you have selected is either not valid or not alive.")
 	end
-end, false, translate.Get("text_giveweapon_command"))
+end, false, "[playerName] weaponName   Give a weapon to yourself or another player.")
 
 nzChatCommand.Add("/giveperk", SERVER, function(ply, text)
 	local plyToGiv = player.GetByName(text[1])
@@ -206,12 +206,12 @@ nzChatCommand.Add("/giveperk", SERVER, function(ply, text)
 		if nzPerks:Get(perk) then
 			plyToGiv:GivePerk(perk)
 		else
-			ply:ChatPrint(translate.Get("text_giveperk_command3"))
+			ply:ChatPrint("[nZ] No valid perk provided.")
 		end
 	else
-		ply:ChatPrint(translate.Get("text_giveperk_command2"))
+		ply:ChatPrint("[nZ] They player you have selected is either not valid or not alive.")
 	end
-end, false, translate.Get("text_giveperk_command"))
+end, false, "[playerName] perkID   Give a perk to yourself or another player.")
 
 nzChatCommand.Add("/targetpriority", SERVER, function(ply, text)
 	local plyToGiv
@@ -238,10 +238,10 @@ nzChatCommand.Add("/targetpriority", SERVER, function(ply, text)
 		if priority then
 			plyToGiv:SetTargetPriority(priority)
 		else
-			ply:ChatPrintTranslated("text_targetpriority2_command")
+			ply:ChatPrint("[nZ] No valid priority provided.")
 		end
 	else
-		ply:ChatPrintTranslated("text_targetpriority_command")
+		ply:ChatPrint("[nZ] The player you have selected is either not valid or not alive.")
 	end
 end)
 
@@ -259,7 +259,7 @@ nzChatCommand.Add("/tools", SERVER, function(ply, text)
 		ply:Give("weapon_physgun")
 		ply:Give("nz_multi_tool")
 	end
-end, true, translate.Get("text_tools_command"))
+end, true, "Give creative mode tools to yourself if in Creative.")
 
 nzChatCommand.Add("/maxammo", SERVER, function(ply, text)
 	nzNotifications:PlaySound("nz/powerups/max_ammo.mp3", 2)
@@ -267,4 +267,4 @@ nzChatCommand.Add("/maxammo", SERVER, function(ply, text)
 	for k,v in pairs(player.GetAll()) do
 		v:GiveMaxAmmo()
 	end
-end, false, translate.Get("text_maxammo_command"))
+end, false, "Gives all players max ammo.")

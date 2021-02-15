@@ -1,6 +1,6 @@
 nzTools:CreateTool("door", {
-	displayname = "Door Locker",
-	desc = "LMB: Apply Door Data, RMB: Remove Door Data, C: Change Properties",
+	displayname = translate.Get("door_locker_tool"),
+	desc = translate.Get("door_locker_tool_tip"),
 	condition = function(wep, ply)
 		return true
 	end,
@@ -35,8 +35,8 @@ nzTools:CreateTool("door", {
 
 	end
 }, {
-	displayname = "Door Locker",
-	desc = "LMB: Apply Door Data, RMB: Remove Door Data, C: Change Properties",
+	displayname = translate.Get("door_locker_tool"),
+	desc = translate.Get("door_locker_tool_tip"),
 	icon = "icon16/lock.png",
 	weight = 3,
 	condition = function(wep, ply)
@@ -90,35 +90,35 @@ nzTools:CreateTool("door", {
 		-- Although only if not opened via context menu! Context menu should NOT sync tools, causing tool mismatches!
 		if !context then DProperties.UpdateData(DProperties.CompileData()) end
 
-		local Row1 = DProperties:CreateRow( "Door Settings", "Enable Flag?" )
+		local Row1 = DProperties:CreateRow( translate.Get("door_locker_door_settings"), translate.Get("tools_enable_flag") )
 		Row1:Setup( "Boolean" )
 		Row1:SetValue( valz["Row1"] )
 		Row1.DataChanged = function( _, val ) valz["Row1"] = val DProperties.UpdateData(DProperties.CompileData()) end
-		local Row2 = DProperties:CreateRow( "Door Settings", "Flag" )
+		local Row2 = DProperties:CreateRow( translate.Get("door_locker_door_settings"), translate.Get("tools_flag_x") )
 		Row2:Setup( "Integer" )
 		Row2:SetValue( valz["Row2"] )
 		Row2.DataChanged = function( _, val ) valz["Row2"] = val DProperties.UpdateData(DProperties.CompileData()) end
-		local Row3 = DProperties:CreateRow( "Door Settings", "Price" )
+		local Row3 = DProperties:CreateRow( translate.Get("door_locker_door_settings"), translate.Get("tools_price_x") )
 		Row3:Setup( "Integer" )
 		Row3:SetValue( valz["Row3"] )
 		Row3.DataChanged = function( _, val ) valz["Row3"] = val DProperties.UpdateData(DProperties.CompileData()) end
-		local Row4 = DProperties:CreateRow( "Door Settings", "Requires Electricity?" )
+		local Row4 = DProperties:CreateRow( translate.Get("door_locker_door_settings"), translate.Get("tools_requires_electricity") )
 		Row4:Setup( "Boolean" )
 		Row4:SetValue( valz["Row4"] )
 		Row4.DataChanged = function( _, val ) valz["Row4"] = val DProperties.UpdateData(DProperties.CompileData()) end
 
 		if nzTools.Advanced then
-			local Row5 = DProperties:CreateRow( "Advanced Door Settings", "Purchaseable?" )
+			local Row5 = DProperties:CreateRow( translate.Get("door_locker_advdoor_settings"), translate.Get("tools_purchaseable") )
 			Row5:Setup( "Boolean" )
 			Row5:SetValue( valz["Row5"] )
 			Row5.DataChanged = function( _, val ) valz["Row5"] = val DProperties.UpdateData(DProperties.CompileData()) end
-			local Row6 = DProperties:CreateRow( "Advanced Door Settings", "Rebuyable?" )
+			local Row6 = DProperties:CreateRow( translate.Get("door_locker_advdoor_settings"), translate.Get("tools_rebuyable") )
 			Row6:Setup( "Boolean" )
 			Row6:SetValue( valz["Row6"] )
 			Row6.DataChanged = function( _, val ) valz["Row6"] = val DProperties.UpdateData(DProperties.CompileData()) end
 		else
 			local text = vgui.Create("DLabel", DProperties)
-			text:SetText("Enable Advanced Mode for more options.")
+			text:SetText(translate.Get("tools_advanced_mode_for_more_options"))
 			text:SetFont("Trebuchet18")
 			text:SetTextColor( Color(50, 50, 50) )
 			text:SizeToContents()

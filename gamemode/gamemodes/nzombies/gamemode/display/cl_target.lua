@@ -121,16 +121,16 @@ local traceents = {
 
 		return text
 	end,
-	["player_spawns"] = function() if nzRound:InState( ROUND_CREATE ) then return "Player Spawn" end end,
-	["nz_spawn_zombie_normal"] = function() if nzRound:InState( ROUND_CREATE ) then return "Zombie Spawn" end end,
-	["nz_spawn_zombie_special"] = function() if nzRound:InState( ROUND_CREATE ) then return "Zombie Special Spawn" end end,
-	["nz_spawn_zombie_boss"] = function() if nzRound:InState( ROUND_CREATE ) then return "Zombie Boss Spawn" end end,
+	["player_spawns"] = function() if nzRound:InState( ROUND_CREATE ) then return translate.Get("player_spawn_entity_name") end end,
+	["nz_spawn_zombie_normal"] = function() if nzRound:InState( ROUND_CREATE ) then return translate.Get("zombie_spawn_entity_name") end end,
+	["nz_spawn_zombie_special"] = function() if nzRound:InState( ROUND_CREATE ) then return translate.Get("zombie_special_spawn_entity_name") end end,
+	["nz_spawn_zombie_boss"] = function() if nzRound:InState( ROUND_CREATE ) then return translate.Get("zombie_boss_spawn_entity_name") end end,
 	["pap_weapon_trigger"] = function(ent)
 		local wepclass = ent:GetWepClass()
 		local wep = weapons.Get(wepclass)
 		local name = translate.Get("unknown")
 		if wep != nil then
-			name = nz.Display_PaPNames[wepclass] or nz.Display_PaPNames[wep.PrintName] or "Upgraded "..wep.PrintName
+			name = nz.Display_PaPNames[wepclass] or nz.Display_PaPNames[wep.PrintName] or translate.Format("upgraded_x_weapon", wep.PrintName)
 		end
 		name = translate.Format("press_e_to_take_perk_from_the_machine", name)
 

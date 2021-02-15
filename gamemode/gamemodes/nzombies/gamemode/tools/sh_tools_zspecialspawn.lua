@@ -1,6 +1,6 @@
 nzTools:CreateTool("zspecialspawn", {
-	displayname = "Special Spawn Creator",
-	desc = "LMB: Place Spawnpoint, RMB: Remove Spawnpoint",
+	displayname = translate.Get("zombie_special_spawn_creator_tool"),
+	desc = translate.Get("zombie_special_spawn_creator_tool_tip"),
 	condition = function(wep, ply)
 		-- Function to check whether a player can access this tool - always accessible
 		return true
@@ -40,8 +40,8 @@ nzTools:CreateTool("zspecialspawn", {
 
 	end
 }, {
-	displayname = "Special Spawn Creator",
-	desc = "LMB: Place Spawnpoint, RMB: Remove Spawnpoint",
+	displayname = translate.Get("zombie_special_spawn_creator_tool"),
+	desc = translate.Get("zombie_special_spawn_creator_tool_tip"),
 	icon = "icon16/user_red.png",
 	weight = 2,
 	condition = function(wep, ply)
@@ -74,24 +74,24 @@ nzTools:CreateTool("zspecialspawn", {
 			nzTools:SendData(data, "zspecialspawn")
 		end
 
-		local Row1 = DProperties:CreateRow( "Zombie Spawn", "Enable Flag?" )
+		local Row1 = DProperties:CreateRow( translate.Get("zombie_spawn_entity_name"), translate.Get("tools_enable_flag") )
 		Row1:Setup( "Boolean" )
 		Row1:SetValue( valz["Row1"] )
 		Row1.DataChanged = function( _, val ) valz["Row1"] = val DProperties.UpdateData(DProperties.CompileData()) end
-		local Row2 = DProperties:CreateRow( "Zombie Spawn", "Flag" )
+		local Row2 = DProperties:CreateRow( translate.Get("zombie_spawn_entity_name"), translate.Get("tools_flag_x") )
 		Row2:Setup( "Integer" )
 		Row2:SetValue( valz["Row2"] )
 		Row2.DataChanged = function( _, val ) valz["Row2"] = val DProperties.UpdateData(DProperties.CompileData()) end
 
 		local text = vgui.Create("DLabel", DProperties)
-		text:SetText("Special Spawnpoints apply to Hellhounds")
+		text:SetText(translate.Get("zombie_special_spawn_creator_help"))
 		text:SetFont("Trebuchet18")
 		text:SetTextColor( Color(50, 50, 50) )
 		text:SizeToContents()
 		text:Center()
 
 		local text2 = vgui.Create("DLabel", DProperties)
-		text2:SetText("and for respawning with Who's Who")
+		text2:SetText(translate.Get("zombie_special_spawn_creator_help2"))
 		text2:SetFont("Trebuchet18")
 		text2:SetPos(0, 95)
 		text2:SetTextColor( Color(50, 50, 50) )

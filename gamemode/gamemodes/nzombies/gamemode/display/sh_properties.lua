@@ -5,7 +5,7 @@
 ]]
 
 properties.Add( "nz_remove", {
-	MenuLabel = "Remove",
+	MenuLabel = "#remove",
 	Order = 1000,
 	MenuIcon = "icon16/delete.png",
 
@@ -53,7 +53,7 @@ properties.Add( "nz_remove", {
 } )
 
 properties.Add( "nz_editentity", {
-	MenuLabel = "Edit Properties...",
+	MenuLabel = "#entedit",
 	Order = 90010,
 	PrependSpacer = true,
 	MenuIcon = "icon16/pencil.png",
@@ -91,7 +91,7 @@ properties.Add( "nz_editentity", {
 } )
 
 properties.Add( "nz_lock", {
-	MenuLabel = "Edit Lock...",
+	MenuLabel = translate.Get("creative_context_edit_lock_button"),
 	Order = 9001,
 	PrependSpacer = true,
 	MenuIcon = "icon16/lock_edit.png",
@@ -111,7 +111,7 @@ properties.Add( "nz_lock", {
 		local frame = vgui.Create("DFrame")
 		frame:SetPos( 100, 100 )
 		frame:SetSize( 300, 280 )
-		frame:SetTitle( "Edit Lock..." )
+		frame:SetTitle( translate.Get("creative_context_edit_lock_button") )
 		frame:SetVisible( true )
 		frame:SetDraggable( true )
 		frame:ShowCloseButton( true )
@@ -139,7 +139,7 @@ properties.Add( "nz_lock", {
 		end
 		
 		local submit = vgui.Create("DButton", frame)
-		submit:SetText("Submit")
+		submit:SetText(translate.Get("creative_submit_button"))
 		submit:SetPos(50, 245)
 		submit:SetSize(200, 25)
 		submit.DoClick = function(self2)
@@ -160,7 +160,7 @@ properties.Add( "nz_lock", {
 } )
 
 properties.Add( "nz_unlock", {
-	MenuLabel = "Unlock",
+	MenuLabel = translate.Get("creative_context_unlock_button"),
 	Order = 9002,
 	PrependSpacer = false,
 	MenuIcon = "icon16/lock_delete.png",
@@ -199,7 +199,7 @@ properties.Add( "nz_unlock", {
 } )
 
 properties.Add( "nz_editzspawn", {
-	MenuLabel = "Edit Spawnpoint...",
+	MenuLabel = translate.Get("creative_context_edit_spawnpoint"),
 	Order = 9003,
 	PrependSpacer = true,
 	MenuIcon = "icon16/link_edit.png",
@@ -219,7 +219,7 @@ properties.Add( "nz_editzspawn", {
 		local frame = vgui.Create("DFrame")
 		frame:SetPos( 100, 100 )
 		frame:SetSize( 300, 280 )
-		frame:SetTitle( "Edit Spawnpoint..." )
+		frame:SetTitle( translate.Get("creative_context_edit_spawnpoint") )
 		frame:SetVisible( true )
 		frame:SetDraggable( true )
 		frame:ShowCloseButton( true )
@@ -246,7 +246,7 @@ properties.Add( "nz_editzspawn", {
 		end
 		
 		local submit = vgui.Create("DButton", frame)
-		submit:SetText("Submit")
+		submit:SetText(translate.Get("creative_submit_button"))
 		submit:SetPos(50, 245)
 		submit:SetSize(200, 25)
 		submit.DoClick = function(self2)
@@ -269,7 +269,7 @@ properties.Add( "nz_editzspawn", {
 } )
 
 properties.Add( "nz_nocollide_on", {
-	MenuLabel = "Disable Collisions",
+	MenuLabel = "#collision_off",
 	Order = 9006,
 	PrependSpacer = true,
 	MenuIcon = "icon16/collision_off.png",
@@ -302,7 +302,7 @@ properties.Add( "nz_nocollide_on", {
 } )
 
 properties.Add( "nz_nocollide_off", {
-	MenuLabel = "Enable Collisions",
+	MenuLabel = "#collision_on",
 	Order = 9007,
 	PrependSpacer = true,
 	MenuIcon = "icon16/collision_on.png",

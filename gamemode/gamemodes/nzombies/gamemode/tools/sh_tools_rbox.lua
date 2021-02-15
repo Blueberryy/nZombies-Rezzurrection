@@ -1,6 +1,6 @@
 nzTools:CreateTool("rbox", {
-	displayname = "Random Box Spawnpoint",
-	desc = "LMB: Place Random Box Spawnpoint, RMB: Remove Random Box Spawnpoint",
+	displayname = translate.Get("random_box_spawnpoint_tool"),
+	desc = translate.Get("random_box_spawnpoint_tool_tip"),
 	condition = function(wep, ply)
 		return true
 	end,
@@ -24,8 +24,8 @@ nzTools:CreateTool("rbox", {
 
 	end
 }, {
-	displayname = "Random Box Spawnpoint",
-	desc = "LMB: Place Random Box Spawnpoint, RMB: Remove Random Box Spawnpoint",
+	displayname = translate.Get("random_box_spawnpoint_tool"),
+	desc = translate.Get("random_box_spawnpoint_tool_tip"),
 	icon = "icon16/briefcase.png",
 	weight = 4,
 	condition = function(wep, ply)
@@ -48,7 +48,7 @@ nzTools:CreateTool("rbox", {
 			nzTools:SendData(data, "rbox")
 		end
 
-		local Row1 = DProperties:CreateRow( "Random Box", "Possible Spawn?" )
+		local Row1 = DProperties:CreateRow( translate.Get("tools_random_box"), translate.Get("tools_possible_spawn") )
 		Row1:Setup( "Boolean" )
 		Row1:SetValue( valz["Row1"] )
 		Row1.DataChanged = function( _, val ) valz["Row1"] = val DProperties.UpdateData(DProperties.CompileData()) end

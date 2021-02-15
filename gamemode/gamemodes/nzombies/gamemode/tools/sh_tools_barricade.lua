@@ -1,6 +1,6 @@
 nzTools:CreateTool("barricade", {
-	displayname = "Barricade Creator",
-	desc = "LMB: Place Barricade, RMB: Remove Barricade",
+	displayname = translate.Get("barricade_creator_tool"),
+	desc = translate.Get("barricade_creator_tool_tip"),
 	condition = function(wep, ply)
 		return true
 	end,
@@ -28,8 +28,8 @@ nzTools:CreateTool("barricade", {
 
 	end
 }, {
-	displayname = "Barricade Creator",
-	desc = "LMB: Place Barricade, RMB: Remove Barricade",
+	displayname = translate.Get("barricade_creator_tool"),
+	desc = translate.Get("barricade_creator_tool_tip"),
 	icon = "icon16/door.png",
 	weight = 7,
 	condition = function(wep, ply)
@@ -57,11 +57,11 @@ nzTools:CreateTool("barricade", {
 			nzTools:SendData(data, "barricade")
 		end
 
-		local Row1 = DProperties:CreateRow( "Barricade", "Has Planks?" )
+		local Row1 = DProperties:CreateRow( translate.Get("tool_barricade"), translate.Get("tool_barricade_has_planks") )
 		Row1:Setup( "Boolean" )
 		Row1:SetValue( valz["Row1"] )
 		Row1.DataChanged = function( _, val ) valz["Row1"] = val DProperties.UpdateData(DProperties.CompileData()) end
-		local Row2 = DProperties:CreateRow( "Barricade", "Jump Animations?" )
+		local Row2 = DProperties:CreateRow( translate.Get("tool_barricade"), translate.Get("tool_barricade_jump_animations") )
 		Row2:Setup( "Boolean" )
 		Row2:SetValue( valz["Row2"] )
 		Row2.DataChanged = function( _, val ) valz["Row2"] = val DProperties.UpdateData(DProperties.CompileData()) end

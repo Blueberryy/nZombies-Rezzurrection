@@ -145,7 +145,7 @@ local function DrawDownedNotify()
 		local rply = nzRevive.Players[LocalPlayer():EntIndex()].RevivePlayer
 		
 		if IsValid(rply) and rply:IsPlayer() then
-			text = rply:Nick().." is reviving you!"
+			text = translate.Format("x_is_reviving_you", rply:Nick())
 		end
 		draw.SimpleText(text, font, ScrW() / 2, ScrH() * 0.9, Color(200, 0, 0,255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
 	end

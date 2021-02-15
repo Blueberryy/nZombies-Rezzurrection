@@ -26,7 +26,7 @@ else
 		local frame = vgui.Create("DFrame")
 		frame:SetSize(400, 500)
 		frame:Center()
-		frame:SetTitle("Config Loading Mismatch!")
+		frame:SetTitle(translate.Get("config_loading_mismatch_title"))
 		frame:MakePopup()
 
 		local sheet = vgui.Create("DPropertySheet", frame)
@@ -41,7 +41,7 @@ else
 				corrected = true
 			end
 			if corrected then
-				chat.AddText("Applied default actions on the rest of the mismatches, some entities may have disappeared.")
+				chat.AddText(translate.Get("config_loading_mismatch_applied_disappeared"))
 			end
 		end
 
@@ -66,7 +66,7 @@ else
 			if !IsValid(newtab) then
 				sheet.sheets[tab] = nil
 				frame:Close()
-				chat.AddText("Remember to re-save the cleaned config if you don't want to go through this every time.")
+				chat.AddText(translate.Get("config_loading_mismatch_remind"))
 				return
 			end
 			sheet:SetActiveTab(newtab)
@@ -80,7 +80,7 @@ else
 		end
 		
 		local submit = vgui.Create("DButton", frame)
-		submit:SetText("Submit Changes")
+		submit:SetText(translate.Get("config_loading_mismatch_submit_changes"))
 		submit:SetSize(200, 30)
 		submit:SetPos(90, 465)
 		submit:CenterHorizontal()
@@ -149,7 +149,7 @@ end, function(frame)
 	for k,v in pairs(nzMapping.MismatchData["Wall Buys"]) do
 		local choice = properties:CreateRow( "Missing Weapons", k )
 		choice:Setup( "Combo", {} )
-		choice:AddChoice( " Remove ...", "nz_removeweapon", true )
+		choice:AddChoice( translate.Get("config_loading_mismatch_remove"), "nz_removeweapon", true )
 		nzMapping.MismatchData["Wall Buys"][k] = "nz_removeweapon"
 		for _, v2 in pairs(weapons.GetList()) do
 			if v2.Category and v2.Category != "" then
@@ -212,7 +212,7 @@ end, function(frame)
 	for k,v in pairs(nzMapping.MismatchData["Perks"]) do
 		local choice = properties:CreateRow( "Invalid Perks", k )
 		choice:Setup( "Combo", {} )
-		choice:AddChoice( " Remove ...", "nz_removeperk", true )
+		choice:AddChoice( translate.Get("config_loading_mismatch_remove"), "nz_removeperk", true )
 		nzMapping.MismatchData["Perks"][k] = "nz_removeperk"
 		for k2, v2 in pairs(weapons.GetList()) do
 			choice:AddChoice(v2.name or k2, k2, false)
@@ -276,7 +276,7 @@ CreateMismatchCheck("Map Settings", function()
 		local tbl = nzMapping.MismatchData["Map Settings"]
 
 		if tbl.startwep then
-			local choice = properties:CreateRow( "Start Weapon", tbl.startwep )
+			local choice = properties:CreateRow( translate.Get("config_loading_mismatch_start_weapon"), tbl.startwep )
 			choice:Setup( "Combo", {} )
 			for k,v2 in pairs(weapons.GetList()) do
 				choice:AddChoice(v2.PrintName and v2.PrintName != "" and v2.PrintName or v2.ClassName, v2.ClassName, false)
@@ -286,24 +286,24 @@ CreateMismatchCheck("Map Settings", function()
 			end
 		end
 		if tbl.specialroundtype then
-			local choice = properties:CreateRow( "Special Round", tbl.specialroundtype )
+			local choice = properties:CreateRow( translate.Get("config_loading_mismatch_special_round"), tbl.specialroundtype )
 			choice:Setup( "Combo", {} )
 			for k,v in pairs(nzRound.SpecialData) do
 				choice:AddChoice(k, k, false)
 			end
-			choice:AddChoice(" None", "None", true)
+			choice:AddChoice(translate.Get("config_loading_mismatch_none"), "None", true)
 			nzMapping.MismatchData["Map Settings"]["specialroundtype"] = "None" -- Default
 			choice.DataChanged = function(self, val)
 				nzMapping.MismatchData["Map Settings"]["specialroundtype"] = val
 			end
 		end
 		if tbl.bosstype then
-			local choice = properties:CreateRow( "Boss", tbl.bosstype )
+			local choice = properties:CreateRow( translate.Get("config_loading_mismatch_boss"), tbl.bosstype )
 			choice:Setup( "Combo", {} )
 			for k,v in pairs(nzRound.BossData) do
 				choice:AddChoice(k, k, false)
 			end
-			choice:AddChoice(" None", "None", true)
+			choice:AddChoice(translate.Get("config_loading_mismatch_none"), "None", true)
 			nzMapping.MismatchData["Map Settings"]["bosstype"] = "None" -- Default
 			choice.DataChanged = function(self, val)
 				nzMapping.MismatchData["Map Settings"]["bosstype"] = val
@@ -353,7 +353,7 @@ CreateMismatchCheck("Map Script", function()
 		pnl:SetSize(380, 425)
 		
 		local txt = vgui.Create("DLabel", pnl)
-		txt:SetText("Map Script Load")
+		txt:SetText(translate.Get("config_loading_mismatch_map_script_load"))
 		txt:SetFont("DermaLarge")
 		txt:SetTextColor(Color(75,75,75))
 		txt:SizeToContents()
@@ -361,7 +361,7 @@ CreateMismatchCheck("Map Script", function()
 		txt:CenterHorizontal()
 		
 		local txt2 = vgui.Create("DLabel", pnl)
-		txt2:SetText("This config is attempting to load a lua script along with it.")
+		txt2:SetText(translate.Get("config_loading_mismatch_map_script_load_info"))
 		txt2:SetTextColor(Color(75,75,75))
 		txt2:SetFont("Trebuchet18")
 		txt2:SizeToContents()
@@ -369,7 +369,7 @@ CreateMismatchCheck("Map Script", function()
 		txt2:CenterHorizontal()
 		
 		local txt3 = vgui.Create("DLabel", pnl)
-		txt3:SetText("Lua scripts can be potentially dangerous as they can do")
+		txt3:SetText(translate.Get("config_loading_mismatch_map_script_load_info2"))
 		txt3:SetTextColor(Color(75,75,75))
 		txt3:SetFont("Trebuchet18")
 		txt3:SizeToContents()
@@ -377,7 +377,7 @@ CreateMismatchCheck("Map Script", function()
 		txt3:CenterHorizontal()
 		
 		local txt4 = vgui.Create("DLabel", pnl)
-		txt4:SetText("anything any other addon or gamemode could potentially do.")
+		txt4:SetText(translate.Get("config_loading_mismatch_map_script_load_info3"))
 		txt4:SetTextColor(Color(75,75,75))
 		txt4:SetFont("Trebuchet18")
 		txt4:SizeToContents()
@@ -385,7 +385,7 @@ CreateMismatchCheck("Map Script", function()
 		txt4:CenterHorizontal()
 		
 		local txt5 = vgui.Create("DLabel", pnl)
-		txt5:SetText("including kicking, banning, saving data, and more.")
+		txt5:SetText(translate.Get("config_loading_mismatch_map_script_load_info4"))
 		txt5:SetTextColor(Color(175,75,75))
 		txt5:SetFont("Trebuchet18")
 		txt5:SizeToContents()
@@ -393,7 +393,7 @@ CreateMismatchCheck("Map Script", function()
 		txt5:CenterHorizontal()
 		
 		local txt6 = vgui.Create("DLabel", pnl)
-		txt6:SetText("However map scripts is what allows special events,")
+		txt6:SetText(translate.Get("config_loading_mismatch_map_script_load_info5"))
 		txt6:SetTextColor(Color(75,75,75))
 		txt6:SetFont("Trebuchet18")
 		txt6:SizeToContents()
@@ -401,7 +401,7 @@ CreateMismatchCheck("Map Script", function()
 		txt6:CenterHorizontal()
 		
 		local txt7 = vgui.Create("DLabel", pnl)
-		txt7:SetText("objectives, or whole easter eggs to be coded directly.")
+		txt7:SetText(translate.Get("config_loading_mismatch_map_script_load_info6"))
 		txt7:SetTextColor(Color(75,75,75))
 		txt7:SetFont("Trebuchet18")
 		txt7:SizeToContents()
@@ -409,7 +409,7 @@ CreateMismatchCheck("Map Script", function()
 		txt7:CenterHorizontal()
 		
 		local txt8 = vgui.Create("DLabel", pnl)
-		txt8:SetText("Load scripts from configs you trust or have verified yourself.")
+		txt8:SetText(translate.Get("config_loading_mismatch_map_script_load_info7"))
 		txt8:SetTextColor(Color(75,75,75))
 		txt8:SetFont("Trebuchet18")
 		txt8:SizeToContents()
@@ -417,7 +417,7 @@ CreateMismatchCheck("Map Script", function()
 		txt8:CenterHorizontal()
 		
 		local txt9 = vgui.Create("DLabel", pnl)
-		txt9:SetText("This config claims to do the following:")
+		txt9:SetText(translate.Get("config_loading_mismatch_map_script_load_info8"))
 		txt9:SetTextColor(Color(75,75,75))
 		txt9:SetFont("Trebuchet18")
 		txt9:SizeToContents()
@@ -427,14 +427,14 @@ CreateMismatchCheck("Map Script", function()
 		local txt10 = vgui.Create("DLabel", pnl)
 		txt10:SetSize(350, 100)
 		txt10:SetWrap(true)
-		txt10:SetText(nzMapping.Settings.scriptinfo or "- no description -")
+		txt10:SetText(nzMapping.Settings.scriptinfo or translate.Get("config_loading_mismatch_load_script_no_description"))
 		txt10:SetTextColor(Color(75,175,75))
 		txt10:SetFont("Trebuchet18")
 		txt10:SetPos(0, 210)
 		txt10:CenterHorizontal()
 		
 		local txt11 = vgui.Create("DLabel", pnl)
-		txt11:SetText("Load Script?")
+		txt11:SetText(translate.Get("config_loading_mismatch_load_script"))
 		txt11:SetTextColor(Color(75,75,75))
 		txt11:SetFont("Trebuchet18")
 		txt11:SizeToContents()
@@ -442,7 +442,7 @@ CreateMismatchCheck("Map Script", function()
 		txt11:CenterHorizontal()
 		
 		local yes = vgui.Create("DButton", pnl)
-		yes:SetText("Yes")
+		yes:SetText(translate.Get("config_loading_mismatch_load_script_yes"))
 		yes:SetSize(75, 20)
 		yes:SetPos(100, 340)
 		yes.DoClick = function()
@@ -455,7 +455,7 @@ CreateMismatchCheck("Map Script", function()
 		end
 		
 		local no = vgui.Create("DButton", pnl)
-		no:SetText("No")
+		no:SetText(translate.Get("config_loading_mismatch_load_script_no"))
 		no:SetSize(75, 20)
 		no:SetPos(200, 340)
 		no.DoClick = function()
@@ -468,7 +468,7 @@ CreateMismatchCheck("Map Script", function()
 		end
 		
 		local txt12 = vgui.Create("DLabel", pnl)
-		txt12:SetText("Clicking submit or closing will make it not load.")
+		txt12:SetText(translate.Get("config_loading_mismatch_click_submit_no_load"))
 		txt12:SetTextColor(Color(75,75,75))
 		txt12:SetFont("Trebuchet18")
 		txt12:SizeToContents()
@@ -518,9 +518,9 @@ end, function(frame)
 	properties:SetSize(380, 420)
 
 	for k,v in pairs(nzMapping.MismatchData["Random Box Weapons"]) do
-		local choice = properties:CreateRow( "Missing Box Weapons", k )
+		local choice = properties:CreateRow( translate.Get("config_loading_mismatch_missing_box_weapons"), k )
 		choice:Setup( "Combo", {} )
-		choice:AddChoice( " Remove ...", "nz_removeweapon", true )
+		choice:AddChoice( translate.Get("config_loading_mismatch_remove"), "nz_removeweapon", true )
 		nzMapping.MismatchData["Random Box Weapons"][k] = "nz_removeweapon"
 		for _, v2 in pairs(weapons.GetList()) do
 			if !v2.NZPreventBox and !v2.NZTotalBlacklist then

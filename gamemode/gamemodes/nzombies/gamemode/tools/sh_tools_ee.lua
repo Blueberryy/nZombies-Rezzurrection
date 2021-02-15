@@ -1,6 +1,6 @@
 nzTools:CreateTool("ee", {
-	displayname = "Easter Egg Placer",
-	desc = "LMB: Easter Egg, RMB: Remove Easter Egg, Use Player Handler to select song",
+	displayname = translate.Get("easter_egg_placer_tool"),
+	desc = translate.Get("easter_egg_placer_tool_tip"),
 	condition = function(wep, ply)
 		return true
 	end,
@@ -22,8 +22,8 @@ nzTools:CreateTool("ee", {
 
 	end
 }, {
-	displayname = "Easter Egg Placer",
-	desc = "LMB: Easter Egg, RMB: Remove Easter Egg, Use Player Handler to select song",
+	displayname = translate.Get("easter_egg_placer_tool"),
+	desc = translate.Get("easter_egg_placer_tool_tip"),
 	icon = "icon16/music.png",
 	weight = 20,
 	condition = function(wep, ply)
@@ -35,8 +35,8 @@ nzTools:CreateTool("ee", {
 	--defaultdata = {}
 })
 nzTools:CreateTool("usable_ending", {
-	displayname = "Ending Placer",
-	desc = "LMB: Place Ending Prop, RMB: Remove , When interacted with, ends game",
+	displayname = translate.Get("ending_placer_tool"),
+	desc = translate.Get("ending_placer_tool_tip"),
 	condition = function(wep, ply)
 		return true
 	end,
@@ -58,8 +58,8 @@ nzTools:CreateTool("usable_ending", {
 
 	end
 }, {
-	displayname = "Ending Placer",
-	desc = "LMB: Place Ending Prop, RMB: Remove , When interacted with, ends game",
+	displayname = translate.Get("ending_placer_tool"),
+	desc = translate.Get("ending_placer_tool_tip"),
 	icon = "icon16/tick.png",
 	weight = 20,
 	condition = function(wep, ply)

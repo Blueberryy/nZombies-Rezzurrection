@@ -83,8 +83,8 @@ function nzTools:GetList()
 end
 
 nzTools:CreateTool("default", {
-	displayname = "Multitool",
-	desc = "Hold Q to pick a tool to use",
+	displayname = translate.Get("weapon_multitool"),
+	desc = translate.Get("weapon_multitool_tip"),
 	condition = function(wep, ply)
 		return false
 	end,
@@ -104,14 +104,14 @@ nzTools:CreateTool("default", {
 
 	end
 }, {
-	displayname = "Multitool",
-	desc = "Hold Q to pick a tool to use",
+	displayname = translate.Get("weapon_multitool"),
+	desc = translate.Get("weapon_multitool_tip"),
 	condition = function(wep, ply)
 		return false
 	end,
 	interface = function(frame, data)
 		local text = vgui.Create("DLabel", frame)
-		text:SetText("Select a tool in the list to the left.")
+		text:SetText(translate.Get("weapon_multitool_help"))
 		text:SetFont("Trebuchet18")
 		text:SetTextColor( Color(50, 50, 50) )
 		text:SizeToContents()
