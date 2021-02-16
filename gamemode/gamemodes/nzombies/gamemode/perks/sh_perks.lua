@@ -53,10 +53,10 @@ function nzPerks:GetBottleMaterials()
 end
 
 function nzPerks:GetMachineType(id)
-	if id == "Original" then
+	if id == translate.Get("perk_machine_skin_original") then
 	return "OG"
 	end
-	if id == "Infinite Warfare" then
+	if id == translate.Get("perk_machine_skin_iw") then
 	return "IW"
 	end
 	if id == nil then
@@ -65,7 +65,7 @@ function nzPerks:GetMachineType(id)
 end
 
 nzPerks:NewPerk("jugg", {
-	name = "perk_jugg",
+	name = "perk_juggernog",
 	name_skin = "perk_tuff_nuff",
 	model = "models/yolojoenshit/bo3perks/juggernog/mc_mtl_p7_zm_vending_jugg.mdl",
 	skin = "models/IWperks/tuff/mc_mtl_p7_zm_vending_jugg.mdl",
@@ -224,7 +224,7 @@ nzPerks:NewPerk("pap", {
 			local cost = reroll and 2000 or 5000
 			return ply:GetPoints() >= cost
 		else
-			ply:PrintMessage( HUD_PRINTTALK, "This weapon is already Pack-a-Punched")
+			ply:PrintTranslatedMessage( HUD_PRINTTALK, "text_weapon_packapunched")
 			
 			return false
 		end

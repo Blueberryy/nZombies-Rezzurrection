@@ -2,9 +2,9 @@ AddCSLuaFile( )
 
 -- Register teh trap
 nzTraps:Register("nz_trap_zapper")
-ENT.PrintName = "Tesla Coil"
+ENT.PrintName = "trap_zapper_name"
 ENT.SpawnIcon = "models/nzprops/zapper_coil.mdl"
-ENT.Description = "Tesla trap that will kill zombies in front of it."
+ENT.Description = "trap_zapper_desc"
 
 ENT.Type = "anim"
 ENT.Base = "nz_trapbase"

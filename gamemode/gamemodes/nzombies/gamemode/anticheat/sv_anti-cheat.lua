@@ -265,7 +265,7 @@ function PLAYER:NZMoveCheater() -- Teleports them out of the cheat spot
         end)
 
         ServerLog("[NZ Anti-Cheat] " .. self:Nick() .. " was caught cheating!\n")
-        PrintMessage(HUD_PRINTTALK, "[NZ] " .. self:Nick() .. " was teleported by the Anti-Cheat.")
+        PrintTranslatedMessage(HUD_PRINTTALK, "text_anticheat_teleported_x", self:Nick()))
         hook.Call("NZAntiCheatMovedPlayer", nil, oldPos, self)
     end
 end

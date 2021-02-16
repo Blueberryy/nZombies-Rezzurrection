@@ -1,7 +1,7 @@
 local CheatFrame = {}
 
 function CheatFrame:Init()
-	self:SetTitle("Cheats")
+	self:SetTitle(translate.Get("cheats_title"))
 	self:MakePopup(true)
 	self:SetSize( 524, 256 )
 	self:SetPos( ScrW() / 2 - 256, ScrH() / 2 - 128 )
@@ -10,12 +10,12 @@ function CheatFrame:Init()
 	local list = vgui.Create("NZCheatList", self)
 	list:Dock(FILL)
 	list:SetSize(200,200)
-	list:AddCheat("Give Points", "/givepoints", "Player", "Number")
-	list:AddCheat("Give Weapon", "/giveweapon", "Player", "Weapon")
-	list:AddCheat("Give Perk", "/giveperk", "Player", "Perk")
-	list:AddCheat("Activate electricity", "/activateelec")
-	list:AddCheat("Revive", "/revive", "Player")
-	list:AddCheat("Target Priority", "/targetpriority", "PlayerEntity", "Priority")
+	list:AddCheat(translate.Get("cheats_give_points"), "/givepoints", translate.Get("cheats_player"), translate.Get("cheats_number"))
+	list:AddCheat(translate.Get("cheats_give_weapon"), "/giveweapon", translate.Get("cheats_player"), translate.Get("cheats_weapon"))
+	list:AddCheat(translate.Get("cheats_give_perk"), "/giveperk", translate.Get("cheats_player"), translate.Get("cheats_perk"))
+	list:AddCheat(translate.Get("cheats_activate_electricity"), "/activateelec")
+	list:AddCheat(translate.Get("cheats_revive"), "/revive", translate.Get("cheats_player"))
+	list:AddCheat(translate.Get("cheats_target_priority"), "/targetpriority", "PlayerEntity", "Priority")
 end
 
 vgui.Register( "NZCheatFrame", CheatFrame, "DFrame")
@@ -48,7 +48,7 @@ function CheatList:AddCheat(label, command, input1, input2, input3)
 	local cheatSubmit = vgui.Create("DButton", panel)
 	cheatSubmit:SetSize(128, 24)
 	cheatSubmit:SetPos(384,0)
-	cheatSubmit:SetText("Submit")
+	cheatSubmit:SetText(translate.Get("cheats_submit"))
 	--[[function cheatSubmit:Think()
 		if input1 and input1:GetCheatData() and input1:GetCheatData() != "" then
 			if input2 and input2:GetCheatData() and input2:GetCheatData() != "" then
@@ -88,7 +88,7 @@ local CheatInputPlayer = {}
 AccessorFunc(CheatInputPlayer, "sCheatData", "CheatData", FORCE_STRING)
 
 function CheatInputPlayer:Init()
-	self:SetValue("Player")
+	self:SetValue(translate.Get("cheats_player"))
 	self:SetWide(128)
 	self:SetTall(24)
 	for _,ply in pairs(player.GetAll()) do
@@ -109,7 +109,7 @@ local CheatInputNumber = {}
 AccessorFunc(CheatInputNumber, "fCheatData", "CheatData", FORCE_STRING)
 
 function CheatInputNumber:Init()
-	self:SetText("Number")
+	self:SetText(translate.Get("cheats_number"))
 	self:SetEditable(true)
 	self:SetWide(128)
 	self:SetTall(24)
@@ -147,7 +147,7 @@ local CheatInputWeapon = {}
 AccessorFunc(CheatInputWeapon, "sCheatData", "CheatData", FORCE_STRING)
 
 function CheatInputWeapon:Init()
-	self:SetValue("Weapon")
+	self:SetValue(translate.Get("cheats_weapon"))
 	self:SetWide(128)
 	self:SetTall(24)
 	for _,wep in pairs(weapons.GetList()) do
@@ -168,11 +168,11 @@ local CheatInputPerk = {}
 AccessorFunc(CheatInputPerk, "iCheatData", "CheatData", FORCE_STRING)
 
 function CheatInputPerk:Init()
-	self:SetValue("Perk")
+	self:SetValue(translate.Get("cheats_perk"))
 	self:SetWide(128)
 	self:SetTall(24)
 	for id, perk in pairs(nzPerks.Data) do
-		self:AddChoice(translate.Get(perk.name), id)
+		self:AddChoice(perk.name, id)
 	end
 end
 
@@ -187,15 +187,15 @@ local CheatInputPriority = {}
 AccessorFunc(CheatInputPriority, "iCheatData", "CheatData", FORCE_STRING)
 
 function CheatInputPriority:Init()
-	self:SetValue("Target")
+	self:SetValue(translate.Get("cheats_entity_target_label"))
 	self:SetWide(128)
 	self:SetTall(24)
 
-	self:AddChoice("None (0)", "0")
-	self:AddChoice("Player (1)", "1")
-	self:AddChoice("Special (2)", "2")
-	self:AddChoice("Max (3)", "3")
-	self:AddChoice("Always (10)", "10")
+	self:AddChoice(translate.Get("entity_target_type_zero"), "0")
+	self:AddChoice(translate.Get("entity_target_type_one"), "1")
+	self:AddChoice(translate.Get("entity_target_type_two"), "2")
+	self:AddChoice(translate.Get("entity_target_type_three"), "3")
+	self:AddChoice(translate.Get("entity_target_type_ten"), "10")
 end
 
 function CheatInputPriority:OnSelect(index, value, data)
@@ -218,9 +218,9 @@ function CheatInputPlayerEntity:Init()
 	end
 	local ent = LocalPlayer():GetEyeTrace().Entity
 	if IsValid(ent) then
-		self:AddChoice("Entity ["..ent:EntIndex().."] ["..ent:GetClass().."]", "entity("..ent:EntIndex()..")")
+		self:AddChoice(translate.Format("cheats_entity_target", ent:EntIndex(), ent:GetClass()), translate.Format("cheats_entity_target2", ent:EntIndex()))
 	else
-		self:AddChoice("Look at an entity to target that.", "")
+		self:AddChoice(translate.Get("cheats_entity_target_tip"), "")
 	end
 end
 

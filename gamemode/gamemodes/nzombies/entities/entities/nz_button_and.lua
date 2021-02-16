@@ -5,8 +5,8 @@ ENT.Base = "base_entity"
 
 nzLogic:Register("nz_button_and")
 ENT.SpawnIcon = "models/maxofs2d/button_03.mdl"
-ENT.PrintName = "AND Gate/Button"
-ENT.Description = "This Gate will trigger if all activators linked to this butoons are activate at the same time."
+ENT.PrintName = "logic_button_and_name"
+ENT.Description = "logic_button_and_desc"
 
 DEFINE_BASECLASS("nz_button")
 

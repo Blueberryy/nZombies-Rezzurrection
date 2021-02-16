@@ -189,7 +189,7 @@ nzPerks:NewPerk("pap", {
 			local cost = reroll and 2000 or 5000
 			return ply:GetPoints() >= cost
 		else
-			ply:PrintMessage( HUD_PRINTTALK, "This weapon is already Pack-a-Punched")
+			ply:PrintTranslatedMessage( HUD_PRINTTALK, "text_weapon_packapunched")
 			return false
 		end
 	end,

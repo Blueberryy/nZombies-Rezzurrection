@@ -53,9 +53,9 @@ function nzRound:AddMachineType(id, class)
 	end
 end
 
-nzRound:AddMachineType("Original", "nz_zombie_walker", {
+nzRound:AddMachineType(translate.Get("perk_machine_skin_original"), "nz_zombie_walker", {
 }) 
-nzRound:AddMachineType("Infinite Warfare", "nz_zombie_walker", {
+nzRound:AddMachineType(translate.Get("perk_machine_skin_iw"), "nz_zombie_walker", {
 }) 
 
 nzRound.BoxSkinData = nzRound.BoxSkinData or {}
@@ -75,11 +75,11 @@ function nzRound:AddBoxType(id, class)
 	end
 end
 
-nzRound:AddBoxType("Original", "", {}) 
-nzRound:AddBoxType("Mob of the Dead", "", {}) 
-nzRound:AddBoxType("Origins", "", {}) 
-nzRound:AddBoxType("Dead Space", "", {}) 
-nzRound:AddBoxType("Resident Evil", "", {}) 
+nzRound:AddBoxType(translate.Get("weapon_box_skin_original"), "", {}) 
+nzRound:AddBoxType(translate.Get("weapon_box_skin_mob_of_the_dead"), "", {}) 
+nzRound:AddBoxType(translate.Get("weapon_box_skin_origins"), "", {}) 
+nzRound:AddBoxType(translate.Get("weapon_box_skin_dead_space"), "", {}) 
+nzRound:AddBoxType(translate.Get("weapon_box_skin_resident_evil"), "", {}) 
 
 nzRound.HudSelectData = nzRound.HudSelectData or {}
 function nzRound:AddHUDType(id, class)
@@ -98,116 +98,116 @@ function nzRound:AddHUDType(id, class)
 	end
 end
 
-nzRound:AddHUDType("Black Ops 3", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_bo_three"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Division 9", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_division_nine"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Mob of the Dead", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_mob_of_the_dead"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Fade", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_fade"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Shadows of Evil", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_shadows_of_evil"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Black Ops 1", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_bo_one"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Buried", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_buried"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Origins (Black Ops 2)", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_origins_bo_two"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Tranzit (Black Ops 2)", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_tranzit_bo_two"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("nZombies Classic(HD)", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_nzombies_classic_hd"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Covenant", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_covenant"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("UNSC", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_unsc"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Dead Space", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_dead_space"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Devil May Cry - Dante", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_devil_may_cry_dante"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Devil May Cry - Nero", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_devil_may_cry_nero"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Devil May Cry - V", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_devil_may_cry_v"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Devil May Cry - Vergil", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_devil_may_cry_vergil"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Gears of War", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_gears_of_war"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Killing Floor 2", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_killing_floor_two"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Resident Evil", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_resident_evil"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Simple (Black)", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_simple_black"), "nz_zombie_walker", {
 }) 
-nzRound:AddHUDType("Simple (Outline)", "nz_zombie_walker", {
+nzRound:AddHUDType(translate.Get("hud_type_simple_outline"), "nz_zombie_walker", {
 }) 
 
 function nzRound:GetHUDType(id)
-	if id == "Black Ops 3" then
+	if id == translate.Get("hud_type_bo_three") then
 	return "b03_hud.png"
 	end
-	if id == "Division 9" then
+	if id == translate.Get("hud_type_division_nine") then
 	return "D9.png"
 	end
-	if id == "Mob of the Dead" then
+	if id == translate.Get("hud_type_mob_of_the_dead") then
 	return "motd.png"
 	end
-	if id == "Shadows of Evil" then
+	if id == translate.Get("hud_type_shadows_of_evil") then
 	return "soe.png"
 	end
-	if id == "Fade" then
+	if id == translate.Get("hud_type_fade") then
 	return "fade.png"
 	end
-	if id == "Black Ops 1" then
+	if id == translate.Get("hud_type_bo_one") then
 	return "bo1.png"
 	end
-		if id == "Buried" then
+		if id == translate.Get("hud_type_buried") then
 	return "buried_hud.png"
 	end
-		if id == "Origins (Black Ops 2)" then
+		if id == translate.Get("hud_type_origins_bo_two") then
 	return "origins_hud.png"
 	end
-		if id == "Tranzit (Black Ops 2)" then
+		if id == translate.Get("hud_type_tranzit_bo_two") then
 	return "tranzit_hud.png" 
 	end
-		if id == "nZombies Classic(HD)" then
+		if id == translate.Get("hud_type_nzombies_classic_hd") then
 	return "HD_hud.png"
 	end
-	if id == "Covenant" then
+	if id == translate.Get("hud_type_covenant") then
 	return "covenant_hud.png"
 	end
-	if id == "UNSC" then
+	if id == translate.Get("hud_type_unsc") then
 	return "Halo_hud.png"
 	end
-	if id == "Dead Space" then
+	if id == translate.Get("hud_type_dead_space") then
 	return "deadspace_hud.png"
 	end
-	if id == "Devil May Cry - Dante" then
+	if id == translate.Get("hud_type_devil_may_cry_dante") then
 	return "DMC_Dante__hud.png"
 	end
-	if id == "Devil May Cry - Nero" then
+	if id == translate.Get("hud_type_devil_may_cry_nero") then
 	return "DMC_Nero__hud.png"
 	end
-	if id == "Devil May Cry - V" then
+	if id == translate.Get("hud_type_devil_may_cry_v") then
 	return "DMC_V__hud.png"
 	end
-	if id == "Devil May Cry - Vergil" then
+	if id == translate.Get("hud_type_devil_may_cry_vergil") then
 	return "DMC_Vergil__hud.png"
 	end
-	if id == "Gears of War" then
+	if id == translate.Get("hud_type_gears_of_war") then
 	return "gears_hud.png"
 	end
-	if id == "Killing Floor 2" then
+	if id == translate.Get("hud_type_killing_floor_two") then
 	return "KF2__hud.png"
 	end
-	if id == "Resident Evil" then
+	if id == translate.Get("hud_type_resident_evil") then
 	return "RE_hud.png"
 	end
-	if id == "Simple (Black)" then
+	if id == translate.Get("hud_type_simple_black") then
 	return "simple_hud.png"
 	end
-	if id == "Simple (Outline)" then
+	if id == translate.Get("hud_type_simple_outline") then
 	return "simple_hud2.png"
 	end
 	if id == nil then
@@ -233,134 +233,134 @@ function nzRound:AddZombieType(id, class)
 	end
 end
 
-nzRound:AddZombieType("Kino der Toten", "nz_zombie_walker", {
+nzRound:AddZombieType(translate.Get("zombie_type_kino_der_toten"), "nz_zombie_walker", {
 }) 
-nzRound:AddZombieType("Ascension", "nz_zombie_walker_ascension", {
+nzRound:AddZombieType(translate.Get("zombie_type_ascension"), "nz_zombie_walker_ascension", {
 }) 
-nzRound:AddZombieType("Call of the Dead", "nz_zombie_walker_cotd", {
+nzRound:AddZombieType(translate.Get("zombie_type_call_of_the_dead"), "nz_zombie_walker_cotd", {
 }) 
-nzRound:AddZombieType("FIVE", "nz_zombie_walker_five", {
+nzRound:AddZombieType(translate.Get("zombie_type_five"), "nz_zombie_walker_five", {
 }) 
-nzRound:AddZombieType("Gorod Krovi", "nz_zombie_walker_gorodkrovi", {
+nzRound:AddZombieType(translate.Get("zombie_type_gorod_krovi"), "nz_zombie_walker_gorodkrovi", {
 }) 
-nzRound:AddZombieType("Mob of the Dead", "nz_zombie_walker_motd", {
+nzRound:AddZombieType(translate.Get("zombie_type_mod_of_the_dead"), "nz_zombie_walker_motd", {
 })
-nzRound:AddZombieType("Shadows of Evil", "nz_zombie_walker_soemale", {
+nzRound:AddZombieType(translate.Get("zombie_type_shadows_of_evil"), "nz_zombie_walker_soemale", {
 }) 
-nzRound:AddZombieType("Zetsubou no Shima", "nz_zombie_walker_zetsubou", {
+nzRound:AddZombieType(translate.Get("zombie_type_zetsubou_no_shima"), "nz_zombie_walker_zetsubou", {
 }) 
-nzRound:AddZombieType("Origins", "nz_zombie_walker_origins", {
+nzRound:AddZombieType(translate.Get("zombie_type_origins"), "nz_zombie_walker_origins", {
 }) 
-nzRound:AddZombieType("World War 1 Soldiers", "nz_zombie_walker_origins_soldier", {
+nzRound:AddZombieType(translate.Get("zombie_type_world_war_one_soldiers"), "nz_zombie_walker_origins_soldier", {
 }) 
-nzRound:AddZombieType("Crusader Zombies", "nz_zombie_walker_origins_templar", {
+nzRound:AddZombieType(translate.Get("zombie_type_crusader_zombies"), "nz_zombie_walker_origins_templar", {
 }) 
-nzRound:AddZombieType("Moon", "nz_zombie_walker_moon", {
+nzRound:AddZombieType(translate.Get("zombie_type_moon"), "nz_zombie_walker_moon", {
 }) 
-nzRound:AddZombieType("Area 51 Guard", "nz_zombie_walker_moon_guard", {
+nzRound:AddZombieType(translate.Get("zombie_type_area_guard"), "nz_zombie_walker_moon_guard", {
 }) 
-nzRound:AddZombieType("Moon Tech", "nz_zombie_walker_moon_tech", {
+nzRound:AddZombieType(translate.Get("zombie_type_moon_tech"), "nz_zombie_walker_moon_tech", {
 }) 
-nzRound:AddZombieType("Der Eisendrache", "nz_zombie_walker_eisendrache", {
+nzRound:AddZombieType(translate.Get("zombie_type_der_eisendrache"), "nz_zombie_walker_eisendrache", {
 }) 
-nzRound:AddZombieType("Buried", "nz_zombie_walker_buried", {
+nzRound:AddZombieType(translate.Get("zombie_type_buried"), "nz_zombie_walker_buried", {
 }) 
-nzRound:AddZombieType("Shangri-La", "nz_zombie_walker_shangrila", {
+nzRound:AddZombieType(translate.Get("zombie_type_shangrila"), "nz_zombie_walker_shangrila", {
 }) 
-nzRound:AddZombieType("Shi no Numa", "nz_zombie_walker_sumpf", {
+nzRound:AddZombieType(translate.Get("zombie_type_shi_no_numa"), "nz_zombie_walker_sumpf", {
 }) 
-nzRound:AddZombieType("Tranzit", "nz_zombie_walker_greenrun", {
+nzRound:AddZombieType(translate.Get("zombie_type_tranzit"), "nz_zombie_walker_greenrun", {
 }) 
-nzRound:AddZombieType("Nuketown", "nz_zombie_walker_nuketown", {
+nzRound:AddZombieType(translate.Get("zombie_type_nuketown"), "nz_zombie_walker_nuketown", {
 }) 
-nzRound:AddZombieType("Zombies in Spaceland", "nz_zombie_walker_clown", {
+nzRound:AddZombieType(translate.Get("zombie_type_zombies_in_spaceland"), "nz_zombie_walker_clown", {
 }) 
-nzRound:AddZombieType("Deathtrooper", "nz_zombie_walker_deathtrooper", {
+nzRound:AddZombieType(translate.Get("zombie_type_deathtrooper"), "nz_zombie_walker_deathtrooper", {
 }) 
-nzRound:AddZombieType("Skeleton", "nz_zombie_walker_skeleton", {
+nzRound:AddZombieType(translate.Get("zombie_type_skeleton"), "nz_zombie_walker_skeleton", {
 }) 
-nzRound:AddZombieType("Xenomorph", "nz_zombie_walker_xeno", {
+nzRound:AddZombieType(translate.Get("zombie_type_xenomorph"), "nz_zombie_walker_xeno", {
 }) 
-nzRound:AddZombieType("Necromorph", "nz_zombie_walker_necromorph", {
+nzRound:AddZombieType(translate.Get("zombie_type_necromorph"), "nz_zombie_walker_necromorph", {
 }) 
 
 function nzRound:GetZombieType(id)
-	if id == "Skeleton" then
+	if id == translate.Get("zombie_type_skeleton") then
 	return "nz_zombie_walker_skeleton"
 	end
-		if id == "Deathtrooper" then
+		if id == translate.Get("zombie_type_deathtrooper") then
 	return "nz_zombie_walker_deathtrooper"
 	end
 		if id == "Zombies in Spaceland" then
 	return "nz_zombie_walker_clown"
 	end
-		if id == "Tranzit" then
+		if id == translate.Get("zombie_type_tranzit") then
 	return "nz_zombie_walker_greenrun" 
 	end
-		if id == "Mob of the Dead" then
+		if id == translate.Get("zombie_type_mod_of_the_dead") then
 	return "nz_zombie_walker_motd" 
 	end
-		if id == "Nuketown" then
+		if id == translate.Get("zombie_type_nuketown") then
 	return "nz_zombie_walker_nuketown"
 	end
-	if id == "Ascension" then
+	if id == translate.Get("zombie_type_ascension") then
 	return "nz_zombie_walker_ascension"
 	end
-	if id == "Call of the Dead" then
+	if id == translate.Get("zombie_type_call_of_the_dead") then
 	return "nz_zombie_walker_cotd"
 	end
-	if id == "FIVE" then
+	if id == translate.Get("zombie_type_five") then
 	return "nz_zombie_walker_five"
 	end
-	if id == "Gorod Krovi" then
+	if id == translate.Get("zombie_type_gorod_krovi") then
 	return "nz_zombie_walker_gorodkrovi"
 	end
-	if id == "Shadows of Evil" then
+	if id == translate.Get("zombie_type_shadows_of_evil") then
 	return "nz_zombie_walker_soemale"
 	end
-	if id == "Zetsubou no Shima" then
+	if id == translate.Get("zombie_type_zetsubou_no_shima") then
 	return "nz_zombie_walker_zetsubou"
 	end
-	if id == "Xenomorph" then
+	if id == translate.Get("zombie_type_xenomorph") then
 	return "nz_zombie_walker_xeno"
 	end
-	if id == "Necromorph" then
+	if id == translate.Get("zombie_type_necromorph") then
 	return "nz_zombie_walker_necromorph"
 	end
-	if id == "Kino der Toten" then
+	if id == translate.Get("zombie_type_kino_der_toten") then
 	return "nz_zombie_walker"
 	end
-	if id == "Origins" then
+	if id == translate.Get("zombie_type_origins") then
 	return "nz_zombie_walker_origins"
 	end
-	if id == "World War 1 Soldiers" then
+	if id == translate.Get("zombie_type_world_war_one_soldiers") then
 	return "nz_zombie_walker_origins_soldier"
 	end
-	if id == "Origins" then
+	if id == translate.Get("zombie_type_origins") then
 	return "nz_zombie_walker_origins"
 	end
-	if id == "Crusader Zombies" then
+	if id == translate.Get("zombie_type_crusader_zombies") then
 	return "nz_zombie_walker_origins_templar"
 	end
-	if id == "Moon" then
+	if id == translate.Get("zombie_type_moon") then
 	return "nz_zombie_walker_moon"
 	end
-	if id == "Moon Tech" then
+	if id == translate.Get("zombie_type_moon_tech") then
 	return "nz_zombie_walker_moon_guard"
 	end
-	if id == "Area 51 Guard" then
+	if id == translate.Get("zombie_type_area_guard") then
 	return "nz_zombie_walker_moon_guard"
 	end
-	if id == "Buried" then
+	if id == translate.Get("zombie_type_buried") then
 	return "nz_zombie_walker_buried"
 	end
-	if id == "Der Eisendrache" then
+	if id == translate.Get("zombie_type_der_eisendrache") then
 	return "nz_zombie_walker_eisendrache"
 	end
-	if id == "Shangri-La" then
+	if id == translate.Get("zombie_type_shangrila") then
 	return "nz_zombie_walker_shangrila"
 	end
-	if id == "Shi no Numa" then
+	if id == translate.Get("zombie_type_shi_no_numa") then
 	return "nz_zombie_walker_sumpf"
 	end
 	if id == nil then
@@ -386,7 +386,7 @@ function nzRound:AddSpecialRoundType(id, data, spawnfunc, roundfunc, endfunc)
 	end
 end
 
-nzRound:AddSpecialRoundType("Hellhounds", {
+nzRound:AddSpecialRoundType(translate.Get("special_round_hellhounds"), {
 	specialTypes = {
 		["nz_zombie_special_dog"] = {chance = 100}
 	},
@@ -405,7 +405,7 @@ nzRound:AddSpecialRoundType("Hellhounds", {
 	end
 end) -- No round func or end func
 
-nzRound:AddSpecialRoundType("Keepers", {
+nzRound:AddSpecialRoundType(translate.Get("special_round_keepers"), {
 	specialTypes = {
 		["nz_zombie_special_keeper"] = {chance = 100}
 	},
@@ -424,7 +424,7 @@ nzRound:AddSpecialRoundType("Keepers", {
 	end
 end) -- No round func or end func
 
-nzRound:AddSpecialRoundType("Nova Crawlers", {
+nzRound:AddSpecialRoundType(translate.Get("special_round_nova_crawlers"), {
 	specialTypes = {
 		["nz_zombie_special_nova"] = {chance = 100}
 	},
@@ -443,7 +443,7 @@ nzRound:AddSpecialRoundType("Nova Crawlers", {
 	end
 end) -- No round func or end func
 
-nzRound:AddSpecialRoundType("Lickers", {
+nzRound:AddSpecialRoundType(translate.Get("special_round_lickers"), {
 	specialTypes = {
 		["nz_zombie_special_licker"] = {chance = 100}
 	},
@@ -462,7 +462,7 @@ nzRound:AddSpecialRoundType("Lickers", {
 	end
 end) -- No round func or end func
 
-nzRound:AddSpecialRoundType("Raptors", {
+nzRound:AddSpecialRoundType(translate.Get("special_round_raptors"), {
 	specialTypes = {
 		["nz_zombie_special_raptor"] = {chance = 100}
 	},
@@ -481,7 +481,7 @@ nzRound:AddSpecialRoundType("Raptors", {
 	end
 end) -- No round func or end func
 
-nzRound:AddSpecialRoundType("Facehuggers", {
+nzRound:AddSpecialRoundType(translate.Get("special_round_facehuggers"), {
 	specialTypes = {
 		["nz_zombie_special_facehugger"] = {chance = 100}
 	},
@@ -500,7 +500,7 @@ nzRound:AddSpecialRoundType("Facehuggers", {
 	end
 end) -- No round func or end func
 
-nzRound:AddSpecialRoundType("The Pack (Dead Space)", {
+nzRound:AddSpecialRoundType(translate.Get("special_round_the_pack"), {
 	specialTypes = {
 		["nz_zombie_special_pack"] = {chance = 100}
 	},
@@ -519,7 +519,7 @@ nzRound:AddSpecialRoundType("The Pack (Dead Space)", {
 	end
 end) -- No round func or end func
 
-nzRound:AddSpecialRoundType("Spiders", {
+nzRound:AddSpecialRoundType(translate.Get("special_round_spiders"), {
 	specialTypes = {
 		["nz_zombie_special_spooder"] = {chance = 100}
 	},
@@ -538,7 +538,7 @@ nzRound:AddSpecialRoundType("Spiders", {
 	end
 end) -- No round func or end func
 
-nzRound:AddSpecialRoundType("Burning Zombies", {
+nzRound:AddSpecialRoundType(translate.Get("special_round_burning_zombies"), {
 	normalTypes = {
 		["nz_zombie_special_burning"] = {chance = 100}
 	},
@@ -563,238 +563,238 @@ function nzRound:AddAdditionalZombieType(id, class)
 	end
 end
 
-nzRound:AddAdditionalZombieType("Nazi Zombies", "nz_zombie_walker", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_nazi_zombies"), "nz_zombie_walker", {
 }) 
-nzRound:AddAdditionalZombieType("Ascension Zombies", "nz_zombie_walker_ascension", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_ascension_zombies"), "nz_zombie_walker_ascension", {
 }) 
-nzRound:AddAdditionalZombieType("Siberian Zombies", "nz_zombie_walker_cotd", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_siberian_zombies"), "nz_zombie_walker_cotd", {
 }) 
-nzRound:AddAdditionalZombieType("Pentagon Zombies", "nz_zombie_walker_five", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_pentagon_zombies"), "nz_zombie_walker_five", {
 }) 
-nzRound:AddAdditionalZombieType("Gorod Krovi Zombies", "nz_zombie_walker_gorodkrovi", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_gorod_krovi_zombies"), "nz_zombie_walker_gorodkrovi", {
 }) 
-nzRound:AddAdditionalZombieType("Mob of the Dead Zombies", "nz_zombie_walker_motd", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_mob_of_the_dead_zombies"), "nz_zombie_walker_motd", {
 })
-nzRound:AddAdditionalZombieType("Shadows of Evil Zombies", "nz_zombie_walker_soemale", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_shadows_of_evil_zombies"), "nz_zombie_walker_soemale", {
 }) 
-nzRound:AddAdditionalZombieType("Zetsubou no Shima Zombies", "nz_zombie_walker_zetsubou", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_zetsubou_no_shima_zombies"), "nz_zombie_walker_zetsubou", {
 }) 
-nzRound:AddAdditionalZombieType("Origins Zombies", "nz_zombie_walker_origins", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_origins_zombies"), "nz_zombie_walker_origins", {
 }) 
-nzRound:AddAdditionalZombieType("World War 1 Soldiers", "nz_zombie_walker_origins_soldier", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_world_war_one_soldiers"), "nz_zombie_walker_origins_soldier", {
 }) 
-nzRound:AddAdditionalZombieType("Crusader Zombies", "nz_zombie_walker_origins_templar", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_crusader_zombies"), "nz_zombie_walker_origins_templar", {
 }) 
-nzRound:AddAdditionalZombieType("Moon Zombies", "nz_zombie_walker_moon", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_moon_zombies"), "nz_zombie_walker_moon", {
 }) 
-nzRound:AddAdditionalZombieType("Moon Tech Zombies", "nz_zombie_walker_moon_tech", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_moon_tech_zombies"), "nz_zombie_walker_moon_tech", {
 })
-nzRound:AddAdditionalZombieType("Area 51 Guard Zombies", "nz_zombie_walker_moon_guard", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_area_fiftyone_guard_zombies"), "nz_zombie_walker_moon_guard", {
 })
-nzRound:AddAdditionalZombieType("Der Eisendrache Zombies", "nz_zombie_walker_eisendrache", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_der_eisendrache_zombies"), "nz_zombie_walker_eisendrache", {
 }) 
-nzRound:AddAdditionalZombieType("Western Zombies", "nz_zombie_walker_buried", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_western_zombies"), "nz_zombie_walker_buried", {
 }) 
-nzRound:AddAdditionalZombieType("Vietnamese Zombies", "nz_zombie_walker_shangrila", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_vietnamese_zombies"), "nz_zombie_walker_shangrila", {
 }) 
-nzRound:AddAdditionalZombieType("Shi no Numa Zombies", "nz_zombie_walker_sumpf", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_shi_no_numa_zombies"), "nz_zombie_walker_sumpf", {
 }) 
-nzRound:AddAdditionalZombieType("Tranzit Zombies", "nz_zombie_walker_greenrun", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_tranzit_zombies"), "nz_zombie_walker_greenrun", {
 }) 
-nzRound:AddAdditionalZombieType("Nuketown Zombies", "nz_zombie_walker_nuketown", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_nuketown_zombies"), "nz_zombie_walker_nuketown", {
 }) 
-nzRound:AddAdditionalZombieType("Clowns", "nz_zombie_walker_clown", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_clowns"), "nz_zombie_walker_clown", {
 }) 
-nzRound:AddAdditionalZombieType("Deathtroopers", "nz_zombie_walker_deathtrooper", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_deathtroopers"), "nz_zombie_walker_deathtrooper", {
 }) 
-nzRound:AddAdditionalZombieType("Skeletons", "nz_zombie_walker_skeleton", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_skeletons"), "nz_zombie_walker_skeleton", {
 }) 
-nzRound:AddAdditionalZombieType("Xenomorphs", "nz_zombie_walker_xeno", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_xenomorphs"), "nz_zombie_walker_xeno", {
 }) 
-nzRound:AddAdditionalZombieType("Necromorphs", "nz_zombie_walker_necromorph", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_necromorphs"), "nz_zombie_walker_necromorph", {
 }) 
-nzRound:AddAdditionalZombieType("Burning Zombie", "nz_zombie_special_burning", {
+nzRound:AddAdditionalZombieType(translate.Get("extra_zombie_type_burning_zombie"), "nz_zombie_special_burning", {
 }) 
-nzRound:AddAdditionalZombieType("Spiders", "nz_zombie_special_spooder", {
+nzRound:AddAdditionalZombieType(translate.Get("special_round_spiders"), "nz_zombie_special_spooder", {
 }) 
-nzRound:AddAdditionalZombieType("The Pack (Dead Space)", "nz_zombie_special_pack", {
+nzRound:AddAdditionalZombieType(translate.Get("special_round_the_pack"), "nz_zombie_special_pack", {
 }) 
-nzRound:AddAdditionalZombieType("Facehuggers", "nz_zombie_special_facehugger", {
+nzRound:AddAdditionalZombieType(translate.Get("special_round_facehuggers"), "nz_zombie_special_facehugger", {
 }) 
-nzRound:AddAdditionalZombieType("Raptors", "nz_zombie_special_raptor", {
+nzRound:AddAdditionalZombieType(translate.Get("special_round_raptors"), "nz_zombie_special_raptor", {
 }) 
-nzRound:AddAdditionalZombieType("Lickers", "nz_zombie_special_licker", {
+nzRound:AddAdditionalZombieType(translate.Get("special_round_lickers"), "nz_zombie_special_licker", {
 }) 
-nzRound:AddAdditionalZombieType("Nova Crawlers", "nz_zombie_special_nova", {
+nzRound:AddAdditionalZombieType(translate.Get("special_round_nova_crawlers"), "nz_zombie_special_nova", {
 }) 
-nzRound:AddAdditionalZombieType("Keepers", "nz_zombie_special_keeper", {
+nzRound:AddAdditionalZombieType(translate.Get("special_round_keepers"), "nz_zombie_special_keeper", {
 }) 
-nzRound:AddAdditionalZombieType("Hellhounds", "nz_zombie_special_dog", {
+nzRound:AddAdditionalZombieType(translate.Get("special_round_hellhounds"), "nz_zombie_special_dog", {
 }) 
-nzRound:AddAdditionalZombieType("Panzer", "nz_zombie_boss_panzer", {
+nzRound:AddAdditionalZombieType(translate.Get("boss_round_panzer"), "nz_zombie_boss_panzer", {
 }) 
-nzRound:AddAdditionalZombieType("Dilophosaurus", "nz_zombie_boss_dilophosaurus", {
+nzRound:AddAdditionalZombieType(translate.Get("boss_round_dilophosaurus"), "nz_zombie_boss_dilophosaurus", {
 }) 
-nzRound:AddAdditionalZombieType("Brute (Dead Space)", "nz_zombie_boss_brute", {
+nzRound:AddAdditionalZombieType(translate.Get("boss_round_brute"), "nz_zombie_boss_brute", {
 })
-nzRound:AddAdditionalZombieType("Brutus", "nz_zombie_boss_brutus", {
+nzRound:AddAdditionalZombieType(translate.Get("boss_round_brutus"), "nz_zombie_boss_brutus", {
 }) 
-nzRound:AddAdditionalZombieType("Divider (Dead Space)", "nz_zombie_boss_Divider", {
+nzRound:AddAdditionalZombieType(translate.Get("boss_round_divider"), "nz_zombie_boss_Divider", {
 }) 
-nzRound:AddAdditionalZombieType("William Birkin", "nz_zombie_boss_G1", {
+nzRound:AddAdditionalZombieType(translate.Get("boss_round_william_birkin"), "nz_zombie_boss_G1", {
 }) 
-nzRound:AddAdditionalZombieType("The Mangler", "nz_zombie_boss_mangler", {
+nzRound:AddAdditionalZombieType(translate.Get("boss_round_the_mangler"), "nz_zombie_boss_mangler", {
 })
-nzRound:AddAdditionalZombieType("The Margwa", "nz_zombie_boss_margwa", {
+nzRound:AddAdditionalZombieType(translate.Get("boss_round_the_margwa"), "nz_zombie_boss_margwa", {
 })
-nzRound:AddAdditionalZombieType("Napalm Zombie", "nz_zombie_boss_napalm", {
+nzRound:AddAdditionalZombieType(translate.Get("boss_round_napalm_zombie"), "nz_zombie_boss_napalm", {
 })
-nzRound:AddAdditionalZombieType("Shrieker Zombie", "nz_zombie_boss_shrieker", {
+nzRound:AddAdditionalZombieType(translate.Get("boss_round_shrieker_zombie"), "nz_zombie_boss_shrieker", {
 })
-nzRound:AddAdditionalZombieType("Nemesis", "nz_zombie_boss_nemesis", {
+nzRound:AddAdditionalZombieType(translate.Get("boss_round_nemesis"), "nz_zombie_boss_nemesis", {
 })
-nzRound:AddAdditionalZombieType("Thrasher", "nz_zombie_boss_thrasher", {
+nzRound:AddAdditionalZombieType(translate.Get("boss_round_thrasher"), "nz_zombie_boss_thrasher", {
 })    
 function nzRound:GetSpecialType(id)
-	if id == "Burning Zombie" then
+	if id == translate.Get("extra_zombie_type_burning_zombie") then
 	return "nz_zombie_special_burning"
 	end
-		if id == "Spiders" then
+		if id == translate.Get("special_round_spiders") then
 	return "nz_zombie_special_spooder"
 	end
-		if id == "The Pack (Dead Space)" then
+		if id == translate.Get("special_round_the_pack") then
 	return "nz_zombie_special_pack"
 	end
-		if id == "Facehuggers" then
+		if id == translate.Get("special_round_facehuggers") then
 	return "nz_zombie_special_facehugger" 
 	end
-		if id == "Raptors" then
+		if id == translate.Get("special_round_raptors") then
 	return "nz_zombie_special_raptor" 
 	end
-		if id == "Lickers" then
+		if id == translate.Get("special_round_lickers") then
 	return "nz_zombie_special_licker"
 	end
-	if id == "Nova Crawlers" then
+	if id == translate.Get("special_round_nova_crawlers") then
 	return "nz_zombie_special_nova"
 	end
-	if id == "Keepers" then
+	if id == translate.Get("special_round_keepers") then
 	return "nz_zombie_special_keeper"
 	end
-	if id == "Hellhounds" then
+	if id == translate.Get("special_round_hellhounds") then
 	return "nz_zombie_special_dog"
 	end
-	if id == "Panzer" then
+	if id == translate.Get("boss_round_panzer") then
 	return "nz_zombie_boss_panzer"
 	end
-	if id == "Dilophosaurus" then
+	if id == translate.Get("boss_round_dilophosaurus") then
 	return "nz_zombie_boss_dilophosaurus"
 	end
-	if id == "Brute (Dead Space)" then
+	if id == translate.Get("boss_round_brute") then
 	return "nz_zombie_boss_brute"
 	end
-	if id == "Brutus" then
+	if id == translate.Get("boss_round_brutus") then
 	return "nz_zombie_boss_brutus"
 	end
-	if id == "Divider (Dead Space)" then
+	if id == translate.Get("boss_round_divider") then
 	return "nz_zombie_boss_Divider"
 	end
-	if id == "William Birkin" then
+	if id == translate.Get("boss_round_william_birkin") then
 	return "nz_zombie_boss_G1"
 	end
-	if id == "The Mangler" then
+	if id == translate.Get("boss_round_the_mangler") then
 	return "nz_zombie_boss_mangler"
 	end
-	if id == "The Margwa" then
+	if id == translate.Get("boss_round_the_margwa") then
 	return "nz_zombie_boss_margwa"
 	end
-	if id == "Napalm Zombie" then
+	if id == translate.Get("boss_round_napalm_zombie") then
 	return "nz_zombie_boss_Napalm"
 	end
-	if id == "Nemesis" then
+	if id == translate.Get("boss_round_nemesis") then
 	return "nz_zombie_boss_Nemesis"
 	end
-	if id == "George Romero" then
+	if id == translate.Get("boss_round_george_romero") then
 	return "nz_zombie_boss_romero"
 	end
-	if id == "Shrieker Zombie" then
+	if id == translate.Get("boss_round_shrieker_zombie") then
 	return "nz_zombie_boss_shrieker"
 	end
-	if id == "Thrasher" then
+	if id == translate.Get("boss_round_thrasher") then
 	return "nz_zombie_boss_thrasher"
 	end
-	if id == "Skeletons" then
+	if id == translate.Get("extra_zombie_type_skeletons") then
 	return "nz_zombie_walker_skeleton"
 	end
-		if id == "Deathtroopers" then
+		if id == translate.Get("extra_zombie_type_deathtroopers") then
 	return "nz_zombie_walker_deathtrooper"
 	end
-		if id == "Clowns" then
+		if id == translate.Get("extra_zombie_type_clowns") then
 	return "nz_zombie_walker_clown"
 	end
-		if id == "Tranzit Zombies" then
+		if id == translate.Get("extra_zombie_type_tranzit_zombies") then
 	return "nz_zombie_walker_greenrun" 
 	end
-		if id == "Mob of the Dead Zombies" then
+		if id == translate.Get("extra_zombie_type_mob_of_the_dead_zombies") then
 	return "nz_zombie_walker_motd" 
 	end
-		if id == "Nuketown Zombies" then
+		if id == translate.Get("extra_zombie_type_nuketown_zombies") then
 	return "nz_zombie_walker_nuketown"
 	end
-	if id == "Ascension Zombies" then
+	if id == translate.Get("extra_zombie_type_ascension_zombies") then
 	return "nz_zombie_walker_ascension"
 	end
-	if id == "Siberian Zombies" then
+	if id == translate.Get("extra_zombie_type_siberian_zombies") then
 	return "nz_zombie_walker_cotd"
 	end
-	if id == "Pentagon Zombies" then
+	if id == translate.Get("extra_zombie_type_pentagon_zombies") then
 	return "nz_zombie_walker_five"
 	end
-	if id == "Gorod Krovi Zombies" then
+	if id == translate.Get("extra_zombie_type_gorod_krovi_zombies") then
 	return "nz_zombie_walker_gorodkrovi"
 	end
-	if id == "Shadows of Evil Zombies" then
+	if id == translate.Get("extra_zombie_type_shadows_of_evil_zombies") then
 	return "nz_zombie_walker_soemale"
 	end
-	if id == "Zetsubou no Shima Zombies" then
+	if id == translate.Get("extra_zombie_type_zetsubou_no_shima_zombies") then
 	return "nz_zombie_walker_zetsubou"
 	end
-	if id == "Xenomorphs" then
+	if id == translate.Get("extra_zombie_type_xenomorphs") then
 	return "nz_zombie_walker_xeno"
 	end
-	if id == "Necromorphs" then
+	if id == translate.Get("extra_zombie_type_necromorphs") then
 	return "nz_zombie_walker_necromorph"
 	end
-	if id == "Nazi Zombies" then
+	if id == translate.Get("extra_zombie_type_nazi_zombies") then
 	return "nz_zombie_walker"
 	end
-	if id == "Origins Zombies" then
+	if id == translate.Get("extra_zombie_type_origins_zombies") then
 	return "nz_zombie_walker_origins"
 	end
-	if id == "World War 1 Zombies" then
+	if id == translate.Get("extra_zombie_type_world_war_one_soldiers") then
 	return "nz_zombie_walker_origins_soldier"
 	end
-	if id == "Crusader Zombies" then
+	if id == translate.Get("extra_zombie_type_crusader_zombies") then
 	return "nz_zombie_walker_origins_templar"
 	end
-	if id == "Moon Zombies" then
+	if id == translate.Get("extra_zombie_type_moon_zombies") then
 	return "nz_zombie_walker_moon"
 	end
-	if id == "Moon Tech Zombies" then
+	if id == translate.Get("extra_zombie_type_moon_tech_zombies") then
 	return "nz_zombie_walker_moon_tech"
 	end
-	if id == "Area 51 Guard Zombies" then
+	if id == translate.Get("extra_zombie_type_area_fiftyone_guard_zombies") then
 	return "nz_zombie_walker_moon_guard"
 	end
-	if id == "Western Zombies" then
+	if id == translate.Get("extra_zombie_type_western_zombies") then
 	return "nz_zombie_walker_buried"
 	end
-	if id == "Der Eisendrache Zombies" then
+	if id == translate.Get("extra_zombie_type_der_eisendrache_zombies") then
 	return "nz_zombie_walker_eisendrache"
 	end
-	if id == "Vietnamese Zombies" then
+	if id == translate.Get("extra_zombie_type_vietnamese_zombies") then
 	return "nz_zombie_walker_shangrila"
 	end
-	if id == "Shi no Numa Zombies" then
+	if id == translate.Get("extra_zombie_type_shi_no_numa_zombies") then
 	return "nz_zombie_walker_sumpf"
 	end
 	if id == nil then

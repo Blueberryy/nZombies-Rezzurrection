@@ -68,7 +68,7 @@ if SERVER then
 				hook.Remove("Think", "nzVoteHandler")
 				timer.Simple(5, function()
 					voting = false
-					--PrintMessage(HUD_PRINTTALK, "[nZ] The winner is "..winner)
+					--PrintTranslatedMessage(HUD_PRINTTALK, "text_the_winned_is_x", winner)  --Just paste this to languages base file LANGUAGE.text_the_winned_is_x            = "[nZ] The winner is %s"
 					if nzRound:InProgress() then
 						PrintTranslatedMessage(HUD_PRINTTALK, "config_will_be_loaded_after_game")
 						nzMapping:QueueConfig( winner, caller ) -- Caller of the vote is responsible for mismatch if done via nz_rtv command

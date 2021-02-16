@@ -1,6 +1,6 @@
 nzTools:CreateTool("testzombie", {
-	displayname = "Spawn Test Zombie",
-	desc = "LMB: Create a test zombie, RMB: Remove test zombie",
+	displayname = translate.Get("spawn_test_zombie_tool"),
+	desc = translate.Get("spawn_test_zombie_tool_tip"),
 	condition = function(wep, ply)
 		return true
 	end,
@@ -42,8 +42,8 @@ nzTools:CreateTool("testzombie", {
 
 	end
 }, {
-	displayname = "Spawn Test Zombie",
-	desc = "LMB: Create a test zombie, RMB: Remove test zombie",
+	displayname = translate.Get("spawn_test_zombie_tool"),
+	desc = translate.Get("spawn_test_zombie_tool_tip"),
 	icon = "icon16/user_green.png",
 	weight = 400,
 	condition = function(wep, ply)
@@ -55,7 +55,7 @@ nzTools:CreateTool("testzombie", {
 		pnl:Dock(FILL)
 		
 		local txt = vgui.Create("DLabel", pnl)
-		txt:SetText("Zombie Speed")
+		txt:SetText(translate.Get("spawn_test_zombie_zombie_speed"))
 		txt:SizeToContents()
 		txt:SetTextColor(Color(0,0,0))
 		txt:SetPos(120, 30)
@@ -73,7 +73,7 @@ nzTools:CreateTool("testzombie", {
 		num:SetPos(90, 50)
 		
 		local txt2 = vgui.Create("DLabel", pnl)
-		txt2:SetText("Zombie Type")
+		txt2:SetText(translate.Get("spawn_test_zombie_zombie_type"))
 		txt2:SizeToContents()
 		txt2:SetTextColor(Color(0,0,0))
 		txt2:SetPos(120, 90)

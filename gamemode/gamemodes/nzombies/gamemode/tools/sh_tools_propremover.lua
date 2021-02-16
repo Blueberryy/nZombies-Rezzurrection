@@ -30,7 +30,7 @@ else
 		
 		local frame = vgui.Create("DFrame")
 		frame:SetSize(450, 300)
-		frame:SetTitle("Mark props for removal ...")
+		frame:SetTitle(translate.Get("prop_remover_tool_menu_title"))
 		frame:Center()
 		frame:MakePopup()
 		
@@ -70,7 +70,7 @@ else
 		
 		local submit = vgui.Create("DButton", frame)
 		submit:SetSize(400, 25)
-		submit:SetText("Submit")
+		submit:SetText(translate.Get("prop_remover_tool_submit_button"))
 		submit:SetPos(50, 265)
 		submit.DoClick = function(self)
 			net.Start("nzPropRemoverSearch")
@@ -84,8 +84,8 @@ end
 
 
 nzTools:CreateTool("propremover", {
-	displayname = "Prop Remover Tool",
-	desc = "LMB: Mark Prop for Removal, RMB: Unmark Prop, R: Search Entities in 100 unit radius",
+	displayname = translate.Get("prop_remover_tool"),
+	desc = translate.Get("prop_remover_tool_tip"),
 	condition = function(wep, ply)
 		return true
 	end,
@@ -125,8 +125,8 @@ nzTools:CreateTool("propremover", {
 	OnHolster = function(wep, ply, data)
 	end
 }, {
-	displayname = "Prop Remover Tool",
-	desc = "LMB: Mark Prop for Removal, RMB: Unmark Prop, R: Search Entities in 100 unit radius",
+	displayname = translate.Get("prop_remover_tool"),
+	desc = translate.Get("prop_remover_tool_tip"),
 	icon = "icon16/cancel.png",
 	weight = 35,
 	condition = function(wep, ply)
@@ -137,7 +137,7 @@ nzTools:CreateTool("propremover", {
 		panel:SetSize(frame:GetSize())
 
 		local textw = vgui.Create("DLabel", panel)
-		textw:SetText("This tool marks props to be removed in-game.")
+		textw:SetText(translate.Get("prop_remover_tool_help"))
 		textw:SetFont("Trebuchet18")
 		textw:SetTextColor( Color(50, 50, 50) )
 		textw:SizeToContents()
@@ -145,7 +145,7 @@ nzTools:CreateTool("propremover", {
 		textw:CenterHorizontal()
 
 		local textw2 = vgui.Create("DLabel", panel)
-		textw2:SetText("It will only apply once a game begins")
+		textw2:SetText(translate.Get("prop_remover_tool_help2"))
 		textw2:SetFont("Trebuchet18")
 		textw2:SetTextColor( Color(50, 50, 50) )
 		textw2:SizeToContents()
@@ -153,7 +153,7 @@ nzTools:CreateTool("propremover", {
 		textw2:CenterHorizontal()
 
 		local textw3 = vgui.Create("DLabel", panel)
-		textw3:SetText("and will reset when entering Creative Mode.")
+		textw3:SetText(translate.Get("prop_remover_tool_help3"))
 		textw3:SetFont("Trebuchet18")
 		textw3:SetTextColor( Color(50, 50, 50) )
 		textw3:SizeToContents()

@@ -172,7 +172,7 @@ end
 
 -- Double Points
 nzPowerUps:NewPowerUp("dp", {
-	name = "Double Points",
+	name = translate.Get("powerup_double_points"),
 	model = "models/nzpowerups/x2.mdl",
 	global = true, -- Global means it will appear for any player and will refresh its own time if more
 	angle = Angle(25,0,0),
@@ -186,7 +186,7 @@ nzPowerUps:NewPowerUp("dp", {
 
 -- Max Ammo
 nzPowerUps:NewPowerUp("maxammo", {
-	name = "Max Ammo",
+	name = translate.Get("powerup_max_ammo"),
 	model = "models/Items/BoxSRounds.mdl",
 	global = true,
 	angle = Angle(0,0,25),
@@ -205,7 +205,7 @@ nzPowerUps:NewPowerUp("maxammo", {
 
 -- Insta Kill
 nzPowerUps:NewPowerUp("insta", {
-	name = "Insta Kill",
+	name = translate.Get("powerup_insta_kill"),
 	model = "models/nzpowerups/insta.mdl",
 	global = true,
 	angle = Angle(0,0,0),
@@ -220,7 +220,7 @@ nzPowerUps:NewPowerUp("insta", {
 
 -- Nuke
 nzPowerUps:NewPowerUp("nuke", {
-	name = "Nuke",
+	name = translate.Get("powerup_nuke"),
 	model = "models/nzpowerups/nuke.mdl",
 	global = true,
 	angle = Angle(10,0,0),
@@ -235,7 +235,7 @@ nzPowerUps:NewPowerUp("nuke", {
 
 -- Fire Sale
 nzPowerUps:NewPowerUp("firesale", {
-	name = "Fire Sale",
+	name = translate.Get("powerup_fire_sale"),
 	model = "models/nzpowerups/firesale.mdl",
 	global = true,
 	angle = Angle(45,0,0),
@@ -265,7 +265,7 @@ nzPowerUps:NewPowerUp("firesale", {
 
 -- Carpenter
 nzPowerUps:NewPowerUp("carpenter", {
-	name = "Carpenter",
+	name = translate.Get("powerup_carpender"),
 	model = "models/nzpowerups/carpenter.mdl",
 	global = true,
 	angle = Angle(45,0,0),
@@ -282,7 +282,7 @@ nzPowerUps:NewPowerUp("carpenter", {
 
 -- Zombie Blood
 nzPowerUps:NewPowerUp("zombieblood", {
-	name = "Zombie Blood",
+	name = translate.Get("powerup_zombie_blood"),
 	model = "models/nzpowerups/zombieblood.mdl",
 	global = false, -- Only applies to the player picking it up and time is handled individually per player
 	angle = Angle(0,0,0),
@@ -300,7 +300,7 @@ nzPowerUps:NewPowerUp("zombieblood", {
 
 -- Death Machine
 nzPowerUps:NewPowerUp("deathmachine", {
-	name = "Death Machine",
+	name = translate.Get("powerup_death_machine"),
 	model = "models/nzpowerups/deathmachine.mdl",
 	global = false, -- Only applies to the player picking it up and time is handled individually per player
 	angle = Angle(0,0,0),

@@ -1,6 +1,6 @@
 nzTools:CreateTool("navlock", {
-	displayname = "Nav Locker Tool",
-	desc = "LMB: Connect doors and navmeshes, RMB: Lock/Unlock navmeshes",
+	displayname = translate.Get("nav_locker_tool"),
+	desc = translate.Get("nav_locker_tool_tip"),
 	condition = function(wep, ply)
 		-- Serverside doesn't need to block
 		return true
@@ -85,8 +85,8 @@ nzTools:CreateTool("navlock", {
 		end
 	end
 }, {
-	displayname = "Nav Locker Tool",
-	desc = "LMB: Connect doors and navmeshes, RMB: Lock/Unlock navmeshes",
+	displayname = translate.Get("nav_locker_tool"),
+	desc = translate.Get("nav_locker_tool_tip"),
 	icon = "icon16/arrow_switch.png",
 	weight = 40,
 	condition = function(wep, ply)
@@ -98,7 +98,7 @@ nzTools:CreateTool("navlock", {
 		panel:SetSize(frame:GetSize())
 
 		local textw = vgui.Create("DLabel", panel)
-		textw:SetText("You need to be in a listen/local server to be")
+		textw:SetText(translate.Get("nav_locker_tool_help"))
 		textw:SetFont("Trebuchet18")
 		textw:SetTextColor( Color(150, 50, 50) )
 		textw:SizeToContents()
@@ -106,7 +106,7 @@ nzTools:CreateTool("navlock", {
 		textw:CenterHorizontal()
 
 		local textw2 = vgui.Create("DLabel", panel)
-		textw2:SetText("able to see the Navmeshes!")
+		textw2:SetText(translate.Get("nav_locker_tool_help_two"))
 		textw2:SetFont("Trebuchet18")
 		textw2:SetTextColor( Color(150, 50, 50) )
 		textw2:SizeToContents()
@@ -114,7 +114,7 @@ nzTools:CreateTool("navlock", {
 		textw2:CenterHorizontal()
 		
 		local textw3 = vgui.Create("DLabel", panel)
-		textw3:SetText("sv_cheats is needed in multiplayer.")
+		textw3:SetText(translate.Get("nav_locker_tool_help_three"))
 		textw3:SetFont("Trebuchet18")
 		textw3:SetTextColor( Color(150, 50, 50) )
 		textw3:SizeToContents()
@@ -122,7 +122,7 @@ nzTools:CreateTool("navlock", {
 		textw3:CenterHorizontal()
 
 		local textw4 = vgui.Create("DLabel", panel)
-		textw4:SetText("The tool can still be used blindly")
+		textw4:SetText(translate.Get("nav_locker_tool_help_four"))
 		textw4:SetFont("Trebuchet18")
 		textw4:SetTextColor( Color(50, 50, 50) )
 		textw4:SizeToContents()
@@ -130,7 +130,7 @@ nzTools:CreateTool("navlock", {
 		textw4:CenterHorizontal()
 		
 		local textw5 = vgui.Create("DLabel", panel)
-		textw5:SetText("Console 'developer 1' is needed to see navlocks.")
+		textw5:SetText(translate.Get("nav_locker_tool_help_five"))
 		textw5:SetFont("Trebuchet18")
 		textw5:SetTextColor( Color(150, 50, 50) )
 		textw5:SizeToContents()
@@ -138,7 +138,7 @@ nzTools:CreateTool("navlock", {
 		textw5:CenterHorizontal()
 
 		local text = vgui.Create("DLabel", panel)
-		text:SetText("Right click on the ground to lock a Navmesh")
+		text:SetText(translate.Get("nav_locker_tool_help_six"))
 		text:SetFont("Trebuchet18")
 		text:SetTextColor( Color(50, 50, 50) )
 		text:SizeToContents()
@@ -146,7 +146,7 @@ nzTools:CreateTool("navlock", {
 		text:CenterHorizontal()
 
 		local text2 = vgui.Create("DLabel", panel)
-		text2:SetText("Left click a door to mark the door")
+		text2:SetText(translate.Get("nav_locker_tool_help_seven"))
 		text2:SetFont("Trebuchet18")
 		text2:SetTextColor( Color(50, 50, 50) )
 		text2:SizeToContents()
@@ -154,7 +154,7 @@ nzTools:CreateTool("navlock", {
 		text2:CenterHorizontal()
 
 		local text3 = vgui.Create("DLabel", panel)
-		text3:SetText("then left click the ground to link")
+		text3:SetText(translate.Get("nav_locker_tool_help_eight"))
 		text3:SetFont("Trebuchet18")
 		text3:SetTextColor( Color(50, 50, 50) )
 		text3:SizeToContents()
@@ -162,7 +162,7 @@ nzTools:CreateTool("navlock", {
 		text3:CenterHorizontal()
 
 		local text4 = vgui.Create("DLabel", panel)
-		text4:SetText("the Navmesh with the door")
+		text4:SetText(translate.Get("nav_locker_tool_help_nine"))
 		text4:SetFont("Trebuchet18")
 		text4:SetTextColor( Color(50, 50, 50) )
 		text4:SizeToContents()
@@ -170,7 +170,7 @@ nzTools:CreateTool("navlock", {
 		text4:CenterHorizontal()
 
 		local text5 = vgui.Create("DLabel", panel)
-		text5:SetText("Zombies can't pathfind through locked Navmeshes")
+		text5:SetText(translate.Get("nav_locker_tool_help_ten"))
 		text5:SetFont("Trebuchet18")
 		text5:SetTextColor( Color(50, 50, 50) )
 		text5:SizeToContents()
@@ -178,7 +178,7 @@ nzTools:CreateTool("navlock", {
 		text5:CenterHorizontal()
 
 		local text6 = vgui.Create("DLabel", panel)
-		text6:SetText("unless their door link is opened")
+		text6:SetText(translate.Get("nav_locker_tool_help_eleven"))
 		text6:SetFont("Trebuchet18")
 		text6:SetTextColor( Color(50, 50, 50) )
 		text6:SizeToContents()

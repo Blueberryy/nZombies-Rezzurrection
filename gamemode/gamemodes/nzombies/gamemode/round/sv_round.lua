@@ -46,7 +46,7 @@ function nzRound:Prepare( time )
 	self:SetZombiesKilled( 0 )
 
 	--Notify
-	--PrintMessage( HUD_PRINTTALK, "ROUND: " .. self:GetNumber() .. " preparing" )
+	--PrintTranslatedMessage( HUD_PRINTTALK, "text_round_x_preparing", self:GetNumber()) )  --Just paste this to languages base file LANGUAGE.text_round_x_preparing            = "ROUND: %s preparing"
 	hook.Call( "OnRoundPreparation", nzRound, self:GetNumber() )
 	--Play the sound
 
@@ -343,7 +343,7 @@ function nzRound:Start()
 	end
 
 	--Notify
-	--PrintMessage( HUD_PRINTTALK, "ROUND: " .. self:GetNumber() .. " started" )
+	--PrintTranslatedMessage( HUD_PRINTTALK, "text_round_x_started", self:GetNumber()) )    --Just paste this to languages base file LANGUAGE.text_round_x_started            = "ROUND: %s started"
 	hook.Call("OnRoundStart", nzRound, self:GetNumber() )
 	--nzNotifications:PlaySound("nz/round/round_start.mp3", 1)
 

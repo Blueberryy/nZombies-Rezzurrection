@@ -1,6 +1,6 @@
 nzTools:CreateTool("navedit", {
-	displayname = "Navmesh Editor",
-	desc = "Q: Select edit mode",
+	displayname = translate.Get("navmesh_editor_tool"),
+	desc = translate.Get("navmesh_editor_tool_tip"),
 	condition = function(wep, ply)
 		return true
 	end,
@@ -34,8 +34,8 @@ nzTools:CreateTool("navedit", {
 		end
 	end
 }, {
-	displayname = "Navmesh Editor",
-	desc = "Q: Select edit mode",
+	displayname = translate.Get("navmesh_editor_tool"),
+	desc = translate.Get("navmesh_editor_tool_tip"),
 	icon = "icon16/map.png",
 	weight = 39,
 	condition = function(wep, ply)
@@ -57,66 +57,66 @@ nzTools:CreateTool("navedit", {
 		--command and mode declaration
 
 		local modes = {
-			["Change Attributes"] = {
+			[translate.Get("navmesh_editor_mode_change_att")] = {
 				Primary = "nav_jump",
-				PrimaryDesc = "Toggle jumping",
+				PrimaryDesc = translate.Get("navmesh_editor_change_att_control"),
 				Secondary = "nav_no_jump",
-				SecondaryDesc = "Toggle no jumping"
+				SecondaryDesc = translate.Get("navmesh_editor_change_att_control_two")
 			},
-			["Delete Area"] = {
+			[translate.Get("navmesh_editor_mode_delete_area")] = {
 				Primary = "nav_delete",
-				PrimaryDesc = "Delete Area"
+				PrimaryDesc = translate.Get("navmesh_editor_delete_area_control")
 			},
-			["Corners"] = {
+			[translate.Get("navmesh_editor_mode_corners")] = {
 				Primary = "nav_corner_place_on_ground",
-				PrimaryDesc = "Lower corner to ground"
+				PrimaryDesc = translate.Get("navmesh_editor_corners_control")
 			},
-			["Edit Area"] = {
+			[translate.Get("navmesh_editor_mode_edit_area")] = {
 				Primary = "nav_split",
-				PrimaryDesc = "Split an area at the white line",
+				PrimaryDesc = translate.Get("navmesh_editor_edit_area_control"),
 				Secondary = "nav_merge",
-				SecondaryDesc = "Merge 2 areas"
+				SecondaryDesc = translate.Get("navmesh_editor_edit_area_control_two")
 			},
-			["Create Areas"] = {
+			[translate.Get("navmesh_editor_mode_create_areas")] = {
 				Primary = "nav_begin_area",
-				PrimaryDesc = "Begin area creation",
+				PrimaryDesc = translate.Get("navmesh_editor_create_areas_control"),
 				Secondary = "nav_end_area",
-				SecondaryDesc = "End area creation"
+				SecondaryDesc = translate.Get("navmesh_editor_create_areas_control_two")
 			},
-			["Connect Areas"] = {
+			[translate.Get("navmesh_editor_mode_connect_areas")] = {
 				Primary = "nav_connect",
-				PrimaryDesc = "Add a 1-way connection",
+				PrimaryDesc = translate.Get("navmesh_editor_connect_areas_control"),
 				Secondary = "nav_disconnect",
-				SecondaryDesc = "Remove a connection"
+				SecondaryDesc = translate.Get("navmesh_editor_connect_areas_control_two")
 			},
-			["Ladder"] = {
+			[translate.Get("navmesh_editor_mode_ladder")] = {
 				Primary = "nav_build_ladder",
-				PrimaryDesc = "Build a navmesh for a ladder"
+				PrimaryDesc = translate.Get("navmesh_editor_ladder_control")
 			},
-			["Splice"] = {
+			[translate.Get("navmesh_editor_mode_slice")] = {
 				Primary = "nav_splice",
-				PrimaryDesc = "Splice 2 areas together",
+				PrimaryDesc = translate.Get("navmesh_editor_slice_control"),
 				Secondary = "nav_split",
-				SecondaryDesc = "Split an area at the white line",
+				SecondaryDesc = translate.Get("navmesh_editor_slice_control_two"),
 			}
 		}
 
 		local commands = {
-			["Build Ladder"] = "nav_build_ladder",
-			["Toggle jump area"] = "nav_jump",
-			["Toggle no jump area"] = "nav_no_jump",
-			["Begin Area Creation"] = "nav_begin_area",
-			["End Area Creation"] = "nav_end_area",
-			["Merge Areas"] = "nav_merge",
-			["Place Corner on Ground"] = "nav_corner_place_on_ground",
-			["Connect Areas"] = "nav_connect",
-			["Disconnect Areas"] = "nav_disconnect",
-			["Delete Area"] = "nav_delete",
-			["Split Area"] = "nav_split",
-			["Mark Area"] = "nav_mark",
-			["Generate Incremental"] = "nav_generate_incremental",
-			["Clear Selected Set"] = "nav_clear_selected_set",
-			["Mark Walkable"] = "nav_mark_walkable",
+			[translate.Get("quick_commands_build_ladder")] = "nav_build_ladder",
+			[translate.Get("quick_commands_toggle_jump_area")] = "nav_jump",
+			[translate.Get("quick_commands_toggle_no_jump_area")] = "nav_no_jump",
+			[translate.Get("quick_commands_begin_area_creation")] = "nav_begin_area",
+			[translate.Get("quick_commands_end_area_creation")] = "nav_end_area",
+			[translate.Get("quick_commands_merge_areas")] = "nav_merge",
+			[translate.Get("quick_commands_place_corner_on_ground")] = "nav_corner_place_on_ground",
+			[translate.Get("quick_commands_connect_areas")] = "nav_connect",
+			[translate.Get("quick_commands_disconnect_areas")] = "nav_disconnect",
+			[translate.Get("quick_commands_delete_area")] = "nav_delete",
+			[translate.Get("quick_commands_split_area")] = "nav_split",
+			[translate.Get("quick_commands_mark_area")] = "nav_mark",
+			[translate.Get("quick_commands_generate_incremental")] = "nav_generate_incremental",
+			[translate.Get("quick_commands_clear_selected_set")] = "nav_clear_selected_set",
+			[translate.Get("quick_commands_mark_walkable")] = "nav_mark_walkable",
 		}
 
 		--update helper
@@ -124,24 +124,24 @@ nzTools:CreateTool("navedit", {
 		local function UpdateDesc()
 			local result = ""
 			if data.PrimaryDesc then
-				result = "LMB: " .. data.PrimaryDesc
+				result = translate.Format("navmesh_editor_modes_control", data.PrimaryDesc)
 			end
 			if data.SecondaryDesc then
 				if result != "" then
 					result = result .. ", "
 				end
-				result = result .. "RMB: " .. data.SecondaryDesc
+				result = translate.Format("navmesh_editor_modes_control_two", result, data.SecondaryDesc)
 			end
 			if data.ReloadDesc then
 				if result != "" then
 					result = result .. ", "
 				end
-				result = result .. "R: " .. data.ReloadDesc
+				result = translate.Format("navmesh_editor_modes_control_three", result, data.ReloadDesc)
 			else
 				if result != "" then
 					result = result .. ", "
 				end
-				result = result .. "R: Mark area"
+				result = translate.Format("navmesh_editor_modes_control_four", result)
 			end
 			nzTools.ToolData["navedit"].desc = result
 		end
@@ -150,7 +150,7 @@ nzTools:CreateTool("navedit", {
 
 		local basicCat = vgui.Create( "DCollapsibleCategory", cont )
 		basicCat:SetExpanded( 1 )
-		basicCat:SetLabel( "Basics" )
+		basicCat:SetLabel( translate.Get("navmesh_editor_category_basics") )
 		basicCat:Dock(TOP)
 
 		local basic = vgui.Create("DListLayout", cont)
@@ -161,7 +161,7 @@ nzTools:CreateTool("navedit", {
 		modePnl:Dock(TOP)
 
 		local modeLbl = modePnl:Add( "DLabel" )
-		modeLbl:SetText("Select edit mode:")
+		modeLbl:SetText(translate.Get("navmesh_editor_select_edit_mode"))
 		modeLbl:SetDark(true)
 		modeLbl.Paint = function() end
 		modeLbl:Dock(LEFT)
@@ -172,7 +172,7 @@ nzTools:CreateTool("navedit", {
 		for k,v in pairs(modes) do
 			mode:AddChoice(k,v)
 		end
-		mode:AddChoice("Custom")
+		mode:AddChoice(translate.Get("navmesh_editor_mode_custom"))
 
 		-- custom mode
 
@@ -185,33 +185,33 @@ nzTools:CreateTool("navedit", {
 		for k,v in pairs(commands) do
 			primCust:AddChoice(v, k)
 		end
-		primCust:SetValue("Primary")
+		primCust:SetValue(translate.Get("navmesh_editor_custom_primary"))
 
 		local secCust = custom:Add( "DComboBox" )
 		secCust:Dock(LEFT)
 		for k,v in pairs(commands) do
 			secCust:AddChoice(v, k)
 		end
-		secCust:SetValue("Secondary")
+		secCust:SetValue(translate.Get("navmesh_editor_custom_secondary"))
 
 		local reCust = custom:Add( "DComboBox" )
 		reCust:Dock(LEFT)
 		for k,v in pairs(commands) do
 			reCust:AddChoice(v, k)
 		end
-		reCust:SetValue("Reload")
+		reCust:SetValue(translate.Get("navmesh_editor_custom_reload"))
 
 		local subCust = custom:Add( "DButton" )
 		subCust:Dock(LEFT)
-		subCust:SetText("Submit")
+		subCust:SetText(translate.Get("navmesh_editor_custom_submit"))
 		function subCust:DoClick()
-			if primCust:GetValue() != "Primary" then
+			if primCust:GetValue() != translate.Get("navmesh_editor_custom_primary") then
 				data.Primary, data.PrimaryDesc = primCust:GetSelected()
 			end
-			if secCust:GetValue() != "Secondary" then
+			if secCust:GetValue() != translate.Get("navmesh_editor_custom_secondary") then
 				data.Secondary, data.SecondaryDesc = secCust:GetSelected()
 			end
-			if reCust:GetValue() != "Reload" then
+			if reCust:GetValue() != translate.Get("navmesh_editor_custom_reload") then
 				data.Reload, data.ReloadDesc = reCust:GetSelected()
 			end
 			UpdateDesc()
@@ -226,7 +226,7 @@ nzTools:CreateTool("navedit", {
 		settingsPnl:DockMargin(0,10,0,0)
 
 		local settingsLbl = settingsPnl:Add( "DLabel" )
-		settingsLbl:SetText("Settings:")
+		settingsLbl:SetText(translate.Get("navmesh_editor_settings"))
 		settingsLbl:SetDark(true)
 		settingsLbl.Paint = function() end
 		settingsLbl:Dock(TOP)
@@ -234,7 +234,7 @@ nzTools:CreateTool("navedit", {
 
 		local snapGrid = settingsPnl:Add("DNumSlider")
 		snapGrid:Dock(TOP)
-		snapGrid:SetText("Snap to Grid")
+		snapGrid:SetText(translate.Get("navmesh_editor_snap_to_grid"))
 		snapGrid:SetMin(0)
 		snapGrid:SetMax(2)
 		snapGrid:SetDecimals(0)
@@ -243,7 +243,7 @@ nzTools:CreateTool("navedit", {
 
 		local showInfo = settingsPnl:Add("DNumSlider")
 		showInfo:Dock(TOP)
-		showInfo:SetText("Display area info (sec)")
+		showInfo:SetText(translate.Get("navmesh_editor_display_are_info"))
 		showInfo:SetMin(0)
 		showInfo:SetMax(60)
 		showInfo:SetDecimals(1)
@@ -251,9 +251,9 @@ nzTools:CreateTool("navedit", {
 		showInfo:SetConVar("nav_show_area_info")
 
 		local cvars = {
-			["Place created areas on ground"] = "nav_create_place_on_ground",
-			["Place splitted areas on ground"] = "nav_split_place_on_ground",
-			["Show Compass"] = "nav_show_compass"
+			[translate.Get("navmesh_editor_place_created_areas_on_ground")] = "nav_create_place_on_ground",
+			[translate.Get("navmesh_editor_place_splitted_areas_on_ground")] = "nav_split_place_on_ground",
+			[translate.Get("navmesh_editor_show_compass")] = "nav_show_compass"
 		}
 
 		for k,v in pairs(cvars) do
@@ -287,7 +287,7 @@ nzTools:CreateTool("navedit", {
 
 		local dangerCat = vgui.Create( "DCollapsibleCategory", cont )
 		dangerCat:SetExpanded( 1 )
-		dangerCat:SetLabel( "Danger Zone" )
+		dangerCat:SetLabel( translate.Get("navmesh_editor_category_danger_zone") )
 		dangerCat:Dock(TOP)
 
 		local danger = vgui.Create("DListLayout", cont)
@@ -299,27 +299,27 @@ nzTools:CreateTool("navedit", {
 
 		local save = innerPnl:Add("DButton")
 		save:Dock(FILL)
-		save:SetText("Save")
+		save:SetText(translate.Get("navmesh_editor_danger_zone_save"))
 		save:SetConsoleCommand("nav_save")
 		save:SizeToContents()
 
 		local gen = innerPnl:Add("DButton")
 		gen:Dock(LEFT)
-		gen:SetText("Generate")
+		gen:SetText(translate.Get("navmesh_editor_danger_zone_generate"))
 		gen:SizeToContents()
 		gen:DockPadding(5,0,5,0)
 		gen:SetConsoleCommand("say", "/generate")
 
 		local analyze = innerPnl:Add("DButton")
 		analyze:Dock(RIGHT)
-		analyze:SetText("Analyze")
+		analyze:SetText(translate.Get("navmesh_editor_danger_zone_analyze"))
 		analyze:SizeToContents()
 		analyze:DockPadding(5,0,5,0)
 		analyze:SetConsoleCommand("nav_analyze")
 
 		local quick = danger:Add("DCheckBoxLabel")
 		quick:SetConVar("nav_quicksave")
-		quick:SetText("Enable quicksave")
+		quick:SetText(translate.Get("navmesh_editor_danger_zone_enable_quicksave"))
 		quick:SizeToContents()
 		quick:SetDark(true)
 		quick:Dock(TOP)
@@ -334,7 +334,7 @@ nzTools:CreateTool("navedit", {
 
 		local advCat = vgui.Create( "DCollapsibleCategory", cont )
 		advCat:SetExpanded( 0 )
-		advCat:SetLabel( "Quick Commands" )
+		advCat:SetLabel( translate.Get("navmesh_editor_category_quick_commands") )
 		advCat:Dock(TOP)
 
 		local adv = vgui.Create("DListLayout", cont)

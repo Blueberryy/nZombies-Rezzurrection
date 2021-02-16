@@ -16,70 +16,70 @@ local playerColors = {
 }
 
 function player:GetHUDPointsType(id)
-	if id == "Black Ops 3" then
+	if id == translate.Get("hud_type_bo_three") then
 	 return "bo3_score1.png"
 	end
-		if id == "Buried" then
+		if id == translate.Get("hud_type_buried") then
 	return "buried_score1.png"
 	end
-	if id == "Division 9" then
+	if id == translate.Get("hud_type_division_nine") then
 	 return "d9s.png"
 	end
-	if id == "Shadows of Evil" then
+	if id == translate.Get("hud_type_shadows_of_evil") then
 		return "bo3_score2.png"
 	end
-	if id == "Black Ops 1" then
+	if id == translate.Get("hud_type_bo_one") then
 	 return "bo1s.png"
 	end
-		if id == "Mob of the Dead" then
+		if id == translate.Get("hud_type_mob_of_the_dead") then
 	return "bloodline_score2.png"
 	end
-	if id == "Fade" then
+	if id == translate.Get("hud_type_fade") then
 	return "fades.png"
 	end
-		if id == "Origins (Black Ops 2)" then
+		if id == translate.Get("hud_type_origins_bo_two") then
 	return "bloodline_score2.png"
 	end
-		if id == "Tranzit (Black Ops 2)" then
+		if id == translate.Get("hud_type_tranzit_bo_two") then
 	return "bloodline_score3.png"
 	end
-		if id == "nZombies Classic(HD)" then
+		if id == translate.Get("hud_type_nzombies_classic_hd") then
 	return "hd_score1.png"
 	end
-	if id == "Covenant" then
+	if id == translate.Get("hud_type_covenant") then
 	return "covenant_score1.png"
 	end
-	if id == "UNSC" then
+	if id == translate.Get("hud_type_unsc") then
 	return "unsc_score1.png"
 	end
-	if id == "Dead Space" then
+	if id == translate.Get("hud_type_dead_space") then
 	return "bloodline_score2.png"
 	end
-	if id == "Devil May Cry - Dante" then
+	if id == translate.Get("hud_type_devil_may_cry_dante") then
 	return "dante_score1.png"
 	end
-	if id == "Devil May Cry - Nero" then
+	if id == translate.Get("hud_type_devil_may_cry_nero") then
 	return "nero_score1.png"
 	end
-	if id == "Devil May Cry - V" then
+	if id == translate.Get("hud_type_devil_may_cry_v") then
 	return "V_score1.png"
 	end
-	if id == "Devil May Cry - Vergil" then
+	if id == translate.Get("hud_type_devil_may_cry_vergil") then
 	return "vergil_score1.png"
 	end
-	if id == "Gears of War" then
+	if id == translate.Get("hud_type_gears_of_war") then
 	return "gears_score1.png"
 	end
-	if id == "Killing Floor 2" then
+	if id == translate.Get("hud_type_killing_floor_two") then
 	return "hd_score4.png"
 	end
-	if id == "Resident Evil" then
+	if id == translate.Get("hud_type_resident_evil") then
 	return "RE_score1.png"
 	end
-	if id == "Simple (Black)" then
+	if id == translate.Get("hud_type_simple_black") then
 	return "simple_score1.png"
 	end
-	if id == "Simple (Outline)" then
+	if id == translate.Get("hud_type_simple_outline") then
 	return "simple_score1.png"
 	end
 	if id == nil then

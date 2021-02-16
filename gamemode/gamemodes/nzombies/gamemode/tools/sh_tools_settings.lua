@@ -1,6 +1,6 @@
 nzTools:CreateTool("settings", {
-	displayname = "Map Settings",
-	desc = "Use the Tool Interface and press Submit to save changes",
+	displayname = translate.Get("map_settings_tool"),
+	desc = translate.Get("map_settings_tool_tip"),
 	condition = function(wep, ply)
 		return true
 	end,
@@ -16,8 +16,8 @@ nzTools:CreateTool("settings", {
 	OnHolster = function(wep, ply, data)
 	end
 }, {
-	displayname = "Map Settings",
-	desc = "Use the Tool Interface and press Submit to save changes",
+	displayname = translate.Get("map_settings_tool"),
+	desc = translate.Get("map_settings_tool_tip"),
 	icon = "icon16/cog.png",
 	weight = 25,
 	condition = function(wep, ply)
@@ -90,9 +90,9 @@ nzTools:CreateTool("settings", {
 		local DProperties = vgui.Create( "DProperties", DProperySheet )
 		DProperties:SetSize( 280, 220 )
 		DProperties:SetPos( 0, 0 )
-		sheet:AddSheet( "Map Properties", DProperties, "icon16/cog.png", false, false, "Set a list of general settings. The Easter Egg Song URL needs to be from Soundcloud.")
+		sheet:AddSheet( translate.Get("category_map_properties"), DProperties, "icon16/cog.png", false, false, translate.Get("category_map_properties_tip"))
 
-		local Row1 = DProperties:CreateRow( "Map Settings", "Starting Weapon" )
+		local Row1 = DProperties:CreateRow( translate.Get("tool_map_properties"), translate.Get("tool_map_properties_starting_weapon") )
 		Row1:Setup( "Combo" )
 		for k,v in pairs(weapons.GetList()) do
 			if !v.NZTotalBlacklist then
@@ -117,37 +117,37 @@ nzTools:CreateTool("settings", {
 
 		Row1.DataChanged = function( _, val ) valz["Row1"] = val end
 
-		local Row2 = DProperties:CreateRow( "Map Settings", "Starting Points" )
+		local Row2 = DProperties:CreateRow( translate.Get("tool_map_properties"), translate.Get("tool_map_properties_starting_points") )
 		Row2:Setup( "Integer" )
 		Row2:SetValue( valz["Row2"] )
 		Row2.DataChanged = function( _, val ) valz["Row2"] = val end
 		
-		local Row3 = DProperties:CreateRow( "Map Settings", "Easter Egg Song URL" )
+		local Row3 = DProperties:CreateRow( translate.Get("tool_map_properties"), translate.Get("tool_map_properties_easter_egg_song") )
 		Row3:Setup( "Generic" )
 		Row3:SetValue( valz["Row3"] )
 		Row3.DataChanged = function( _, val ) valz["Row3"] = val end
-		Row3:SetTooltip("Add a link to a SoundCloud track to play this when all easter eggs have been found")
+		Row3:SetTooltip(translate.Get("tool_map_properties_easter_egg_song_tip"))
 
 		if nzTools.Advanced then
-			local Row4 = DProperties:CreateRow( "Map Settings", "Includes Map Script?" )
+			local Row4 = DProperties:CreateRow( translate.Get("tool_map_properties"), translate.Get("tool_map_properties_include_map_script") )
 			Row4:Setup( "Boolean" )
 			Row4:SetValue( valz["Row4"] )
 			Row4.DataChanged = function( _, val ) valz["Row4"] = val end
-			Row4:SetTooltip("Loads a .lua file with the same name as the config .txt from /lua/nzmapscripts - for advanced developers.")
+			Row4:SetTooltip(translate.Get("tool_map_properties_include_map_script_tip"))
 		
-			local Row5 = DProperties:CreateRow( "Map Settings", "Script Description" )
+			local Row5 = DProperties:CreateRow( translate.Get("tool_map_properties"), translate.Get("tool_map_properties_script_description") )
 			Row5:Setup( "Generic" )
 			Row5:SetValue( valz["Row5"] )
 			Row5.DataChanged = function( _, val ) valz["Row5"] = val end
-			Row5:SetTooltip("Sets the description displayed when attempting to load the script.")
+			Row5:SetTooltip(translate.Get("tool_map_properties_script_description_tip"))
 			
-			local Row6 = DProperties:CreateRow( "Map Settings", "GM Extensions" )
+			local Row6 = DProperties:CreateRow( translate.Get("tool_map_properties"), translate.Get("tool_map_properties_gm_extensions") )
 			Row6:Setup("Boolean")
 			Row6:SetValue( valz["Row6"] )
 			Row6.DataChanged = function( _, val ) valz["Row6"] = val end
-			Row6:SetTooltip("Sets whether the gamemode should spawn in map entities from other gamemodes, such as ZS.")
+			Row6:SetTooltip(translate.Get("tool_map_properties_gm_extensions_tip"))
 
-			local Row7 = DProperties:CreateRow("Map Settings", "Special Round")
+			local Row7 = DProperties:CreateRow(translate.Get("tool_map_properties"), translate.Get("tool_map_properties_special_round"))
 			Row7:Setup( "Combo" )
 			local found = false
 			for k,v in pairs(nzRound.SpecialData) do
@@ -158,11 +158,11 @@ nzTools:CreateTool("settings", {
 					Row7:AddChoice(k, k, false)
 				end
 			end
-			Row7:AddChoice(" None", "None", !found)
+			Row7:AddChoice(translate.Get("tool_map_properties_nonee"), "None", !found)
 			Row7.DataChanged = function( _, val ) valz["Row7"] = val end
-			Row7:SetTooltip("Sets what type of special round will appear.")
+			Row7:SetTooltip(translate.Get("tool_map_properties_special_round_tip"))
 			
-			local Row8 = DProperties:CreateRow( "Map Settings", "Boss" )
+			local Row8 = DProperties:CreateRow( translate.Get("tool_map_properties"), translate.Get("tool_map_properties_boss") )
 			Row8:Setup( "Combo" )
 			local found = false
 			for k,v in pairs(nzRound.BossData) do
@@ -173,41 +173,41 @@ nzTools:CreateTool("settings", {
 					Row8:AddChoice(k, k, false)
 				end
 			end
-			Row8:AddChoice(" None", "None", !found)
+			Row8:AddChoice(translate.Get("tool_map_properties_nonee"), "None", !found)
 			Row8.DataChanged = function( _, val ) valz["Row8"] = val end
-			Row8:SetTooltip("Sets what type of boss will appear.")
+			Row8:SetTooltip(translate.Get("tool_map_properties_boss_tip"))
 			
-			local Row9 = DProperties:CreateRow("Map Settings", "Starting Spawns")
+			local Row9 = DProperties:CreateRow(translate.Get("tool_map_properties"), translate.Get("tool_map_properties_starting_spawns"))
 			Row9:Setup( "Integer" )
 			Row9:SetValue( valz["Row9"] )
-			Row9:SetTooltip("Allowed zombies alive at once, can be increased per round with Spawns Per Round")
+			Row9:SetTooltip(translate.Get("tool_map_properties_starting_spawns_tip"))
 			Row9.DataChanged = function( _, val ) valz["Row9"] = val end
 
-			local Row10 = DProperties:CreateRow("Map Settings", "Spawns Per Round")
+			local Row10 = DProperties:CreateRow(translate.Get("tool_map_properties"), translate.Get("tool_map_properties_spawns_per_round"))
 			Row10:Setup( "Integer" )
 			Row10:SetValue( valz["Row10"] )
-			Row10:SetTooltip("Amount to increase spawns by each round (Cannot increase past Max Spawns)")
+			Row10:SetTooltip(translate.Get("tool_map_properties_spawns_per_round_tip"))
 			Row10.DataChanged = function( _, val ) valz["Row10"] = val end
 
-			local Row11 = DProperties:CreateRow("Map Settings", "Max Spawns")
+			local Row11 = DProperties:CreateRow(translate.Get("tool_map_properties"), translate.Get("tool_map_properties_max_spawns"))
 			Row11:Setup( "Integer" )
 			Row11:SetValue( valz["Row11"] )
-			Row11:SetTooltip("The max allowed zombies alive at any given time, it will NEVER go above this.")
+			Row11:SetTooltip(translate.Get("tool_map_properties_max_spawns_tip"))
 			Row11.DataChanged = function( _, val ) valz["Row11"] = val end
 
-			local Row13 = DProperties:CreateRow("Map Settings", "Zombies Per Player")
+			local Row13 = DProperties:CreateRow(translate.Get("tool_map_properties"), translate.Get("tool_map_properties_zombies_per_player"))
 			Row13:Setup( "Integer" )
 			Row13:SetValue( valz["Row13"] )
-			Row13:SetTooltip("Extra zombies to kill per player (Ignores first player)")
+			Row13:SetTooltip(translate.Get("tool_map_properties_zombies_per_player_tip"))
 			Row13.DataChanged = function( _, val ) valz["Row13"] = val end
 
-			local Row14 = DProperties:CreateRow("Map Settings", "Spawns Per Player")
+			local Row14 = DProperties:CreateRow(translate.Get("tool_map_properties"), translate.Get("tool_map_properties_spawns_per_player"))
 			Row14:Setup( "Integer" )
 			Row14:SetValue( valz["Row14"] )
-			Row14:SetTooltip("Extra zombies allowed to spawn per player (Ignores first player and Max Spawns option)")
+			Row14:SetTooltip(translate.Get("tool_map_properties_spawns_per_player_tip"))
 			Row14.DataChanged = function( _, val ) valz["Row14"] = val end
 			
-			local Row15 = DProperties:CreateRow("Map Settings", "Zombie Type")
+			local Row15 = DProperties:CreateRow(translate.Get("tool_map_properties"), translate.Get("tool_map_properties_zombie_type"))
 			Row15:Setup( "Combo" )
 			local found = false
 			for k,v in pairs(nzRound.ZombieSkinData) do
@@ -219,9 +219,9 @@ nzTools:CreateTool("settings", {
 				end
 			end
 			Row15.DataChanged = function( _, val ) valz["Row15"] = val end
-			Row15:SetTooltip("Sets the zombies that will appear in your map.")
+			Row15:SetTooltip(translate.Get("tool_map_properties_zombie_type_tip"))
 			
-			local Row16 = DProperties:CreateRow("Map Settings", "HUD Select")
+			local Row16 = DProperties:CreateRow(translate.Get("tool_map_properties"), translate.Get("tool_map_properties_hud_select"))
 			Row16:Setup( "Combo" )
 			local found = false
 			for k,v in pairs(nzRound.HudSelectData) do
@@ -233,9 +233,9 @@ nzTools:CreateTool("settings", {
 				end
 			end
 			Row16.DataChanged = function( _, val ) valz["Row16"] = val end
-			Row16:SetTooltip("Sets the HUD players will see in your map")
+			Row16:SetTooltip(translate.Get("tool_map_properties_hud_select_tip"))
 			
-			local Row18 = DProperties:CreateRow("Map Settings", "Perk Machine Skins")
+			local Row18 = DProperties:CreateRow(translate.Get("tool_map_properties"), translate.Get("tool_map_properties_perk_machine_skins"))
 			Row18:Setup( "Combo" )
 			local found = false
 			for k,v in pairs(nzRound.PerkSelectData) do
@@ -247,9 +247,9 @@ nzTools:CreateTool("settings", {
 				end
 			end
 			Row18.DataChanged = function( _, val ) valz["Row18"] = val end
-			Row18:SetTooltip("Sets the Perk Machines")
+			Row18:SetTooltip(translate.Get("tool_map_properties_perk_machine_skins_desc"))
 			
-			local Row19 = DProperties:CreateRow("Map Settings", "Mystery Box Skin")
+			local Row19 = DProperties:CreateRow(translate.Get("tool_map_properties"), translate.Get("tool_map_properties_mystery_box_skin"))
 			Row19:Setup( "Combo" )
 			local found = false
 			for k,v in pairs(nzRound.BoxSkinData) do
@@ -261,14 +261,14 @@ nzTools:CreateTool("settings", {
 				end
 			end
 			Row19.DataChanged = function( _, val ) valz["Row19"] = val end
-			Row19:SetTooltip("Sets the Mystery Box Skin")
+			Row19:SetTooltip(translate.Get("tool_map_properties_mystery_box_skin_desc"))
 			
-		local Row21 = DProperties:CreateRow( "Map Settings", "Extra Enemy Interval 1" )
+		local Row21 = DProperties:CreateRow( translate.Get("tool_map_properties"), translate.Get("tool_map_properties_extra_enemy_interval_one") )
 		Row21:Setup( "Integer" )
 		Row21:SetValue( valz["Row21"] )
 		Row21.DataChanged = function( _, val ) valz["Row21"] = val end
 		
-		local Row22 = DProperties:CreateRow("Map Settings", "Extra Enemy 1")
+		local Row22 = DProperties:CreateRow(translate.Get("tool_map_properties"), translate.Get("tool_map_properties_extra_enemy_one"))
 			Row22:Setup( "Combo" )
 			local found = false
 			for k,v in pairs(nzRound.AdditionalZombieData) do
@@ -279,21 +279,21 @@ nzTools:CreateTool("settings", {
 					Row22:AddChoice(k, k, false)
 				end
 			end
-			Row22:AddChoice(" None", "None", !found)
+			Row22:AddChoice(translate.Get("tool_map_properties_nonee"), "None", !found)
 			Row22.DataChanged = function( _, val ) valz["Row22"] = val end
-			Row22:SetTooltip("Sets what type of new enemy will appear on the first new enemy interval")
+			Row22:SetTooltip(translate.Get("tool_map_properties_extra_enemy_one_tip"))
 			
-		local Row23 = DProperties:CreateRow( "Map Settings", "Extra Enemy 1 Ratio" )
+		local Row23 = DProperties:CreateRow( translate.Get("tool_map_properties"), translate.Get("tool_map_properties_extra_enemy_one_ratio") )
 		Row23:Setup( "Integer" )
 		Row23:SetValue( valz["Row23"] )
 		Row23.DataChanged = function( _, val ) valz["Row23"] = val end
 		
-		local Row24 = DProperties:CreateRow( "Map Settings", "Extra Enemy Interval 2" )
+		local Row24 = DProperties:CreateRow( translate.Get("tool_map_properties"), translate.Get("tool_map_properties_extra_enemy_interval_two") )
 		Row24:Setup( "Integer" )
 		Row24:SetValue( valz["Row24"] )
 		Row24.DataChanged = function( _, val ) valz["Row24"] = val end
 		
-		local Row25 = DProperties:CreateRow("Map Settings", "Extra Enemy 2")
+		local Row25 = DProperties:CreateRow(translate.Get("tool_map_properties"), translate.Get("tool_map_properties_extra_enemy_two"))
 			Row25:Setup( "Combo" )
 			local found = false
 			for k,v in pairs(nzRound.AdditionalZombieData) do
@@ -304,21 +304,21 @@ nzTools:CreateTool("settings", {
 					Row25:AddChoice(k, k, false)
 				end
 			end
-			Row25:AddChoice(" None", "None", !found)
+			Row25:AddChoice(translate.Get("tool_map_properties_nonee"), "None", !found)
 			Row25.DataChanged = function( _, val ) valz["Row25"] = val end
-			Row25:SetTooltip("Sets what type of new enemy will appear on the second new enemy interval")
+			Row25:SetTooltip(translate.Get("tool_map_properties_extra_enemy_two_tip"))
 			
-		local Row26 = DProperties:CreateRow( "Map Settings", "Extra Enemy 2 Ratio" )
+		local Row26 = DProperties:CreateRow( translate.Get("tool_map_properties"), translate.Get("tool_map_properties_extra_enemy_two_ratio") )
 		Row26:Setup( "Integer" )
 		Row26:SetValue( valz["Row26"] )
 		Row26.DataChanged = function( _, val ) valz["Row26"] = val end
 		
-		local Row27 = DProperties:CreateRow( "Map Settings", "Extra Enemy Interval 3" )
+		local Row27 = DProperties:CreateRow( translate.Get("tool_map_properties"), translate.Get("tool_map_properties_extra_enemy_interval_three") )
 		Row27:Setup( "Integer" )
 		Row27:SetValue( valz["Row27"] )
 		Row27.DataChanged = function( _, val ) valz["Row27"] = val end
 		
-		local Row28 = DProperties:CreateRow("Map Settings", "Extra Enemy 3")
+		local Row28 = DProperties:CreateRow(translate.Get("tool_map_properties"), translate.Get("tool_map_properties_extra_enemy_three"))
 			Row28:Setup( "Combo" )
 			local found = false
 			for k,v in pairs(nzRound.AdditionalZombieData) do
@@ -329,21 +329,21 @@ nzTools:CreateTool("settings", {
 					Row28:AddChoice(k, k, false)
 				end
 			end
-			Row28:AddChoice(" None", "None", !found)
+			Row28:AddChoice(translate.Get("tool_map_properties_nonee"), "None", !found)
 			Row28.DataChanged = function( _, val ) valz["Row28"] = val end
-			Row28:SetTooltip("Sets what type of new enemy will appear on the third new enemy interval")
+			Row28:SetTooltip(translate.Get("tool_map_properties_extra_enemy_three_tip"))
 			
-		local Row29 = DProperties:CreateRow( "Map Settings", "Extra Enemy 3 Ratio" )
+		local Row29 = DProperties:CreateRow( translate.Get("tool_map_properties"), translate.Get("tool_map_properties_extra_enemy_three_ratio") )
 		Row29:Setup( "Integer" )
 		Row29:SetValue( valz["Row29"] )
 		Row29.DataChanged = function( _, val ) valz["Row29"] = val end
 		
-		local Row30 = DProperties:CreateRow( "Map Settings", "Extra Enemy Interval 4" )
+		local Row30 = DProperties:CreateRow( translate.Get("tool_map_properties"), translate.Get("tool_map_properties_extra_enemy_interval_four") )
 		Row30:Setup( "Integer" )
 		Row30:SetValue( valz["Row30"] )
 		Row30.DataChanged = function( _, val ) valz["Row30"] = val end
 		
-		local Row31 = DProperties:CreateRow("Map Settings", "Extra Enemy 4")
+		local Row31 = DProperties:CreateRow(translate.Get("tool_map_properties"), translate.Get("tool_map_properties_extra_enemy_four"))
 			Row31:Setup( "Combo" )
 			local found = false
 			for k,v in pairs(nzRound.AdditionalZombieData) do
@@ -354,11 +354,11 @@ nzTools:CreateTool("settings", {
 					Row31:AddChoice(k, k, false)
 				end
 			end
-			Row31:AddChoice(" None", "None", !found)
+			Row31:AddChoice(translate.Get("tool_map_properties_nonee"), "None", !found)
 			Row31.DataChanged = function( _, val ) valz["Row31"] = val end
-			Row31:SetTooltip("Sets what type of new enemy will appear on the fourth new enemy interval")
+			Row31:SetTooltip(translate.Get("tool_map_properties_extra_enemy_four_tip"))
 			
-			local Row32 = DProperties:CreateRow( "Map Settings", "Extra Enemy 4 Ratio" )
+			local Row32 = DProperties:CreateRow( translate.Get("tool_map_properties"), translate.Get("tool_map_properties_extra_enemy_four_ratio") )
 		Row32:Setup( "Integer" )
 		Row32:SetValue( valz["Row32"] )
 		Row32.DataChanged = function( _, val ) valz["Row32"] = val end
@@ -423,7 +423,7 @@ nzTools:CreateTool("settings", {
 		end
 
 		MapSDermaButton = vgui.Create( "DButton", frame )
-		MapSDermaButton:SetText( "Submit" )
+		MapSDermaButton:SetText( translate.Get("tool_map_properties_submit") )
 		--MapSDermaButton:Dock(BOTTOM)
 		MapSDermaButton:SetPos( 10, 430 )
 
@@ -432,7 +432,7 @@ nzTools:CreateTool("settings", {
 		
 		local function AddEyeStuff()
 			local eyePanel = vgui.Create("DPanel", sheet)
-			sheet:AddSheet("Eye Color", eyePanel, "icon16/palette.png", false, false, "Set the eye glow color the zombies have.")
+			sheet:AddSheet(translate.Get("tool_map_properties_eye_color"), eyePanel, "icon16/palette.png", false, false, translate.Get("tool_map_properties_eye_color_tip"))
 			eyePanel:DockPadding(5, 5, 5, 5)
 			local colorChoose = vgui.Create("DColorMixer", eyePanel)
 			colorChoose:SetColor(valz["Row17"])
@@ -445,18 +445,18 @@ nzTools:CreateTool("settings", {
 			presets:SetSize(335, 20)
 			presets:SetPos(5, 225)
 			presets:Dock(BOTTOM)
-			presets:AddChoice("Richtofen")
-			presets:AddChoice("Samantha")
-			presets:AddChoice("Avogadro")
-			presets:AddChoice("Warden")
+			presets:AddChoice(translate.Get("eye_color_type_richtofen"))
+			presets:AddChoice(translate.Get("eye_color_type_samantha"))
+			presets:AddChoice(translate.Get("eye_color_type_avogardo"))
+			presets:AddChoice(translate.Get("eye_color_type_warden"))
 			presets.OnSelect = function(self, index, value)
-				if (value == "Richtofen") then
+				if (value == translate.Get("eye_color_type_richtofen")) then
 					colorChoose:SetColor(Color(0, 255, 255))
-				elseif (value == "Samantha") then
+				elseif (value == translate.Get("eye_color_type_samantha")) then
 					colorChoose:SetColor(Color(255, 145, 0))
-				elseif (value == "Avogadro") then
+				elseif (value == translate.Get("eye_color_type_avogardo")) then
 					colorChoose:SetColor(Color(255, 255, 255))
-				elseif (value == "Warden") then
+				elseif (value == translate.Get("eye_color_type_warden")) then
 					colorChoose:SetColor(Color(255, 0, 0))	
 				end
 
@@ -470,7 +470,7 @@ nzTools:CreateTool("settings", {
 		
 		local function AddBoxStuff()
 			local boxlightPanel = vgui.Create("DPanel", sheet)
-			sheet:AddSheet("Box Color", boxlightPanel, "icon16/palette.png", false, false, "Set the color of the Mystery Box light.")
+			sheet:AddSheet(translate.Get("tool_map_properties_box_color"), boxlightPanel, "icon16/palette.png", false, false, translate.Get("tool_map_properties_box_color_tip"))
 			boxlightPanel:DockPadding(5, 5, 5, 5)
 			local colorChoose2 = vgui.Create("DColorMixer", boxlightPanel)
 			colorChoose2:SetColor(valz["Row20"])
@@ -482,8 +482,8 @@ nzTools:CreateTool("settings", {
 			local presets = vgui.Create("DComboBox", boxlightPanel)
 			presets:SetSize(60, 20)
 			presets:Dock(BOTTOM)
-			presets:AddChoice("Default")
-			presets:AddChoice("Mob of the Dead")
+			presets:AddChoice(translate.Get("box_color_default"))
+			presets:AddChoice(translate.Get("box_color_mod_of_the_dead"))
 			presets.OnSelect = function(self, index, value)
 				if (value == "Default") then
 					colorChoose2:SetColor(Color(150,200,255))
@@ -501,7 +501,7 @@ nzTools:CreateTool("settings", {
 		end
 		
 		local acPanel = vgui.Create("DPanel", sheet)
-		sheet:AddSheet("Anti-Cheat", acPanel, "icon16/script_gear.png", false, false, "Automatically teleport players from cheating spots.")
+		sheet:AddSheet(translate.Get("tool_map_properties_anti_cheat"), acPanel, "icon16/script_gear.png", false, false, translate.Get("tool_map_properties_anti_cheat_tip"))
 		local acProps = vgui.Create("DProperties", acPanel)
 		local acheight, acwidth = sheet:GetSize()
 		acProps:SetSize(acwidth, acwidth - 50)
@@ -511,7 +511,7 @@ nzTools:CreateTool("settings", {
 			AddBoxStuff()
 		end
 		
-		local ACRow1 = acProps:CreateRow("Anti-Cheat Settings", "Enabled?")
+		local ACRow1 = acProps:CreateRow(translate.Get("tool_anti_cheat_settings"), translate.Get("tool_anti_cheat_enabled"))
 		ACRow1:Setup("Boolean")
 		ACRow1:SetValue(valz["ACRow1"])
 		ACRow1.DataChanged = function( _, val ) valz["ACRow1"] = val end
@@ -522,41 +522,41 @@ nzTools:CreateTool("settings", {
 		-- DermaButton3.DoClick = UpdateData
 
 		if nzTools.Advanced then
-			local ACRow2 = acProps:CreateRow("Anti-Cheat Settings", "Warn players?")
+			local ACRow2 = acProps:CreateRow(translate.Get("tool_anti_cheat_settings"), translate.Get("tool_anti_cheat_warn_players"))
 			ACRow2:Setup("Boolean")
 			ACRow2:SetValue(valz["ACRow2"])
-			ACRow2:SetTooltip("Shows \"Return to map!\" with a countdown on player's screens")
+			ACRow2:SetTooltip(translate.Get("tool_anti_cheat_warn_players_tip"))
 			ACRow2.DataChanged = function(_, val) valz["ACRow2"] = val end
 
-			local ACRow3 = acProps:CreateRow("Anti-Cheat Settings", "Save Last Spots?")
+			local ACRow3 = acProps:CreateRow(translate.Get("tool_anti_cheat_settings"), translate.Get("tool_anti_cheat_save_last_spots"))
 			ACRow3:Setup("Boolean")
 			ACRow3:SetValue(valz["ACRow3"])
-			ACRow3:SetTooltip("Remembers the last spot a player was at before they were detected. (Uses more performance)")
+			ACRow3:SetTooltip(translate.Get("tool_anti_cheat_save_last_spots_tip"))
 			ACRow3.DataChanged = function(_, val) valz["ACRow3"] = val end
 
-			local ACRow5 = acProps:CreateRow("Anti-Cheat Settings", "Prevent boosting?")
+			local ACRow5 = acProps:CreateRow(translate.Get("tool_anti_cheat_settings"), translate.Get("tool_anti_cheat_prevent_boosting"))
 			ACRow5:Setup("Boolean")
 			ACRow5:SetValue(valz["ACRow5"])
-			ACRow5:SetTooltip("Cancels out vertical velocity when players boost up faster than jump speed")
+			ACRow5:SetTooltip(translate.Get("tool_anti_cheat_prevent_boosting_tip"))
 			ACRow5.DataChanged = function(_, val) valz["ACRow5"] = val end
 
-			local ACRow6 = acProps:CreateRow("Anti-Cheat Settings", "No Crouch Jump?")
+			local ACRow6 = acProps:CreateRow(translate.Get("tool_anti_cheat_settings"), translate.Get("tool_anti_cheat_no_crouch_jump"))
 			ACRow6:Setup("Boolean")
 			ACRow6:SetValue(valz["ACRow6"])
-			ACRow6:SetTooltip("Turns crouch jumps into normal jumps to make climbing on stuff harder")
+			ACRow6:SetTooltip(translate.Get("tool_anti_cheat_no_crouch_jump_tip"))
 			ACRow6.DataChanged = function(_, val) valz["ACRow6"] = val end
 
-			local ACRow4 = acProps:CreateRow("Anti-Cheat Settings", "Seconds for TP")
+			local ACRow4 = acProps:CreateRow(translate.Get("tool_anti_cheat_settings"), translate.Get("tool_anti_cheat_seconds_fot_tp"))
 			ACRow4:Setup("Integer")
 			ACRow4:SetValue(valz["ACRow4"])
-			ACRow4:SetTooltip("Amount of seconds before a cheating player is teleported.")
+			ACRow4:SetTooltip(translate.Get("tool_anti_cheat_seconds_fot_tp_tip"))
 			ACRow4.DataChanged = function(_, val) valz["ACRow4"] = val end
 			
 			local weplist = {}
 			local numweplist = 0
 
 			local rboxpanel = vgui.Create("DPanel", sheet)
-			sheet:AddSheet( "Random Box Weapons", rboxpanel, "icon16/box.png", false, false, "Set which weapons appear in the Random Box.")
+			sheet:AddSheet( translate.Get("tool_map_properties_random_box_weapons"), rboxpanel, "icon16/box.png", false, false, translate.Get("tool_map_properties_random_box_weapons_tip"))
 			rboxpanel.Paint = function() return end
 
 			local rbweplist = vgui.Create("DScrollPanel", rboxpanel)
@@ -591,7 +591,7 @@ nzTools:CreateTool("settings", {
 				local dweight = vgui.Create("DNumberWang", weplist[class])
 				dweight:SetPos(295, 1)
 				dweight:SetSize(40, 14)
-				dweight:SetTooltip("The chance of this weapon appearing in the box")
+				dweight:SetTooltip(translate.Get("random_box_weapons_chance_tip"))
 				dweight:SetMinMax( 1, 100 )
 				dweight:SetValue(valz["RBoxWeps"][class])
 				function dweight:OnValueChanged(val)
@@ -624,18 +624,18 @@ nzTools:CreateTool("settings", {
 						if wep.Category and wep.Category != "" then
 							InsertWeaponToList(wep.PrintName != "" and wep.PrintName or k, k, v or 10, k.." ["..wep.Category.."]")
 						else
-							InsertWeaponToList(wep.PrintName != "" and wep.PrintName or k, k, v or 10, k.." [No Category]")
+							InsertWeaponToList(wep.PrintName != "" and wep.PrintName or k, k, v or 10, k.." "..translate.Get("random_box_weapons_no_category"))
 						end
 					end
 				end
 			else
 				for k,v in pairs(weapons.GetList()) do
 					-- By default, add all weapons that have print names unless they are blacklisted
-					if v.PrintName and v.PrintName != "" and !nzConfig.WeaponBlackList[v.ClassName] and v.PrintName != "Scripted Weapon" and !v.NZPreventBox and !v.NZTotalBlacklist then
+					if v.PrintName and v.PrintName != "" and !nzConfig.WeaponBlackList[v.ClassName] and v.PrintName != translate.Get("random_box_weapons_weaponname_scripted") and !v.NZPreventBox and !v.NZTotalBlacklist then
 						if v.Category and v.Category != "" then
 							InsertWeaponToList(v.PrintName != "" and v.PrintName or v.ClassName, v.ClassName, 10, v.ClassName.." ["..v.Category.."]")
 						else
-							InsertWeaponToList(v.PrintName != "" and v.PrintName or v.ClassName, v.ClassName, 10, v.ClassName.." [No Category]")
+							InsertWeaponToList(v.PrintName != "" and v.PrintName or v.ClassName, v.ClassName, 10, v.ClassName.." "..translate.Get("random_box_weapons_no_category"))
 						end
 					end
 					-- The rest are still available in the dropdown
@@ -645,7 +645,7 @@ nzTools:CreateTool("settings", {
 			local wepentry = vgui.Create( "DComboBox", rboxpanel )
 			wepentry:SetPos( 0, 355 )
 			wepentry:SetSize( 146, 20 )
-			wepentry:SetValue( "Weapon ..." )
+			wepentry:SetValue( translate.Get("random_box_weapons_weapon_placeholder") )
 			for k,v in pairs(weapons.GetList()) do
 				if !v.NZTotalBlacklist and !v.NZPreventBox then
 					if v.Category and v.Category != "" then
@@ -659,7 +659,7 @@ nzTools:CreateTool("settings", {
 			end
 
 			local wepadd = vgui.Create( "DButton", rboxpanel )
-			wepadd:SetText( "Add" )
+			wepadd:SetText( translate.Get("random_box_weapons_add") )
 			wepadd:SetPos( 150, 355 )
 			wepadd:SetSize( 53, 20 )
 			wepadd.DoClick = function()
@@ -668,20 +668,20 @@ nzTools:CreateTool("settings", {
 					if v.Category and v.Category != "" then
 						InsertWeaponToList(v.PrintName != "" and v.PrintName or v.ClassName, v.ClassName, 10, v.ClassName.." ["..v.Category.."]")
 					else
-						InsertWeaponToList(v.PrintName != "" and v.PrintName or v.ClassName, v.ClassName, 10, v.ClassName.." [No Category]")
+						InsertWeaponToList(v.PrintName != "" and v.PrintName or v.ClassName, v.ClassName, 10, v.ClassName.." "..translate.Get("random_box_weapons_no_category"))
 					end
 				end
-				wepentry:SetValue( "Weapon..." )
+				wepentry:SetValue( translate.Get("random_box_weapons_weapon_placeholder") )
 			end
 			
 			local wepmore = vgui.Create( "DButton", rboxpanel )
-			wepmore:SetText( "More ..." )
+			wepmore:SetText( translate.Get("random_box_weapons_more") )
 			wepmore:SetPos( 207, 355 )
 			wepmore:SetSize( 53, 20 )
 			wepmore.DoClick = function()
 				local morepnl = vgui.Create("DFrame")
 				morepnl:SetSize(300, 170)
-				morepnl:SetTitle("More weapon options ...")
+				morepnl:SetTitle(translate.Get("random_box_weapons_more_woptions"))
 				morepnl:Center()
 				morepnl:SetDraggable(true)
 				morepnl:ShowCloseButton(true)
@@ -699,10 +699,10 @@ nzTools:CreateTool("settings", {
 						end
 					end
 				end
-				morecat:AddChoice(" Category ...", nil, true)
+				morecat:AddChoice(translate.Get("random_box_weapons_category_placeholder"), nil, true)
 					
 				local morecatadd = vgui.Create("DButton", morepnl)
-				morecatadd:SetText( "Add all" )
+				morecatadd:SetText( translate.Get("random_box_weapons_add_all") )
 				morecatadd:SetPos( 165, 30 )
 				morecatadd:SetSize( 60, 20 )
 				morecatadd.DoClick = function()
@@ -717,7 +717,7 @@ nzTools:CreateTool("settings", {
 				end
 				
 				local morecatdel = vgui.Create("DButton", morepnl)
-				morecatdel:SetText( "Remove all" )
+				morecatdel:SetText( translate.Get("random_box_weapons_remove_all") )
 				morecatdel:SetPos( 230, 30 )
 				morecatdel:SetSize( 60, 20 )
 				morecatdel.DoClick = function()
@@ -753,10 +753,10 @@ nzTools:CreateTool("settings", {
 						prefixtbl[prefix] = true
 					end
 				end
-				moreprefix:AddChoice(" Prefix ...", nil, true)
+				moreprefix:AddChoice(translate.Get("random_box_weapons_prefix_placeholder"), nil, true)
 					
 				local moreprefixadd = vgui.Create("DButton", morepnl)
-				moreprefixadd:SetText( "Add all" )
+				moreprefixadd:SetText( translate.Get("random_box_weapons_add_all") )
 				moreprefixadd:SetPos( 165, 60 )
 				moreprefixadd:SetSize( 60, 20 )
 				moreprefixadd.DoClick = function()
@@ -768,7 +768,7 @@ nzTools:CreateTool("settings", {
 								if v.Category and v.Category != "" then
 									InsertWeaponToList(v.PrintName != "" and v.PrintName or v.ClassName, v.ClassName, 10, v.ClassName.." ["..v.Category.."]")
 								else
-									InsertWeaponToList(v.PrintName != "" and v.PrintName or v.ClassName, v.ClassName, 10, v.ClassName.." [No Category]")
+									InsertWeaponToList(v.PrintName != "" and v.PrintName or v.ClassName, v.ClassName, 10, v.ClassName.." "..translate.Get("random_box_weapons_no_category"))
 								end
 							end
 						end
@@ -776,7 +776,7 @@ nzTools:CreateTool("settings", {
 				end
 				
 				local moreprefixdel = vgui.Create("DButton", morepnl)
-				moreprefixdel:SetText( "Remove all" )
+				moreprefixdel:SetText( translate.Get("random_box_weapons_remove_all") )
 				moreprefixdel:SetPos( 230, 60 )
 				moreprefixdel:SetSize( 60, 20 )
 				moreprefixdel.DoClick = function()
@@ -800,7 +800,7 @@ nzTools:CreateTool("settings", {
 				end
 				
 				local removeall = vgui.Create("DButton", morepnl)
-				removeall:SetText( "Remove all" )
+				removeall:SetText( translate.Get("random_box_weapons_remove_all") )
 				removeall:SetPos( 10, 100 )
 				removeall:SetSize( 140, 25 )
 				removeall.DoClick = function()
@@ -813,7 +813,7 @@ nzTools:CreateTool("settings", {
 				end
 				
 				local addall = vgui.Create("DButton", morepnl)
-				addall:SetText( "Add all" )
+				addall:SetText( translate.Get("random_box_weapons_add_all") )
 				addall:SetPos( 150, 100 )
 				addall:SetSize( 140, 25 )
 				addall.DoClick = function()
@@ -825,11 +825,11 @@ nzTools:CreateTool("settings", {
 					end
 					for k,v in SortedPairsByMemberValue(weapons.GetList(), "PrintName") do
 						-- By default, add all weapons that have print names unless they are blacklisted
-						if v.PrintName and v.PrintName != "" and !nzConfig.WeaponBlackList[v.ClassName] and v.PrintName != "Scripted Weapon" and !v.NZPreventBox and !v.NZTotalBlacklist then
+						if v.PrintName and v.PrintName != "" and !nzConfig.WeaponBlackList[v.ClassName] and v.PrintName != translate.Get("random_box_weapons_weaponname_scripted") and !v.NZPreventBox and !v.NZTotalBlacklist then
 							if v.Category and v.Category != "" then
 								InsertWeaponToList(v.PrintName != "" and v.PrintName or v.ClassName, v.ClassName, 10, v.ClassName.." ["..v.Category.."]")
 							else
-								InsertWeaponToList(v.PrintName != "" and v.PrintName or v.ClassName, v.ClassName, 10, v.ClassName.." [No Category]")
+								InsertWeaponToList(v.PrintName != "" and v.PrintName or v.ClassName, v.ClassName, 10, v.ClassName.." "..translate.Get("random_box_weapons_no_category"))
 							end
 						end
 						-- The same reset as when no random box list exists on server
@@ -837,7 +837,7 @@ nzTools:CreateTool("settings", {
 				end
 				
 				local reload = vgui.Create("DButton", morepnl)
-				reload:SetText( "Reload from server" )
+				reload:SetText( translate.Get("random_box_weapons_reload_from_server") )
 				reload:SetPos( 10, 130 )
 				reload:SetSize( 280, 25 )
 				reload.DoClick = function()
@@ -855,7 +855,7 @@ nzTools:CreateTool("settings", {
 								if wep.Category and wep.Category != "" then
 									InsertWeaponToList(wep.PrintName != "" and wep.PrintName or v, v, 10, v.." ["..v.Category.."]")
 								else
-									InsertWeaponToList(wep.PrintName != "" and wep.PrintName or v, v, 10, v.." [No Category]")
+									InsertWeaponToList(wep.PrintName != "" and wep.PrintName or v, v, 10, v.." "..translate.Get("random_box_weapons_no_category"))
 								end
 							end
 						end
@@ -866,32 +866,32 @@ nzTools:CreateTool("settings", {
 			-- So we can create the elements in a loop
 			local SndMenuMain = { 
 				[1] = {
-					["Title"] = "Round Start",
+					["Title"] = translate.Get("custom_sounds_round_start"),
 					["ToolTip"] = "",
 					["Bind"] = valz["SndRow1"]
 				},
 				[2] = {
-					["Title"] = "Round End",
+					["Title"] = translate.Get("custom_sounds_round_end"),
 					["ToolTip"] = "",
 					["Bind"] = valz["SndRow2"]
 				},
 				[3] = {
-					["Title"] = "Special Round Start",
-					["ToolTip"] = "Eg. Dog Round",
+					["Title"] = translate.Get("custom_sounds_special_round_start"),
+					["ToolTip"] = translate.Get("custom_sounds_special_round_start_tip"),
 					["Bind"] = valz["SndRow3"]
 				},
 				[4] = {
-					["Title"] = "Special Round End",
-					["ToolTip"] = "Eg. Dog Round",
+					["Title"] = translate.Get("custom_sounds_special_round_end"),
+					["ToolTip"] = translate.Get("custom_sounds_special_round_end_tip"),
 					["Bind"] = valz["SndRow4"]
 				},
 				[5] = {
-					["Title"] = "Dog Round",
-					["ToolTip"] = "ONLY for dog rounds!",
+					["Title"] = translate.Get("custom_sounds_dog_round"),
+					["ToolTip"] = translate.Get("custom_sounds_dog_round_tip"),
 					["Bind"] = valz["SndRow5"]
 				},
 				[6] = {
-					["Title"] = "Game Over",
+					["Title"] = translate.Get("custom_sounds_game_over"),
 					["ToolTip"] = "",
 					["Bind"] = valz["SndRow6"]
 				}
@@ -899,52 +899,52 @@ nzTools:CreateTool("settings", {
 
 			local SndMenuPowerUp = { 
 				[1] = {
-					["Title"] = "Spawn",
-					["ToolTip"] = "Played on the powerup itself when it spawns",
+					["Title"] = translate.Get("custom_sounds_spawn"),
+					["ToolTip"] = translate.Get("custom_sounds_spawn_tip"),
 					["Bind"] = valz["SndRow7"]
 				},
 				[2] = {
-					["Title"] = "Grab",
-					["ToolTip"] = "When players get the powerup",
+					["Title"] = translate.Get("custom_sounds_grab"),
+					["ToolTip"] = translate.Get("custom_sounds_grab_tip"),
 					["Bind"] = valz["SndRow8"]
 				},
 				[3] = {
-					["Title"] = "Insta Kill",
+					["Title"] = translate.Get("powerup_insta_kill"),
 					["ToolTip"] = "",
 					["Bind"] = valz["SndRow9"]
 				},
 				[4] = {
-					["Title"] = "Fire Sale",
+					["Title"] = translate.Get("powerup_fire_sale"),
 					["ToolTip"] = "",
 					["Bind"] = valz["SndRow10"]
 				},
 				[5] = {
-					["Title"] = "Death Machine",
+					["Title"] = translate.Get("powerup_death_machine"),
 					["ToolTip"] = "",
 					["Bind"] = valz["SndRow11"]
 				},
 				[6] = {
-					["Title"] = "Carpenter",
+					["Title"] = translate.Get("powerup_carpender"),
 					["ToolTip"] = "",
 					["Bind"] = valz["SndRow12"]
 				},
 				[7] = {
-					["Title"] = "Nuke",
+					["Title"] = translate.Get("powerup_nuke"),
 					["ToolTip"] = "",
 					["Bind"] = valz["SndRow13"]
 				},
 				[8] = {
-					["Title"] = "Double Points",
+					["Title"] = translate.Get("powerup_double_points"),
 					["ToolTip"] = "",
 					["Bind"] = valz["SndRow14"]
 				},
 				[9] = {
-					["Title"] = "Max Ammo",
+					["Title"] = translate.Get("powerup_max_ammo"),
 					["ToolTip"] = "",
 					["Bind"] = valz["SndRow15"]
 				},
 				[10] = {
-					["Title"] = "Zombie Blood",
+					["Title"] = translate.Get("powerup_zombie_blood"),
 					["ToolTip"] = "",
 					["Bind"] = valz["SndRow16"]
 				}
@@ -952,37 +952,37 @@ nzTools:CreateTool("settings", {
 
 			local SndMenuBox = { 
 				[1] = {
-					["Title"] = "Shake",
-					["ToolTip"] = "When the teddy appears and the box starts hovering",
+					["Title"] = translate.Get("custom_sounds_shake"),
+					["ToolTip"] = translate.Get("custom_sounds_shake_tip"),
 					["Bind"] = valz["SndRow17"]
 				},
 				[2] = {
-					["Title"] = "Poof",
-					["ToolTip"] = "When the box moves to another destination",
+					["Title"] = translate.Get("custom_sounds_poof"),
+					["ToolTip"] = translate.Get("custom_sounds_poof_tip"),
 					["Bind"] = valz["SndRow18"]
 				},
 				[3] = {
-					["Title"] = "Laugh",
-					["ToolTip"] = "When the teddy appears",
+					["Title"] = translate.Get("custom_sounds_laugh"),
+					["ToolTip"] = translate.Get("custom_sounds_laugh_tip"),
 					["Bind"] = valz["SndRow19"]
 				},
 				[4] = {
-					["Title"] = "Bye Bye",
-					["ToolTip"] = "Plays along with Shake",
+					["Title"] = translate.Get("custom_sounds_bye_bye"),
+					["ToolTip"] = translate.Get("custom_sounds_bye_bye_tip"),
 					["Bind"] = valz["SndRow20"]
 				},
 				[5] = {
-					["Title"] = "Jingle",
-					["ToolTip"] = "When weapons are shuffling",
+					["Title"] = translate.Get("custom_sounds_jingle"),
+					["ToolTip"] = translate.Get("custom_sounds_jingle_tip"),
 					["Bind"] = valz["SndRow21"]
 				},
 				[6] = {
-					["Title"] = "Open",
+					["Title"] = translate.Get("custom_sounds_open"),
 					["ToolTip"] = "",
 					["Bind"] = valz["SndRow22"]
 				},
 				[7] = {
-					["Title"] = "Close",
+					["Title"] = translate.Get("custom_sounds_close"),
 					["ToolTip"] = "",
 					["Bind"] = valz["SndRow23"]
 				}
@@ -991,7 +991,7 @@ nzTools:CreateTool("settings", {
 			local sndPanel = vgui.Create("DPanel", sheet)
 			local sndheight, sndwidth = sheet:GetSize()
 			sndPanel:SetSize(sndheight, (sndwidth - 50))
-			sheet:AddSheet("Custom Sounds", sndPanel, "icon16/sound_add.png", false, false, "Customize the sounds that play for certain events.")
+			sheet:AddSheet(translate.Get("tool_map_properties_custom_sounds"), sndPanel, "icon16/sound_add.png", false, false, translate.Get("tool_map_properties_custom_sounds_tip"))
 
 			AddEyeStuff()
 			AddBoxStuff()
@@ -1023,29 +1023,29 @@ nzTools:CreateTool("settings", {
 					end
 				end
 
-				fileSubMenu:AddOption("Play", function()
+				fileSubMenu:AddOption(translate.Get("custom_sounds_play"), function()
 					StopPlayedSounds()		
 					table.insert(soundsPlayed, file)	
 					curSound = CreateSound(LocalPlayer(), file)
 					curSound:Play()
 				end)
 
-				fileSubMenu:AddOption("Stop", function()
+				fileSubMenu:AddOption(translate.Get("custom_sounds_stop"), function()
 					StopPlayedSounds()		
 				end)
 
 				fileSubMenu:AddSpacer()
 				fileSubMenu:AddSpacer()
 				fileSubMenu:AddSpacer()
-				fileSubMenu:AddOption("Remove", function()
+				fileSubMenu:AddOption(translate.Get("custom_sounds_remove"), function()
 					DeleteNewItem(file, line)
 				end)
 
 				fileSubMenu:Open()
 			end
 
-			local newCol = curSndList:AddColumn("Assigned Sounds")
-			newCol:SetToolTip("A random sound from the list will play")
+			local newCol = curSndList:AddColumn(translate.Get("custom_sounds_assigned_sounds"))
+			newCol:SetToolTip(translate.Get("custom_sounds_assigned_sounds_tip"))
 			local theList = nil 
 			local function NewSelectedItem(list, tbl)
 				curSndTbl = tbl
@@ -1075,7 +1075,7 @@ nzTools:CreateTool("settings", {
 				sndFilePanel = vgui.Create("DFrame", frame)
 				sndFilePanel:SetSize(500, 475)
 				--sndFilePanel:Dock(FILL)
-				sndFilePanel:SetTitle(eventItem:GetColumnText(1) .. " Sound")
+				sndFilePanel:SetTitle(translate.Format("custom_sounds_x_sound", eventItem:GetColumnText(1)))
 				sndFilePanel:SetDeleteOnClose(true)
 				sndFilePanel.OnClose = function()
 					-- Pretend to close it so users can continue where they left off when adding another sound
@@ -1112,21 +1112,21 @@ nzTools:CreateTool("settings", {
 						end
 					end
 
-					fileSubMenu:AddOption("Play", function()
+					fileSubMenu:AddOption(translate.Get("custom_sounds_play"), function()
 						StopPlayedSounds()		
 						table.insert(soundsPlayed, filePath)	
 						curSound = CreateSound(LocalPlayer(), filePath)
 						curSound:Play()
 					end)
 
-					fileSubMenu:AddOption("Stop", function()
+					fileSubMenu:AddOption(translate.Get("custom_sounds_stop"), function()
 						StopPlayedSounds()		
 					end)
 
 					fileSubMenu:AddSpacer()
 					fileSubMenu:AddSpacer()
 					fileSubMenu:AddSpacer()
-					fileSubMenu:AddOption("Add", function()
+					fileSubMenu:AddOption(translate.Get("custom_sounds_add"), function()
 						AddNewItem(filePath)
 					end)
 
@@ -1139,17 +1139,17 @@ nzTools:CreateTool("settings", {
 			catList:Center()
 
 			local addBtn = vgui.Create("DButton", curSndList)
-			addBtn:SetText("Add Sound")
+			addBtn:SetText(translate.Get("custom_sounds_add_sound"))
 			addBtn:Dock(BOTTOM)
 			addBtn.DoClick = function()
 				ChooseSound()
 			end
 
 			-- Menu categories with Event Lists inside
-			local mainCat = catList:Add("Main")
-			local powerupCat = catList:Add("Powerups")
+			local mainCat = catList:Add(translate.Get("custom_sounds_main_category"))
+			local powerupCat = catList:Add(translate.Get("custom_sounds_powerups_category"))
 			powerupCat:SetExpanded(false)
-			local boxCat = catList:Add("Mystery Box")
+			local boxCat = catList:Add(translate.Get("custom_sounds_mystery_box_category"))
 			boxCat:SetExpanded(false)
 			local mainSnds = vgui.Create("DListView", mainCat)
 			local powerUpSnds = vgui.Create("DListView", powerupCat)
@@ -1161,7 +1161,7 @@ nzTools:CreateTool("settings", {
 
 			local function AddDList(listView)
 				listView:Dock(LEFT)
-				listView:AddColumn("Event")
+				listView:AddColumn(translate.Get("custom_sounds_event_type"))
 			end
 
 			AddDList(mainSnds)
@@ -1218,7 +1218,7 @@ nzTools:CreateTool("settings", {
 			local perklist = {}
 
 			local perkpanel = vgui.Create("DPanel", sheet)
-			sheet:AddSheet( "Wunderfizz Perks", perkpanel, "icon16/drink.png", false, false, "Set which perks appears in Der Wunderfizz.")
+			sheet:AddSheet( translate.Get("tool_map_properties_wunderfizz_perks"), perkpanel, "icon16/drink.png", false, false, translate.Get("tool_map_properties_wunderfizz_perks_tip"))
 			perkpanel.Paint = function() return end
 
 			local perklistpnl = vgui.Create("DScrollPanel", perkpanel)

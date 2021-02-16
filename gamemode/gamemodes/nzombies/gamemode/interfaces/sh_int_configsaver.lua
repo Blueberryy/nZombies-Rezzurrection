@@ -15,7 +15,7 @@ if CLIENT then
 		local DermaPanel = vgui.Create( "DFrame" )
 		DermaPanel:SetPos( 100, 100 )
 		DermaPanel:SetSize( 300, 120 )
-		DermaPanel:SetTitle( "Save config" )
+		DermaPanel:SetTitle( translate.Get("save_config_label") )
 		DermaPanel:SetVisible( true )
 		DermaPanel:SetDraggable( true )
 		DermaPanel:ShowCloseButton( true )
@@ -34,14 +34,14 @@ if CLIENT then
 		TextEntry:SetText(name)
 		TextEntry.OnChange = function(self)
 			if string.find(self:GetValue(), ";") then
-				WarnText:SetText("The name cannot contain ';'!")
+				WarnText:SetText(translate.Get("save_config_notice"))
 			else
 				WarnText:SetText("")
 			end
 		end
 
 		local DermaButton = vgui.Create( "DButton", DermaPanel )
-		DermaButton:SetText( "Save" )
+		DermaButton:SetText( translate.Get("save_config_label_save") )
 		DermaButton:SetPos( 10, 80 )
 		DermaButton:SetSize( 280, 30 )
 		DermaButton.DoClick = function()

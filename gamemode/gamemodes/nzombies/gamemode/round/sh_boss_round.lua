@@ -157,7 +157,7 @@ function nzRound:AddBossType(id, class, funcs)
 	end
 end
 
-nzRound:AddBossType("Panzer", "nz_zombie_boss_panzer", {
+nzRound:AddBossType(translate.Get("boss_round_panzer"), "nz_zombie_boss_panzer", {
 	specialspawn = true,
 	initfunc = function()
 		nzRound:SetNextBossRound(math.random(6,8)) -- Randomly spawn in rounds 6-8
@@ -173,7 +173,7 @@ nzRound:AddBossType("Panzer", "nz_zombie_boss_panzer", {
 	end,
 }) -- No onhit function, we don't give points on hit for this guy
 
-nzRound:AddBossType("Dilophosaurus", "nz_zombie_boss_dilophosaurus", {
+nzRound:AddBossType(translate.Get("boss_round_dilophosaurus"), "nz_zombie_boss_dilophosaurus", {
 	specialspawn = true,
 	initfunc = function()
 		nzRound:SetNextBossRound(math.random(7,9)) -- Randomly spawn in rounds 6-8
@@ -189,7 +189,7 @@ nzRound:AddBossType("Dilophosaurus", "nz_zombie_boss_dilophosaurus", {
 	end,
 }) -- No onhit function, we don't give points on hit for this guy
 
-nzRound:AddBossType("Brute (Dead Space)", "nz_zombie_boss_brute", {
+nzRound:AddBossType(translate.Get("boss_round_brute"), "nz_zombie_boss_brute", {
 	specialspawn = true,
 	initfunc = function()
 		nzRound:SetNextBossRound(math.random(6,7)) -- Randomly spawn in rounds 6-8
@@ -205,7 +205,7 @@ nzRound:AddBossType("Brute (Dead Space)", "nz_zombie_boss_brute", {
 	end,
 }) -- No onhit function, we don't give points on hit for this guy
 
-nzRound:AddBossType("Brutus", "nz_zombie_boss_brutus", {
+nzRound:AddBossType(translate.Get("boss_round_brutus"), "nz_zombie_boss_brutus", {
 	specialspawn = true,
 	initfunc = function()
 		nzRound:SetNextBossRound(math.random(6,9)) -- Randomly spawn in rounds 6-8
@@ -221,7 +221,7 @@ nzRound:AddBossType("Brutus", "nz_zombie_boss_brutus", {
 	end,
 }) -- No onhit function, we don't give points on hit for this guy
 
-nzRound:AddBossType("Divider (Dead Space)", "nz_zombie_boss_Divider", {
+nzRound:AddBossType(translate.Get("boss_round_divider"), "nz_zombie_boss_Divider", {
 	specialspawn = true,
 	initfunc = function()
 		nzRound:SetNextBossRound(math.random(4,6)) -- Randomly spawn in rounds 6-8
@@ -237,7 +237,7 @@ nzRound:AddBossType("Divider (Dead Space)", "nz_zombie_boss_Divider", {
 	end,
 }) -- No onhit function, we don't give points on hit for this guy
 
-nzRound:AddBossType("William Birkin", "nz_zombie_boss_G1", {
+nzRound:AddBossType(translate.Get("boss_round_william_birkin"), "nz_zombie_boss_G1", {
 	specialspawn = true,
 	initfunc = function()
 		nzRound:SetNextBossRound(math.random(11,13)) -- Randomly spawn in rounds 6-8
@@ -253,7 +253,7 @@ nzRound:AddBossType("William Birkin", "nz_zombie_boss_G1", {
 	end,
 }) -- No onhit function, we don't give points on hit for this guy
 
-nzRound:AddBossType("The Mangler", "nz_zombie_boss_mangler", {
+nzRound:AddBossType(translate.Get("boss_round_the_mangler"), "nz_zombie_boss_mangler", {
 	specialspawn = true,
 	initfunc = function()
 		nzRound:SetNextBossRound(math.random(7,9)) -- Randomly spawn in rounds 6-8
@@ -269,7 +269,7 @@ nzRound:AddBossType("The Mangler", "nz_zombie_boss_mangler", {
 	end,
 }) -- No onhit function, we don't give points on hit for this guy
 
-nzRound:AddBossType("The Margwa", "nz_zombie_boss_margwa", {
+nzRound:AddBossType(translate.Get("boss_round_the_margwa"), "nz_zombie_boss_margwa", {
 	specialspawn = true,
 	initfunc = function()
 		nzRound:SetNextBossRound(math.random(8,11)) -- Randomly spawn in rounds 6-8
@@ -285,7 +285,7 @@ nzRound:AddBossType("The Margwa", "nz_zombie_boss_margwa", {
 	end,
 }) -- No onhit function, we don't give points on hit for this guy
 
-nzRound:AddBossType("Napalm Zombie", "nz_zombie_boss_Napalm", {
+nzRound:AddBossType(translate.Get("boss_round_napalm_zombie"), "nz_zombie_boss_Napalm", {
 	specialspawn = true,
 	initfunc = function()
 		nzRound:SetNextBossRound(math.random(6,8)) -- Randomly spawn in rounds 6-8
@@ -301,7 +301,7 @@ nzRound:AddBossType("Napalm Zombie", "nz_zombie_boss_Napalm", {
 	end,
 }) -- No onhit function, we don't give points on hit for this guy
 
-nzRound:AddBossType("Nemesis", "nz_zombie_boss_Nemesis", {
+nzRound:AddBossType(translate.Get("boss_round_nemesis"), "nz_zombie_boss_Nemesis", {
 	specialspawn = true,
 	initfunc = function()
 		nzRound:SetNextBossRound(math.random(8,9)) -- Randomly spawn in rounds 6-8
@@ -317,7 +317,7 @@ nzRound:AddBossType("Nemesis", "nz_zombie_boss_Nemesis", {
 	end,
 }) -- No onhit function, we don't give points on hit for this guy
 
-nzRound:AddBossType("George Romero", "nz_zombie_boss_romero", {
+nzRound:AddBossType(translate.Get("boss_round_george_romero"), "nz_zombie_boss_romero", {
 	specialspawn = true,
 	initfunc = function()
 		nzRound:SetNextBossRound(math.random(2,8)) -- Randomly spawn in rounds 6-8
@@ -333,7 +333,7 @@ nzRound:AddBossType("George Romero", "nz_zombie_boss_romero", {
 	end,
 }) -- No onhit function, we don't give points on hit for this guy
 
-nzRound:AddBossType("Shrieker Zombie", "nz_zombie_boss_shrieker", {
+nzRound:AddBossType(translate.Get("boss_round_shrieker_zombie"), "nz_zombie_boss_shrieker", {
 	specialspawn = true,
 	initfunc = function()
 		nzRound:SetNextBossRound(math.random(6,8)) -- Randomly spawn in rounds 6-8
@@ -349,7 +349,7 @@ nzRound:AddBossType("Shrieker Zombie", "nz_zombie_boss_shrieker", {
 	end,
 }) -- No onhit function, we don't give points on hit for this guy
 
-nzRound:AddBossType("Thrasher", "nz_zombie_boss_thrasher", {
+nzRound:AddBossType(translate.Get("boss_round_thrasher"), "nz_zombie_boss_thrasher", {
 	specialspawn = true,
 	initfunc = function()
 		nzRound:SetNextBossRound(math.random(7,11)) -- Randomly spawn in rounds 6-8

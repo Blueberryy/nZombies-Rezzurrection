@@ -5,8 +5,8 @@ ENT.Base = "base_entity"
 
 nzLogic:Register("nz_button")
 ENT.SpawnIcon = "models/nzprops/zapper_handle.mdl"
-ENT.PrintName = "Button"
-ENT.Description = "Simple Button that can trigger one or multiple other logic entities or traps."
+ENT.PrintName = "logic_button_name"
+ENT.Description = "logic_button_desc"
 
 ENT.WireMat = Material( "cable/cable2" )
 

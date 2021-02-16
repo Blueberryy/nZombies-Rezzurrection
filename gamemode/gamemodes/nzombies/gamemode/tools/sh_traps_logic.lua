@@ -1,6 +1,6 @@
 nzTools:CreateTool("traps_logic", {
-	displayname = "Traps, Buttons, Logic",
-	desc = "LMB: Create Entity, RMB: Remove Entity, R: Duplicate Entity, C: Edit Properties",
+	displayname = translate.Get("traps_buttons_logic_tool"),
+	desc = translate.Get("traps_buttons_logic_tool_tip"),
 	condition = function(wep, ply)
 		return true
 	end,
@@ -47,8 +47,8 @@ nzTools:CreateTool("traps_logic", {
 
 	end
 }, {
-	displayname = "Traps, Buttons, Logic",
-	desc = "LMB: Create Entity, RMB: Remove Entity, R: Duplicate Entity, C: Edit Properties",
+	displayname = translate.Get("traps_buttons_logic_tool"),
+	desc = translate.Get("traps_buttons_logic_tool_tip"),
 	icon = "icon16/controller.png",
 	weight = 40,
 	condition = function(wep, ply)
@@ -71,8 +71,8 @@ nzTools:CreateTool("traps_logic", {
 			for _, classname in pairs(tbl) do
 				local info = baseclass.Get(classname)
 				local model = info.SpawnIcon
-				local name = info.PrintName
-				local desc = info.Description
+				local name = translate.Get(info.PrintName)
+				local desc = translate.Get(info.Description)
 				if model then
 					local panel = vgui.Create("DPanel", parent)
 					panel:Dock(TOP)
@@ -107,7 +107,7 @@ nzTools:CreateTool("traps_logic", {
 
 		local traps = vgui.Create( "DCollapsibleCategory", cont )
 		traps:SetExpanded( 1 )
-		traps:SetLabel( "Traps" )
+		traps:SetLabel( translate.Get("traps_buttons_logic_category_traps") )
 		traps:Dock(TOP)
 
 		genSpawnList(nzTraps:GetAll(), traps)
@@ -115,7 +115,7 @@ nzTools:CreateTool("traps_logic", {
 
 		local logic = vgui.Create( "DCollapsibleCategory", cont )
 		logic:SetExpanded( 1 )
-		logic:SetLabel( "Logic" )
+		logic:SetLabel( translate.Get("traps_buttons_logic_category_logic") )
 		logic:Dock(TOP)
 
 		PrintTable(nzLogic:GetAll())

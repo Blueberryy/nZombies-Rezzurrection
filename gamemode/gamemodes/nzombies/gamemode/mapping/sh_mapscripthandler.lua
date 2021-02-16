@@ -14,7 +14,7 @@ if SERVER then
 			end
 			
 			if !file.Exists( filePath, "LUA") then
-				PrintMessage(HUD_PRINTTALK, "Attempted to load non-existant map script: "..filePath)
+				PrintTranslatedMessage(HUD_PRINTTALK, "text_attempt_load_non_existant_script", filePath)
 				return false
 			end
 		end
@@ -58,7 +58,7 @@ if SERVER then
 		-- Restore
 		ents.Create = create
 
-		PrintMessage(HUD_PRINTTALK, "Successfully loaded map script: "..filePath)
+		PrintTranslatedMessage(HUD_PRINTTALK, "text_successfully_loaded_map_script", filePath)
 		return true
 
 	end

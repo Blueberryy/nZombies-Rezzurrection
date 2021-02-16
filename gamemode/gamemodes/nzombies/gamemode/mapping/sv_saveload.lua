@@ -46,7 +46,7 @@ function nzMapping:SaveConfig(name)
 	end
 
 	file.Write( configname, util.TableToJSON( main ) ) -- Save it all in a JSON format
-	PrintMessage( HUD_PRINTTALK, "[nZ] Saved to garrysmod/data/" .. configname) -- And write it to our file! >:D
+	PrintTranslatedMessage( HUD_PRINTTALK, "save_config_message", configname) -- And write it to our file! >:D
 	
 	nzMapping.CurrentConfig = name
 
