@@ -1,6 +1,6 @@
 surface.CreateFont("AntiCheatWarningFont", {
 	font = "CenterPrintText", --  Use the font-name which is shown to you by your operating system Font Viewer, not the file name
-	extended = true,
+	extended = false,
 	size = 93,
 	weight = 500,
 	blursize = 0,
@@ -51,7 +51,7 @@ net.Receive("AntiCheatWarning", function() -- We are about to be teleported by t
             end
         end
 
-        draw.DrawText(translate.Get("text_return_to_mission"), "AntiCheatWarningFont", ScrW() / 2, ScrH() / 2, Color(100, 100, 255, alpha), TEXT_ALIGN_CENTER) 
+        draw.DrawText("Return To Mission!", "AntiCheatWarningFont", ScrW() / 2, ScrH() / 2, Color(100, 100, 255, alpha), TEXT_ALIGN_CENTER) 
         draw.DrawText(tostring(seconds), "AntiCheatWarningFont", ScrW() / 2, ScrH() / 2 + 100, Color(100, 100, 255, alpha), TEXT_ALIGN_CENTER) 
 
         for i = 0, 10 do

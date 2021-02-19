@@ -1,26 +1,23 @@
 //Main Text
 surface.CreateFont( "nz.display.hud.main", {
-	font = "DK Umbilical Noose2", //Avenir Next
+	font = "DK Umbilical Noose", //Avenir Next
 	size = 48,
 	weight = 300,
 	antialias = true,
-	extended = true,
 } )
 
 surface.CreateFont( "nz.display.hud.small", {
-	font = "DK Umbilical Noose2", //Avenir Next
+	font = "DK Umbilical Noose", //Avenir Next
 	size = 28,
 	weight = 300,
 	antialias = true,
-	extended = true,
 } )
 
 surface.CreateFont( "nz.display.hud.medium", {
-	font = "DK Umbilical Noose2", //Avenir Next
+	font = "DK Umbilical Noose", //Avenir Next
 	size = 36,
 	weight = 300,
 	antialias = true,
-	extended = true,
 } )
 
 surface.CreateFont( "nz.display.hud.points", {
@@ -28,7 +25,6 @@ surface.CreateFont( "nz.display.hud.points", {
 	size = 20,
 	weight = 5000,
 	antialias = true,
-	extended = true,
 } )
 
 surface.CreateFont( "nz.display.hud.ammo", {
@@ -36,7 +32,6 @@ surface.CreateFont( "nz.display.hud.ammo", {
 	size = 60,
 	weight = 50,
 	antialias = true,
-	extended = true,
 } )
 
 surface.CreateFont( "nz.display.hud.ammo2", {
@@ -44,7 +39,6 @@ surface.CreateFont( "nz.display.hud.ammo2", {
 	size = 40,
 	weight = 50,
 	antialias = true,
-	extended = true,
 } )
 
 surface.CreateFont( "nz.display.hud.ammo3", {
@@ -52,7 +46,6 @@ surface.CreateFont( "nz.display.hud.ammo3", {
 	size = 20,
 	weight = 50,
 	antialias = true,
-	extended = true,
 } )
 
 surface.CreateFont( "nz.display.hud.ammo4", {
@@ -60,23 +53,20 @@ surface.CreateFont( "nz.display.hud.ammo4", {
 	size = 15,
 	weight = 50,
 	antialias = true,
-	extended = true,
 } )
 
 surface.CreateFont( "nz.display.hud.smaller", {
-	font = "DK Umbilical Noose2", //Avenir Next
+	font = "DK Umbilical Noose", //Avenir Next
 	size = 18,
 	weight = 300,
 	antialias = true,
-	extended = true,
 } )
 
 surface.CreateFont( "nz.display.hud.rounds", {
-	font = "DK Umbilical Noose2", //Avenir Next
+	font = "DK Umbilical Noose", //Avenir Next
 	size = 400,
 	weight = 30,
 	antialias = true,
-	extended = true,
 } )
 
 -- Rotated text function, as taken from the gmod wiki

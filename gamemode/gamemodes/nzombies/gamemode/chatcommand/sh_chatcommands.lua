@@ -8,7 +8,7 @@ nzChatCommand.Add("/cheats", CLIENT, function(ply, text)
 	else
 		return true -- Doesn't block the command (client does this instead)
 	end
-end, false, "Opens the cheat panel.")
+end, false, "text_cheats_help")
 
 -- Chat Commands
 
@@ -19,7 +19,7 @@ nzChatCommand.Add("/help", SERVER, function(ply, text)
 	for _, cmd in pairs(nzChatCommand.commands) do
 		local cmdText = cmd[1]
 		if cmd[4] then
-			cmdText = cmdText .. " " .. cmd[4]
+			cmdText = cmdText .. " " .. translate.Get(cmd[4])
 		end
 		if cmd[3]  or (!cmd[3] and ply:IsSuperAdmin()) then
 			ply:PrintMessage( HUD_PRINTTALK, cmdText )
@@ -27,23 +27,23 @@ nzChatCommand.Add("/help", SERVER, function(ply, text)
 	end
 	ply:PrintMessage( HUD_PRINTTALK, "-----" )
 	ply:PrintMessage( HUD_PRINTTALK, "" )
-end, true, "   Print this list.")
+end, true, "text_help_help")
 
 nzChatCommand.Add("/ready", SERVER, function(ply, text)
 	ply:ReadyUp()
-end, true, "   Mark yourself as ready.")
+end, true, "text_ready_help")
 
 nzChatCommand.Add("/unready", SERVER, function(ply, text)
 	ply:UnReady()
-end, true, "   Mark yourself as unready.")
+end, true, "text_unready_help")
 
 nzChatCommand.Add("/dropin", SERVER, function(ply, text)
 	ply:DropIn()
-end, true, "   Drop into the next round.")
+end, true, "text_dropin_help")
 
 nzChatCommand.Add("/dropout", SERVER, function(ply, text)
 	ply:DropOut()
-end, true, "   Drop out of the current round.")
+end, true, "text_dropout_help")
 
 nzChatCommand.Add("/create", SERVER, function(ply, text)
 	local plyToCreate
@@ -54,7 +54,7 @@ nzChatCommand.Add("/create", SERVER, function(ply, text)
 	else
 		ply:PrintTranslatedMessage("text_create_command_x", text[1])
 	end
-end, false, "   Respawn in creative mode.")
+end, false, "text_create_help")
 
 nzChatCommand.Add("/generate", SERVER, function(ply, text)
 	if navmesh.IsLoaded() then
@@ -83,7 +83,7 @@ nzChatCommand.Add("/generate", SERVER, function(ply, text)
 			ply:PrintTranslatedMessage( HUD_PRINTTALK, "text_generate_command5" )
 		end
 	end
-end, false, "   Generate a new naviagtion mesh.")
+end, false, "text_generate_help")
 
 nzChatCommand.Add("/save", SERVER, function(ply, text)
 	if nzRound:InState( ROUND_CREATE ) then
@@ -93,7 +93,7 @@ nzChatCommand.Add("/save", SERVER, function(ply, text)
 	else
 		ply:PrintTranslatedMessage( HUD_PRINTTALK, "text_save_command2" )
 	end
-end, false, "   Save your changes to a config.")
+end, false, "text_save_help")
 
 nzChatCommand.Add("/load", SERVER, function(ply, text)
 	if nzRound:InState( ROUND_CREATE) or nzRound:InState( ROUND_WAITING ) then
@@ -101,7 +101,7 @@ nzChatCommand.Add("/load", SERVER, function(ply, text)
 	else
 		ply:PrintTranslatedMessage( HUD_PRINTTALK, "text_load_command2" )
 	end
-end, false, "   Open the map config load dialog.")
+end, false, "text_load_help")
 
 nzChatCommand.Add("/clean", SERVER, function(ply, text)
 	if nzRound:InState( ROUND_CREATE) or nzRound:InState( ROUND_WAITING ) then
@@ -143,9 +143,9 @@ nzChatCommand.Add("/revive", SERVER, function(ply, text)
 	if IsValid(plyToRev) and !plyToRev:GetNotDowned() then
 		plyToRev:RevivePlayer()
 	else
-		ply:ChatPrint("[nZ] Player could not have been revived, are you sure he is downed?")
+		ply:PrintTranslatedMessage( HUD_PRINTTALK, "text_revive_command")
 	end
-end, false, "[playerName]   Revive yourself or another player.")
+end, false, "text_revive_help")
 
 nzChatCommand.Add("/givepoints", SERVER, function(ply, text)
 	local plyToGiv = player.GetByName(text[1])
@@ -162,12 +162,12 @@ nzChatCommand.Add("/givepoints", SERVER, function(ply, text)
 		if points then
 			plyToGiv:GivePoints(points)
 		else
-			ply:ChatPrint("[nZ] No valid number provided.")
+			ply:ChatPrint(translate.ClientFormat(ply, "text_givepoints_commands"))
 		end
 	else
-		ply:ChatPrint("[nZ] The player you have selected is either not valid or not alive.")
+		ply:ChatPrint(translate.ClientFormat(ply, "text_givepoints_commands2"))
 	end
-end, false, "[playerName] pointAmount   Give points to yourself or another player.")
+end, false, "text_givepoints_help")
 
 nzChatCommand.Add("/giveweapon", SERVER, function(ply, text)
 	local plyToGiv = player.GetByName(text[1])
@@ -184,12 +184,12 @@ nzChatCommand.Add("/giveweapon", SERVER, function(ply, text)
 		if wep then
 			plyToGiv:Give(wep.ClassName)
 		else
-			ply:ChatPrint("[nZ] No valid weapon provided.")
+			ply:ChatPrint(translate.ClientFormat(ply, "text_giveweapon_commands"))
 		end
 	else
-		ply:ChatPrint("[nZ] The player you have selected is either not valid or not alive.")
+		ply:ChatPrint(translate.ClientFormat(ply, "text_giveweapon_commands2"))
 	end
-end, false, "[playerName] weaponName   Give a weapon to yourself or another player.")
+end, false, "text_giveweapon_help")
 
 nzChatCommand.Add("/giveperk", SERVER, function(ply, text)
 	local plyToGiv = player.GetByName(text[1])
@@ -206,12 +206,12 @@ nzChatCommand.Add("/giveperk", SERVER, function(ply, text)
 		if nzPerks:Get(perk) then
 			plyToGiv:GivePerk(perk)
 		else
-			ply:ChatPrint("[nZ] No valid perk provided.")
+			ply:ChatPrint(translate.ClientFormat(ply, "text_giveperk_command"))
 		end
 	else
-		ply:ChatPrint("[nZ] They player you have selected is either not valid or not alive.")
+		ply:ChatPrint(translate.ClientFormat(ply, "text_giveperk_command2"))
 	end
-end, false, "[playerName] perkID   Give a perk to yourself or another player.")
+end, false, "text_giveperk_help")
 
 nzChatCommand.Add("/targetpriority", SERVER, function(ply, text)
 	local plyToGiv
@@ -238,10 +238,10 @@ nzChatCommand.Add("/targetpriority", SERVER, function(ply, text)
 		if priority then
 			plyToGiv:SetTargetPriority(priority)
 		else
-			ply:ChatPrint("[nZ] No valid priority provided.")
+			ply:ChatPrint(translate.ClientFormat(ply, "text_targetpriority_command"))
 		end
 	else
-		ply:ChatPrint("[nZ] The player you have selected is either not valid or not alive.")
+		ply:ChatPrint(translate.ClientFormat(ply, "text_targetpriority_command2"))
 	end
 end)
 
@@ -259,7 +259,7 @@ nzChatCommand.Add("/tools", SERVER, function(ply, text)
 		ply:Give("weapon_physgun")
 		ply:Give("nz_multi_tool")
 	end
-end, true, "Give creative mode tools to yourself if in Creative.")
+end, true, "text_tools_help")
 
 nzChatCommand.Add("/maxammo", SERVER, function(ply, text)
 	nzNotifications:PlaySound("nz/powerups/max_ammo.mp3", 2)
@@ -267,4 +267,4 @@ nzChatCommand.Add("/maxammo", SERVER, function(ply, text)
 	for k,v in pairs(player.GetAll()) do
 		v:GiveMaxAmmo()
 	end
-end, false, "Gives all players max ammo.")
+end, false, "text_maxammo_help")

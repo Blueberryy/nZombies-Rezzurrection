@@ -1,5 +1,5 @@
 //Fonts (Since they don't work with workshop)
-resource.AddFile( "resource/fonts/DK Umbilical Noose.ttf" )
+resource.AddFile( "resource/fonts/DKUmbilicalNoose2.ttf" )
 
 //Content Pack
 --resource.AddWorkshop( "485777655" )

@@ -18,7 +18,7 @@
 		1
 		{
 			"name"		"nz_downtime"
-			"text"		"Bleedout Time"
+			"text"		"#nzr_bleedout_time"
 			"help"		"How long time in seconds until you die from not being revived while downed."
 			"type"		"Numeric"
 			"default"	"45"
@@ -26,7 +26,7 @@
 		2
 		{
 			"name"		"nz_randombox_maplist"
-			"text"		"Use map's Weapon List"
+			"text"		"#nzr_use_maps_weapon_list"
 			"help"		"Whether to replace the white- and blacklist with the config's Map Settings list - turn off to always use the above lists"
 			"type"		"CheckBox"
 			"default"	"1"
@@ -34,7 +34,7 @@
 		3
 		{
 			"name"		"nz_round_special_interval"
-			"text"		"Special round interval."
+			"text"		"#nzr_special_round_interval"
 			"help"		"How often a special round should occur."
 			"type"		"Numeric"
 			"default"	"6"
@@ -43,7 +43,7 @@
 		4
 		{
 			"name"		"nz_round_prep_time"
-			"text"		"Round preparation duration"
+			"text"		"#nzr_round_preparation_duration"
 			"help"		"The duration of a round's preperation phase.."
 			"type"		"Numeric"
 			"default"	"10"
@@ -52,7 +52,7 @@
 		5
 		{
 			"name"		"nz_round_dropins_allow"
-			"text"		"Allow dropins"
+			"text"		"#nzr_allow_dropins"
 			"help"		"Allow player droppins after a round."
 			"type"		"CheckBox"
 			"default"	"1"
@@ -60,7 +60,7 @@
 		6
 		{
 			"name"		"nz_difficulty_zombie_amount_base"
-			"text"		"Base Zombie amount"
+			"text"		"#nzr_base_zombie_amount"
 			"help"		"The base amount of zombies."
 			"type"		"Numeric"
 			"default"	"6"
@@ -68,7 +68,7 @@
 		7
 		{
 			"name"		"nz_difficulty_zombie_amount_scale"
-			"text"		"Zombie amount scale"
+			"text"		"#nzr_zombie_amount_scale"
 			"help"		"How much the Zombie amount increases each round."
 			"type"		"Numeric"
 			"default"	"0.35"
@@ -76,7 +76,7 @@
 		8
 		{
 			"name"		"nz_difficulty_zombie_health_base"
-			"text"		"Base Zombie health"
+			"text"		"#nzr_base_zombie_health"
 			"help"		"The base health of the zombies."
 			"type"		"Numeric"
 			"default"	"75"
@@ -84,7 +84,7 @@
 		9
 		{
 			"name"		"nz_difficulty_zombie_health_scale"
-			"text"		"Zombie health scale"
+			"text"		"#nzr_zombie_health_scale"
 			"help"		"How much the Zombie health increases each round."
 			"type"		"Numeric"
 			"default"	"1.1"
@@ -92,7 +92,7 @@
 		10
 		{
 			"name"		"nz_difficulty_max_zombies_alive"
-			"text"		"Maximum zombies"
+			"text"		"#nzr_maximum_zombies"
 			"help"		"The maximum amount of zombies alive at a time."
 			"type"		"Numeric"
 			"default"	"35"
@@ -100,7 +100,7 @@
 		11
 		{
 			"name"		"nz_difficulty_barricade_planks_max"
-			"text"		"Barricade plank amount"
+			"text"		"#nzr_barricade_plank_amount"
 			"help"		"The maximum amount of planks on a barricade."
 			"type"		"Numeric"
 			"default"	"6"
@@ -108,7 +108,7 @@
 		12
 		{
 			"name"		"nz_difficulty_powerup_chance"
-			"text"		"Powerup drop chance in %"
+			"text"		"#nzr_powerup_drop_chance_in_percents"
 			"help"		"The chance of a powerup beeing dropped after a zobmie's death."
 			"type"		"Numeric"
 			"default"	"2"
@@ -116,7 +116,7 @@
 		13
 		{
 			"name"		"nz_difficulty_perks_max"
-			"text"		"Maximum buyable perks"
+			"text"		"#nzr_maximum_buyable_perks"
 			"help"		"The max perks you can BUY (You can get more in other ways)"
 			"type"		"Numeric"
 			"default"	"4"
@@ -125,7 +125,7 @@
 		14
 		{
 			"name"		"nz_point_notification_clientside"
-			"text"		"Clientside point calculations"
+			"text"		"#nzr_clientside_point_calculations"
 			"help"		"Might improve server peformance a little, but can cause point stacking."
 			"type"		"CheckBox"
 			"default"	"0"
